@@ -70,3 +70,53 @@ function hideSub() {
 
 
 /*-------------- End Header ----------------*/
+/*---------------- Gallery -----------------*/
+
+// selector
+
+const element = document.querySelector('#selectCustom');
+const choices = new Choices(element, {
+  itemSelectText: '',
+  searchEnabled: false,
+  position: 'bottom',
+  shouldSort: false
+});
+
+
+//   Slider Swiper
+var swiper = new Swiper('.swiper-container', {
+
+  slidesPerView: 3,
+  slidesPerColumn: 2,
+  spaceBetween: 50,
+  slidesPerGroup: 3,
+  loopFillGroupWithBlank: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'fraction',
+    clickable: true,
+  },
+
+   // Navigation arrows
+   navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  keyboard: {
+    enabled: true,
+    onlyInViewport: false,
+  },
+  a11y: {
+    prevSlideMessage: 'Предыдущий',
+    nextSlideMessage: 'Следующий слайд',
+    firstSlideMessage: 'Это первый слайд',
+    lastSlideMessage: 'Это последний слайд'
+  }
+
+});
+
+
+/*------------- End Gallery ----------------*/

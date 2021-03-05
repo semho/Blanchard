@@ -54,6 +54,19 @@ a:focus {
   outline: 2px solid var(--color-main-active);
 }
 
+.link {
+  color: var(--color-main);
+}
+
+.link:hover {
+  border-bottom: 1px solid var(--color-main);
+}
+
+.link:active {
+  color: var(--color-main-active);
+  border-bottom: 1px solid var(--color-main-active);
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -108,8 +121,9 @@ html {
 }
 
 .section-heading {
-  margin-top: 80px;
-  margin-bottom: 17px;
+  margin: 0;
+  padding-top: 80px;
+  padding-bottom: 17px;
   font-size: 48px;
   line-height: 65px;
   font-weight: normal;
@@ -237,6 +251,10 @@ header {
   margin-bottom: 20px;
 }
 
+.scroll-wrap__item {
+  position: relative;
+}
+
 .scroll-wrap__link {
   display: block;
   padding-left: 14px;
@@ -248,35 +266,31 @@ header {
   background-size: cover;
 }
 
-.scroll-wrap__leonardo {
-  background-image: url(../img/Rectangle\ 59.jpg);
+.scroll-wrap__link::before {
+  position: absolute;
+  content:"";
+  height: 40px;
+  width: 222px;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4));
+  opacity: 0;
 }
 
-.scroll-wrap__leonardo:active {
-  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url(../img/Rectangle\ 57.jpg);
+.scroll-wrap__leonardo {
+  background-image: url(../img/Rectangle\ 59.jpg);
 }
 
 .scroll-wrap__tintoretto {
   background-image: url(../img/Rectangle\ 57.jpg);
 }
 
-.scroll-wrap__tintoretto:active {
-  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url(../img/Rectangle\ 57.jpg);
-}
-
 .scroll-wrap__fridrich {
   background-image: url(../img/Rectangle\ 58.jpg);
-}
-.scroll-wrap__fridrich:active {
-  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url(../img/Rectangle\ 58.jpg);
 }
 
 .scroll-wrap__verrokko {
   background-image: url(../img/Rectangle\ 60.jpg);
-}
-
-.scroll-wrap__verrokko:active {
-  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url(../img/Rectangle\ 60.jpg);
 }
 
 .scroll-wrap__link:hover {
@@ -290,6 +304,17 @@ header {
   padding-left: 12px;
   padding-top: 9px;
   border: 2px solid var(--btn-color-btn);
+}
+
+.scroll-wrap__link:active::before {
+  opacity: 1;
+}
+
+.scroll-wrap__link:focus {
+  outline: none;
+  padding-left: 12px;
+  padding-top: 9px;
+  border: 2px solid var(--color-main);
 }
 
 .simplebar-content-wrapper {
@@ -496,8 +521,8 @@ input.header__search::-ms-input-placeholder {
 /*----------------- About ----------------*/
 
 .section-about {
-  margin-top: 710px;
-  margin-bottom: 80px;
+  margin-top: 630px;
+  margin-bottom: 71px;
 }
 
 .section-about__text {
@@ -505,3 +530,307 @@ input.header__search::-ms-input-placeholder {
   max-width: 1082px;
   line-height: 32px;
 }
+
+/*----------------- Gallery --------------*/
+
+.section-gallery {
+  width: 100%;
+  height: 995px;
+  background-image: url(../img/birmingham-museums-trust-MK_98NuC4-4-unsplash\ 3.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.section-gallery__headeng {
+  color: var(--font-color-white);
+
+}
+
+.section-gallery__wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-gallery__select-custom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 25%;
+  color: var(--font-color-white);
+}
+
+.select-custom__heading {
+  margin: 0;
+  font-weight: 600;
+  line-height: 29px;
+}
+
+.choices {
+  margin-top: 11px;
+}
+
+.choices__inner {
+  min-height: 40px;
+  border-radius: 6px;
+  font-size: 16px;
+  background: transparent;
+}
+
+.is-open .choices__inner {
+  border-radius: 6px;
+}
+
+.choices[data-type*=select-one] .choices__inner {
+  padding-bottom: 5px;
+}
+
+.choices__list--dropdown {
+  border-radius: 6px;
+  background: transparent;
+}
+
+.choices__placeholder  {
+  opacity: 1;
+}
+
+.choices__list--dropdown .choices__placeholder {
+  display: none;
+}
+
+.choices__list--single {
+  padding-top: 2px;
+  padding-left: 8px;
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+  background: transparent;
+}
+
+.choices__list--dropdown .choices__item--selectable {
+  padding-left: 21px;
+  padding-top: 10px;
+  font-size: 16px;
+}
+
+.choices__list--dropdown .choices__item--selectable:not(:last-child) {
+  border-bottom: 1px solid;
+}
+
+.choices[data-type*=select-one]:after {
+  content: '';
+  right: 15px;
+  width: 7px;
+  height: 7px;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+  border-right: 0;
+  border-top: 0;
+  border-color: var(--font-color-white);
+  transform: rotate(-45deg);
+}
+
+.choices[data-type*=select-one].is-open:after{
+  top:70%;
+  border-color: var(--font-color-white);
+  border-right: 1px solid;
+  border-top: 1px solid;
+  border-left: 0;
+  border-bottom: 0;
+
+}
+
+.select-custom__bottom {
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.section-gallery__slider {
+  position: relative;
+  width: 72%;
+  margin-bottom: 12px;
+}
+
+.choices:focus .choices__inner{
+  border-color: var(--color-main-active);
+}
+
+
+
+/*Slider*/
+
+
+.slider-gallery__navigation {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: calc(100% + 25px);
+  left: -4px;
+  height: 35px;
+  width: 150px;
+  z-index: 10;
+  overflow: visible;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  margin-top: 0;
+  top: 0;
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+  bottom: 8px;
+}
+
+.slider-gallery__number {
+  color: var(--font-color-white);
+}
+
+.slider-gallery__click {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: #666666;
+  cursor: pointer;
+  z-index: 11;
+}
+
+.slider-gallery__click:hover {
+  background-color: var(--color-main);
+}
+
+.slider-gallery__click:active {
+  background-color: var(--color-main-active);
+  border: 2px solid var(--btn-color-btn) ;
+}
+
+.slider-gallery__click:focus {
+  outline: none;
+  border: 2px solid var(--color-main-active)
+}
+
+.slider-gallery__click::before {
+  position: absolute;
+  content: '';
+  width: 7px;
+  height: 7px;
+  left: 40%;
+  top: 36%;
+  border: none;
+  border-left: 1px solid;
+  border-top: 1px solid;
+  border-color: var(--font-color-white);
+  transform: rotate(-45deg);
+}
+
+.slider-gallery__click-right::before {
+  left: 38%;
+  transform: rotate(135deg);
+}
+
+.swiper-container {
+  position: static;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 750px;
+}
+
+
+.swiper-slide {
+  text-align: center;
+  background: #fff;
+  height: calc((100% - 50px) / 2);
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+
+.slider-gallery__item {
+  position: relative;
+  padding: 25px;
+  width: 350px;
+  height: 350px;
+}
+
+.slider-gallery__item::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4));
+  opacity: 0;
+  z-index: 1;
+}
+
+/* .slider-gallery__item:nth-last-child(-n+3) {
+  margin-bottom: 10px;
+} */
+
+.slider-gallery__item:focus {
+  outline: none;
+  border: 3px solid var(--color-main-active);
+}
+
+.slider-gallery__item:hover .slider-gallery__box {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.slider-gallery__item:active {
+  border: 2px solid var(--btn-color-btn);
+}
+
+.slider-gallery__item:active::before {
+  opacity: 1;
+}
+
+.slider-gallery__img {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.slider-gallery__box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  z-index: 1;
+}
+
+.slider-gallery__loupe {
+  width: 81px;
+  height: 79px;
+  background-image: url(../img/gallery/Group\ 12.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.swiper-button-prev:after, .swiper-container-rtl .swiper-button-next:after, .swiper-button-next:after, .swiper-container-rtl .swiper-button-prev:after {
+  content: '';
+}
+
+

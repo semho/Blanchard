@@ -9,6 +9,10 @@
     <link
     rel="stylesheet"
     href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
@@ -26,7 +30,7 @@
                 <a href="#section-about" class="nav-header__link">О нас</a>
               </li>
               <li class="nav-header__item">
-                <a href="" class="nav-header__link">Галерея</a>
+                <a href="#section-gallery" class="nav-header__link">Галерея</a>
               </li>
               <li class="nav-header__item">
                 <a href="" class="nav-header__link">Каталог</a>
@@ -148,9 +152,188 @@
           </p>
         </div>
       </section>
+      <section class="section-gallery" id="section-gallery">
+        <div class="container section-gallery__container">
+          <h2 class="section-gallery__headeng section-heading">Галерея</h2>
+          <div class="section-gallery__wrap">
+            <div class="section-gallery__select-custom select-custom">
+              <div class="select-custom__wrap">
+                <p class="select-custom__heading">Фильтровать по:</p>
+                <select name="select" id="selectCustom">
+                  <option value="">Автор</option>
+                  <option>Направление</option>
+                  <option>Техника</option>
+                </select>
+              </div>
+              <div class="select-custom__bottom">
+                Вам предоставляется 10 бесплатных скачиваний. Для увеличения количества скачиваний <a class="link" href="">авторизуйтесь</a>, либо воспользуйтесь лицензией.
+              </div>
+            </div>
+            <div class="section-gallery__slider slider-gallery">
+              <div class="swiper-container">
+                <div class="slider-gallery__navigation">
+                  <div class="swiper-button-prev slider-gallery__click"></div>
+                  <div class="swiper-pagination slider-gallery__number"></div>
+                  <div class="swiper-button-next slider-gallery__click slider-gallery__click-right"></div>
+                </div>
+                <!-- <div class="swiper-pagination"></div> -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 70.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 72.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 69.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 73.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 68.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 71.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 3.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 5.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 1.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 4.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 2.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 6.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 77.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 78.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 74.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 75.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 79.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-gallery__item" tabindex="0" >
+                      <img class="slider-gallery__img" src="img/gallery/Rectangle 76.jpg" alt="картина">
+                      <div class="slider-gallery__box">
+                        <div class="slider-gallery__loupe"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <footer></footer>
     <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/core.js"></script>
   </body>
 </html>
