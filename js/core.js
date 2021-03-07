@@ -125,7 +125,8 @@ var swiper = new Swiper('.swiper-container', {
 // Accordion
 $( function() {
   $( ".tabs__accordion" ).accordion({
-    collapsible: true
+    collapsible: true,
+    heightStyle: 'content'
   });
 } );
 
