@@ -120,3 +120,68 @@ var swiper = new Swiper('.swiper-container', {
 
 
 /*------------- End Gallery ----------------*/
+
+/*--------------- Catalog ------------------*/
+// Accordion
+$( function() {
+  $( ".tabs__accordion" ).accordion({
+    collapsible: true
+  });
+} );
+
+// Tabs
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.tabs__btn').forEach(function(tabsBtn) {
+    tabsBtn.addEventListener('click', function(event){
+
+
+      //убрать класс активной кнопки у всех
+      document.querySelectorAll('.tabs__btn').forEach(function(tabsBtnActive) {
+        tabsBtnActive.classList.remove('tabs__btn-active')
+      })
+      //добавить класс текущей ативной кнопки
+      this.classList.add('tabs__btn-active')
+
+      const path = event.currentTarget.dataset.path
+      document.querySelectorAll('.tabs__content').forEach(function(tabsContent){
+        tabsContent.classList.remove('tabs__content-active')
+      })
+      document.querySelector(`[data-target="${path}"]`).classList.add('tabs__content-active')
+
+      //перезагружаем аккардион во вкладках
+      $( function() {
+        $( ".tabs__accordion" ).accordion("refresh");
+      } );
+
+    })
+  })
+});
+
+// Tabs-accordion
+
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.accordion__btn').forEach(function(tabsBtnAcc) {
+
+
+    tabsBtnAcc.addEventListener('click', function(event){
+      //убрать класс активной кнопки у всех
+      document.querySelectorAll('.accordion__btn').forEach(function(tabsBtnAccActive) {
+        tabsBtnAccActive.classList.remove('accordion__btn-active')
+      })
+      //добавить класс текущей ативной кнопки
+      this.classList.add('accordion__btn-active')
+
+      const pathAcc = event.currentTarget.dataset.path
+      //убрать класс активного контента у всех
+      document.querySelectorAll('.tabs__painter-desc').forEach(function(tabsContentAcc){
+        tabsContentAcc.classList.remove('tabs__painter-desc-active')
+      })
+
+      //добавить класс активного контента по ссылке текущей кнопки
+      document.querySelector(`[data-target="${pathAcc}"]`).classList.add('tabs__painter-desc-active')
+    })
+  })
+});
+
+
+/*------------End Catalog ------------------*/
