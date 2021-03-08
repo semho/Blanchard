@@ -205,3 +205,31 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 /*------------- End Event -----------------*/
+
+/*--------- Section-Publications ----------*/
+//   Slider Swiper
+var swiper2 = new Swiper('.slider-publications__swiper-container', {
+  slidesPerView: 3,
+  spaceBetween: 48,
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'fraction',
+    clickable: true,
+  },
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  keyboard: {
+    enabled: true,
+    onlyInViewport: false,
+  },
+  a11y: {
+    prevSlideMessage: 'Предыдущий',
+    nextSlideMessage: 'Следующий слайд',
+    firstSlideMessage: 'Это первый слайд',
+    lastSlideMessage: 'Это последний слайд'
+  }
+});
+/*------- End Section-Publications --------*/

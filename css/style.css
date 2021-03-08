@@ -19,6 +19,15 @@
   font-weight: bold;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/opensansitalic.woff2') format('woff2'),
+  url('../fonts/opensansitalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+
 
 :root {
   --color-main: #9D5CD0;
@@ -458,7 +467,7 @@ input.header__search::-ms-input-placeholder {
   border-color: var(--color-link-hover);
 }
 
-/*----------------- Hero --------------*/
+/*------------- Section-Hero --------------*/
 
 .section-hero {
   position: absolute;
@@ -521,7 +530,7 @@ input.header__search::-ms-input-placeholder {
   outline: none;
 }
 
-/*----------------- About ----------------*/
+/*------------- Section-About ----------------*/
 
 .section-about {
   margin-top: 631px;
@@ -534,7 +543,7 @@ input.header__search::-ms-input-placeholder {
   line-height: 32px;
 }
 
-/*----------------- Gallery --------------*/
+/*------------ Section-Gallery --------------*/
 
 .section-gallery {
   width: 100%;
@@ -735,7 +744,7 @@ input.header__search::-ms-input-placeholder {
   transform: rotate(135deg);
 }
 
-.swiper-container {
+.swiper-container.section-gallery__slider-container {
   position: static;
   margin-left: auto;
   margin-right: auto;
@@ -744,7 +753,7 @@ input.header__search::-ms-input-placeholder {
 }
 
 
-.swiper-slide {
+.swiper-slide.section-gallery__swiper-slide {
   text-align: center;
   background: #fff;
   height: calc((100% - 50px) / 2);
@@ -838,7 +847,7 @@ input.header__search::-ms-input-placeholder {
   content: '';
 }
 
-/*------------- Catalog ------------------*/
+/*------------- Section-Catalog ------------------*/
 
 .section-catalog__container {
   position: relative;
@@ -1350,4 +1359,252 @@ input.header__search::-ms-input-placeholder {
     -webkit-transform: none;
     transform: none;
   }
+}
+
+/*------------ Section-Publications ------------*/
+
+.section-publications {
+ margin-top: 80px;
+ background-image: url(../img/publications/birmingham-museums-trust-MK_98NuC4-4-unsplash\ 4.jpg);
+ height: 763px;
+ color: var(--font-color-white);
+}
+
+.section-publications__checkbox {
+  max-width: 20%;
+}
+
+.section-publications__wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*Checkbox*/
+
+.checkbox__title {
+  margin-top: 1px;
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.checkbox__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 27px;
+  min-width: 110px;
+}
+
+.checkbox__item:last-child {
+  margin-bottom: 0;
+}
+
+.checkbox__label {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.checkbox__input {
+  position: absolute;
+  opacity: 0;
+}
+
+.checkbox__text {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  font-size: 16px;
+  line-height: 32px;
+  transition: color .3s ease-in-out;
+}
+
+.checkbox__text::before {
+  display: inline-block;
+  position: absolute;
+  content: "";
+  left: 1px;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--font-color-white);
+  transition: opacity 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+.checkbox__text::after {
+  position: absolute;
+  content: "";
+  left: 5px;
+  top: 44%;
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+  background-color: var(--color-link-hover);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+.checkbox__input:checked + .checkbox__text::before {
+  border: 1px solid var(--color-link-hover);
+}
+
+.checkbox__input:checked + .checkbox__text::after {
+  opacity: 1;
+}
+
+.checkbox__input:focus + .checkbox__text {
+  outline: 2px solid  var(--color-main-active);
+}
+
+.checkbox__input:hover + .checkbox__text::before {
+  border: 1px solid var(--color-link-hover);
+}
+
+.checkbox__input:hover + .checkbox__text {
+  color: var(--color-link-hover);
+}
+
+.checkbox__input:checked + .checkbox__text {
+  color: var(--color-link-hover);
+}
+
+.checkbox__input:active + .checkbox__text::before {
+  border: 1px solid var(--color-main-active);
+}
+
+.checkbox__input:active + .checkbox__text {
+  color: var(--color-main-active);
+}
+
+.checkbox__price {
+  margin-top: 7px;
+  padding-left: 9px;
+  max-width: 278px;
+  border-radius: 4px;
+  border: 1px solid var(--font-color-white);
+}
+
+.price__input {
+  margin-left: 8px;
+  margin-right: 4px;
+  padding: 3px 0 3px 8px;
+  width: 73px;
+  font-size: 16px;
+  line-height: 32px;
+  border: none;
+  background-color: rgba(157, 92, 208, 0.5);
+  color: var(--font-color-white);
+}
+
+.price__input:focus {
+  outline: 1px solid var(--color-link-hover);
+}
+
+.checkbox__price label:last-child {
+  padding-right: 9px;
+}
+
+/* slider */
+
+.section-publications__slider {
+  position: relative;
+  margin-top: 14px;
+  max-width: 72%;
+}
+
+.slider-publications__swiper-container {
+  position: static;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  width: 100%;
+  height: 512px;
+  overflow: hidden;
+  list-style: none;
+  z-index: 1;
+}
+
+.swiper-slide.slider-publications__swiper-slide {
+  display: flex;
+  flex-direction: column;
+}
+
+.slider-publications__heading {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 23px;
+  padding-left: 3px;
+}
+
+.slider-pulications__title {
+  margin: 0;
+}
+
+.slider-pulications__price {
+  font-style: italic;
+}
+
+.slider-pulications__author {
+  padding-top: 4px;
+  padding-left: 3px;
+}
+
+.slider-publications__button {
+  margin-top: 16px;
+  padding-left: 3px;
+}
+
+.slider-pulications__btn {
+  padding: 7px 20px;
+  border: 2px solid var(--color-main);
+  border-radius: 100px;
+  background: transparent;
+  font-weight: 700;
+  line-height: 22px;
+  color: var(--font-color-white);
+  cursor: pointer;
+  transition: color .3s ease-in-out, background .3s ease-in-out;
+}
+
+.slider-pulications__btn:hover {
+  background: var(--color-main);
+  color: var(--font-color-white);
+}
+
+.slider-pulications__btn:focus {
+  position: relative;
+  outline: none;
+}
+
+.slider-pulications__btn:focus::after {
+  position: absolute;
+  content: '';
+  padding: 3px;
+  width: 100%;
+  height: 100%;
+  left: -5px;
+  top: -5px;
+  border-radius: 100px;
+  border: 2px solid var(--color-main);
+}
+
+.slider-pulications__btn:active {
+  background: var(--color-main-active);
+  color: var(--font-color-white);
+  border: 3px solid var(--btn-color-btn);
+}
+
+.slider-publications__navigation {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: calc(100% + 28px);
+  left: -7px;
+  height: 35px;
+  width: 150px;
+  z-index: 10;
+  overflow: visible;
 }
