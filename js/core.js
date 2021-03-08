@@ -186,3 +186,22 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 /*------------End Catalog ------------------*/
+
+/*--------------- Event -------------------*/
+
+document.addEventListener('DOMContentLoaded', function(){
+  //получаю кнопку по классу
+  let button = document.querySelector('.section-event__btn');
+  //нажимаю на кнопку с этим классом
+  button.addEventListener('click', function(){
+    //ищу все дивы с скрытым классом
+    document.querySelectorAll('.hidden').forEach(function(hiddenCard){
+      //убираю класс у найденых дивов
+      hiddenCard.classList.remove('hidden')
+    })
+    //добавляю класс текущей кнопке
+    this.classList.add('hidden')
+  });
+});
+
+/*------------- End Event -----------------*/

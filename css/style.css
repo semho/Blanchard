@@ -128,6 +128,10 @@ html {
   border: 2px solid var(--color-link-hover);
 }
 
+.btn:active::after {
+  border:none;
+}
+
 .section-heading {
   margin: 0;
   padding-top: 79px;
@@ -1130,15 +1134,18 @@ input.header__search::-ms-input-placeholder {
 .accordion__btn:hover {
   font-weight: 600;
   color: var(--color-main);
+  border-bottom: 1px solid var(--color-main);
 }
 
-.accordion__btn:active, .accordion__btn:focus, .accordion__btn-active {
+.accordion__btn:active, .accordion__btn-active {
   font-weight: 600;
-  color: var(--color-main);
+  color: var(--color-main-active);
 }
 
 .accordion__btn:focus {
-  outline: none;
+  outline: 2px solid var(--color-main);
+  color: var(--font-color-main);
+  font-weight: normal;
 }
 
 .ui-accordion .ui-accordion-content {
@@ -1149,4 +1156,198 @@ input.header__search::-ms-input-placeholder {
 
 .section-event__headeng {
   padding-top: 80px;
+}
+
+.section-event__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.section-event__item {
+  padding-top: 300px;
+  margin-bottom: 50px;
+  max-width: 500px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-y: top;
+}
+
+.event-card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px 17px 45px 50px;
+  min-height: 400px;
+  border: 1px solid #cacaca;
+  border-top: none;
+}
+
+.event-card__top {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-event__item:not(:nth-child(3n)){
+  margin-right: 50px;
+}
+
+.event-card1 {
+  background-image: url(../img/event/Rectangle\ 101.jpg);
+}
+
+.event-card2 {
+  background-image: url(../img/event/Rectangle\ 101-1.jpg);
+}
+
+.event-card3 {
+  background-image: url(../img/event/Rectangle\ 101-2.jpg);
+}
+
+.event-card4 {
+  background-image: url(../img/event/Rectangle\ 104.jpg);
+}
+
+.event-card5 {
+  background-image: url(../img/event/Rectangle\ 105.jpg);
+}
+
+.event-card__label {
+  align-self: flex-end;
+  width: 150px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: #999999;
+  text-align: right;
+}
+
+.event-card2 .event-card__label {
+  width: 130px;
+}
+
+.event-card4 .event-card__label {
+  width: 200px;
+}
+
+.event-card__title {
+  margin: 4px 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.event-card__desc {
+  margin: 0;
+  padding-right: 20px;
+  line-height: 32px;
+}
+
+.event-card__more {
+  border-bottom: 1px solid var(--color-main);
+  color: var(--color-main);
+}
+
+.event-card__more:hover {
+  font-weight: 700;
+}
+
+.event-card__more:active {
+  border-bottom: 1px solid var(--color-main-active);
+  font-weight: 700;
+  color: var(--color-main-active);
+}
+
+.section-event__wrap-button {
+  width: 100%;
+  text-align: center;
+}
+
+.section-event__btn {
+  padding: 17px 32px 15px 32px;
+  border-radius: 30px;
+  border: 2px solid var(--color-main);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--color-main);
+  background: transparent;
+  cursor: pointer;
+  transition: color .3s ease-in-out, background .3s ease-in-out;
+}
+
+.section-event__btn:focus {
+  position: relative;
+  outline: none;
+}
+
+.section-event__btn:focus::after {
+  position: absolute;
+  content: '';
+  padding: 3px;
+  width: 100%;
+  height: 100%;
+  left: -5px;
+  top: -5px;
+  border-radius: 100px;
+  border: 2px solid var(--color-main);
+}
+
+.section-event__btn:hover {
+  background: var(--color-main);
+  color: var(--font-color-white);
+}
+
+
+.section-event__btn:active {
+  background: var(--color-main-active);
+  color: var(--font-color-white);
+  border: 3px solid var(--btn-color-btn);
+}
+
+.section-event__btn:active::after {
+  border:none;
+}
+
+.hidden {
+  display: none;
+}
+
+.fadeInUp {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+/*==== FADE IN UP ===*/
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
 }
