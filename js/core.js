@@ -70,7 +70,20 @@ function hideSub() {
 
 
 /*-------------- End Header ----------------*/
-/*---------------- Gallery -----------------*/
+
+/*-------------- Section-Hero ------------ */
+//переход от кнопки к футеру
+const btn = document.querySelector('#btn')
+
+btn.addEventListener('click', function(){
+  document.querySelector('#footer').scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  })
+});
+/*---------- End Section-Hero ------------ */
+
+/*----------- Section-Gallery -------------*/
 
 // selector
 
@@ -107,7 +120,7 @@ var swiper = new Swiper('.swiper-container', {
 
   keyboard: {
     enabled: true,
-    onlyInViewport: false,
+    onlyInViewport: true
   },
   a11y: {
     prevSlideMessage: 'Предыдущий',
@@ -119,9 +132,9 @@ var swiper = new Swiper('.swiper-container', {
 });
 
 
-/*------------- End Gallery ----------------*/
+/*--------- End Section-Gallery -----------*/
 
-/*--------------- Catalog ------------------*/
+/*---------- Section-Catalog --------------*/
 // Accordion
 $( function() {
   $( ".tabs__accordion" ).accordion({
@@ -185,9 +198,9 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 
-/*------------End Catalog ------------------*/
+/*----------- End Section-Catalog -----------*/
 
-/*--------------- Event -------------------*/
+/*------------ Section-Event ---------------*/
 
 document.addEventListener('DOMContentLoaded', function(){
   //получаю кнопку по классу
@@ -204,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 
-/*------------- End Event -----------------*/
+/*------------- End Section-Event ----------*/
 
 /*--------- Section-Publications ----------*/
 //   Slider Swiper
@@ -223,7 +236,7 @@ var swiper2 = new Swiper('.slider-publications__swiper-container', {
   },
   keyboard: {
     enabled: true,
-    onlyInViewport: false,
+    onlyInViewport: true
   },
   a11y: {
     prevSlideMessage: 'Предыдущий',
@@ -233,3 +246,104 @@ var swiper2 = new Swiper('.slider-publications__swiper-container', {
   }
 });
 /*------- End Section-Publications --------*/
+
+/*------------ Section-Projects -----------*/
+//   Slider Swiper
+var swiper3 = new Swiper('.slider-projects__swiper-container', {
+  slidesPerView: 3,
+  spaceBetween: 50,
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true
+  },
+  a11y: {
+    prevSlideMessage: 'Предыдущий',
+    nextSlideMessage: 'Следующий слайд',
+    firstSlideMessage: 'Это первый слайд',
+    lastSlideMessage: 'Это последний слайд'
+  }
+});
+/*-------- End Section-Projects -----------*/
+
+/*------------ Section-Contacts -----------*/
+
+//Form
+
+let selector = document.querySelector("input[type='tel']");
+
+let im = new Inputmask("+7(999) 999-99-99");
+im.mask(selector);
+
+new JustValidate('.form__wrap', {
+  colorWrong: '#7943A4',
+  rules: {
+    name: {
+      required: true
+    },
+    tel: {
+      required: true,
+      function: (name, value) => {
+        const phone = selector.inputmask.unmaskedvalue()
+        return Number(phone) && phone.length === 10
+      }
+    }
+  },
+  messages: {
+    name:'Как вас зовут?',
+    tel: 'Укажите ваш телефон'
+  }
+});
+
+//Map
+// Функция ymaps.ready() будет вызвана, когда
+    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+    ymaps.ready(init);
+    function init(){
+        // Создание карты.
+        var myMap = new ymaps.Map("myMap", {
+            // Координаты центра карты.
+            // Порядок по умолчанию: «широта, долгота».
+            // Чтобы не определять координаты центра карты вручную,
+            // воспользуйтесь инструментом Определение координат.
+            center: [55.7622,37.6461],
+            // Уровень масштабирования. Допустимые значения:
+            // от 0 (весь мир) до 19.
+            zoom: 14,
+            controls: []
+        });
+        var geolocationControl = new ymaps.control.GeolocationControl({
+          options: {
+            position: {
+              right: 10,
+              top: 355
+            }
+          }
+        });
+        myMap.controls.add(geolocationControl);
+        var zoomControl = new ymaps.control.ZoomControl({
+          options: {
+              size: "small",
+              position: {
+                right: 10,
+                top: 265
+              }
+            }
+        });
+        myMap.controls.add(zoomControl);
+        var myPlacemark = new ymaps.Placemark([55.758463,37.601079], {}, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/contacts/Group_68.svg',
+          iconImageSize: [20, 20],
+          iconImageOffset: [-3, -42]
+        });
+
+        myMap.geoObjects.add(myPlacemark);
+    }
+
+
+/*-------- End Section-Contacts -----------*/
