@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blanchard художественная галерея</title>
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link
     rel="stylesheet"
-    href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+    type="text/css" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
     <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="css/style.css">
+    type="text/css" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
     <header class="header">
@@ -22,6 +22,8 @@
         <div class="container header__container">
           <a href="" class="header__logo">
             <picture class="header__picture">
+              <source type="image/webp" srcset="img/Лого.webp">
+              <source type="image/png" srcset="img/Лого.png">
               <img src="img/Лого.png" class="header__logo-img" alt="Blanchard художественная галерея">
             </picture>
           </a>
@@ -63,12 +65,12 @@
                 <button class="nav-direction__link" aria-label="Реализм">Реализм</button>
                 <div class="nav-direction__scroll scroll-wrap" >
                   <ul class="scroll-wrap__list" id="scroll-1">
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__tintoretto">Тинторетто</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__fridrich">Фридрих</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__leonardo">Леонардо</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__verrokko">Верроккьо</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__tintoretto">Тинторетто</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__fridrich">Фридрих</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/tintoretto.jpg" data-bg-webp="img/tintoretto.webp">Тинторетто</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/fridrich.jpg" data-bg-webp="img/fridrich.webp">Фридрих</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/leonardo.jpg" data-bg-webp="img/leonardo.webp">Леонардо</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/verrokko.jpg" data-bg-webp="img/verrokko.webp">Верроккьо</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/tintoretto.jpg" data-bg-webp="img/tintoretto.webp">Тинторетто</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/fridrich.jpg" data-bg-webp="img/fridrich.webp">Фридрих</a></li>
                   </ul>
                 </div>
               </li>
@@ -76,12 +78,12 @@
                 <button class="nav-direction__link" aria-label="Импрессионизм">Импрессионизм</button>
                 <div class="nav-direction__scroll scroll-wrap">
                   <ul class="scroll-wrap__list" id="scroll-2">
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__tintoretto">Тинторетто</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__fridrich">Фридрих</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__leonardo">Леонардо</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__verrokko">Верроккьо</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__tintoretto">Тинторетто</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__fridrich">Фридрих</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/tintoretto.jpg" data-bg-webp="img/tintoretto.webp">Тинторетто</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/fridrich.jpg" data-bg-webp="img/fridrich.webp">Фридрих</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/leonardo.jpg" data-bg-webp="img/leonardo.webp">Леонардо</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/verrokko.jpg" data-bg-webp="img/verrokko.webp">Верроккьо</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/tintoretto.jpg" data-bg-webp="img/tintoretto.webp">Тинторетто</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/fridrich.jpg" data-bg-webp="img/fridrich.webp">Фридрих</a></li>
                   </ul>
                 </div>
               </li>
@@ -89,12 +91,12 @@
                 <button class="nav-direction__link" aria-label="Постимпрессионизм">Постимпрессионизм</button>
                 <div class="nav-direction__scroll scroll-wrap">
                   <ul class="scroll-wrap__list" id="scroll-3">
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__tintoretto">Тинторетто</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__fridrich">Фридрих</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__leonardo">Леонардо</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__verrokko">Верроккьо</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__tintoretto">Тинторетто</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__fridrich">Фридрих</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/tintoretto.jpg" data-bg-webp="img/tintoretto.webp">Тинторетто</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/fridrich.jpg" data-bg-webp="img/fridrich.webp">Фридрих</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/leonardo.jpg" data-bg-webp="img/leonardo.webp">Леонардо</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/verrokko.jpg" data-bg-webp="img/verrokko.webp">Верроккьо</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/tintoretto.jpg" data-bg-webp="img/tintoretto.webp">Тинторетто</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/fridrich.jpg" data-bg-webp="img/fridrich.webp">Фридрих</a></li>
                   </ul>
                 </div>
               </li>
@@ -102,12 +104,12 @@
                 <button class="nav-direction__link" aria-label="Авангард">Авангард</button>
                 <div class="nav-direction__scroll scroll-wrap">
                   <ul class="scroll-wrap__list" id="scroll-4">
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__tintoretto">Тинторетто</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__fridrich">Фридрих</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__leonardo">Леонардо</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__verrokko">Верроккьо</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__tintoretto">Тинторетто</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__fridrich">Фридрих</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/tintoretto.jpg" data-bg-webp="img/tintoretto.webp">Тинторетто</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/fridrich.jpg" data-bg-webp="img/fridrich.webp">Фридрих</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/leonardo.jpg" data-bg-webp="img/leonardo.webp">Леонардо</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/verrokko.jpg" data-bg-webp="img/verrokko.webp">Верроккьо</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/tintoretto.jpg" data-bg-webp="img/tintoretto.webp">Тинторетто</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/fridrich.jpg" data-bg-webp="img/fridrich.webp">Фридрих</a></li>
                   </ul>
                 </div>
               </li>
@@ -115,12 +117,12 @@
                 <button class="nav-direction__link" aria-label="Футуризм">Футуризм</button>
                 <div class="nav-direction__scroll scroll-wrap">
                   <ul class="scroll-wrap__list" id="scroll-5">
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__tintoretto">Тинторетто</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__fridrich">Фридрих</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__leonardo">Леонардо</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__verrokko">Верроккьо</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__tintoretto">Тинторетто</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link scroll-wrap__fridrich">Фридрих</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/tintoretto.jpg" data-bg-webp="img/tintoretto.webp">Тинторетто</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/fridrich.jpg" data-bg-webp="img/fridrich.webp">Фридрих</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/leonardo.jpg" data-bg-webp="img/leonardo.webp">Леонардо</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/verrokko.jpg" data-bg-webp="img/verrokko.webp">Верроккьо</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/tintoretto.jpg" data-bg-webp="img/tintoretto.webp">Тинторетто</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link" data-bg="img/fridrich.jpg" data-bg-webp="img/fridrich.webp">Фридрих</a></li>
                   </ul>
                 </div>
               </li>
@@ -134,7 +136,7 @@
       </div>
     </header>
     <main>
-      <section class="section-hero">
+      <section class="section-hero" data-bg="img/section-hero.jpg" data-bg-webp="img/section-hero.webp">
         <div class="container section-hero__container">
           <div class="section-hero__content">
             <h1 class="section-hero__title">Прикоснитесь к прекрасному</h1>
@@ -151,7 +153,7 @@
           </p>
         </div>
       </section>
-      <section class="section-gallery" id="section-gallery">
+      <section class="section-gallery" id="section-gallery" data-bg="img/section-gallery.jpg" data-bg-webp="img/section-gallery.webp">
         <div class="container section-gallery__container">
           <h2 class="section-gallery__headeng section-heading">Галерея</h2>
           <div class="section-gallery__wrap">
@@ -180,7 +182,11 @@
                   <!-- Slides -->
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_70.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_70.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_70.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_70.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -188,7 +194,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_72.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_72.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_72.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_72.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -196,7 +206,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_69.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_69.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_69.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_69.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -204,7 +218,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_73.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_73.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_73.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_73.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -212,7 +230,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_68.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_68.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_68.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_68.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -220,7 +242,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_71.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_71.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_71.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_71.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -228,7 +254,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_3.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_3.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_3.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_3.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -236,7 +266,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_5.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_5.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_5.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_5.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -244,7 +278,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_1.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_1.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_1.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_1.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -252,7 +290,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_4.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_4.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_4.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_4.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -260,7 +302,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_2.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_2.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_2.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_2.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -268,7 +314,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_6.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_6.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_6.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_6.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -276,7 +326,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_77.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_77.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_77.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_77.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -284,7 +338,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_78.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_78.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_78.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_78.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -292,7 +350,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_74.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_74.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_74.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_74.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -300,7 +362,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_75.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_75.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_75.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_75.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -308,7 +374,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_79.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_79.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_79.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_79.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -316,7 +386,11 @@
                   </div>
                   <div class="swiper-slide section-gallery__swiper-slide">
                     <div class="slider-gallery__item" tabindex="0" >
-                      <img class="slider-gallery__img" src="img/gallery/Rectangle_76.jpg" alt="картина">
+                      <picture>
+                        <source type="image/webp" srcset="img/gallery/rectangle_76.webp">
+                        <source type="image/jpeg" srcset="img/gallery/Rectangle_76.jpg">
+                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_76.jpg" alt="картина" loading="lazy">
+                      </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
                       </div>
@@ -334,11 +408,11 @@
           <p class="section-catalog__text">Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы. </p>
           <div class="section-catalog__tabs tabs">
             <ul class="tabs__list">
-              <li class="tabs__item"><button class="tabs__btn tabs__btn1" data-path="one" aria-label="Франция"></button></li>
-              <li class="tabs__item"><button class="tabs__btn tabs__btn2" data-path="two" aria-label="Германия"></button></li>
-              <li class="tabs__item"><button class="tabs__btn tabs__btn-active tabs__btn3" data-path="three" aria-label="Венгрия"></button></li>
-              <li class="tabs__item"><button class="tabs__btn tabs__btn4" data-path="four" aria-label="Россия"></button></li>
-              <li class="tabs__item"><button class="tabs__btn tabs__btn5" data-path="five" aria-label="Бельгия"></button></li>
+              <li class="tabs__item"><button class="tabs__btn" data-path="one" aria-label="Франция" data-bg="img/catalog/image_4.jpg" data-bg-webp="img/catalog/image_4.webp"></button></li>
+              <li class="tabs__item"><button class="tabs__btn" data-path="two" aria-label="Германия" data-bg="img/catalog/image_6.jpg" data-bg-webp="img/catalog/image_6.webp"></button></li>
+              <li class="tabs__item"><button class="tabs__btn tabs__btn-active" data-path="three" aria-label="Венгрия" data-bg="img/catalog/image_7.jpg" data-bg-webp="img/catalog/image_7.webp"></button></li>
+              <li class="tabs__item"><button class="tabs__btn" data-path="four" aria-label="Россия" data-bg="img/catalog/image_8.jpg" data-bg-webp="img/catalog/image_8.webp"></button></li>
+              <li class="tabs__item"><button class="tabs__btn" data-path="five" aria-label="Бельгия" data-bg="img/catalog/image_5.jpg" data-bg-webp="img/catalog/image_5.webp"></button></li>
             </ul>
             <div class="tabs__content" data-target="one">
               <div class="tabs__painter-desc painter-desc" data-target="benedetto1" >Бенедетто ди Биндо</div>
@@ -353,7 +427,11 @@
               <div class="tabs__painter-desc painter-desc" data-target="vekkietta1" >Веккьетта</div>
               <div class="tabs__painter-desc painter-desc" data-target="andrea1" >Андреа Верроккьо</div>
               <div class="tabs__painter-desc painter-desc" data-target="domeniko1" >
-                <img src="img/catalog/image_3.jpg" alt="Доменико Гирландайо">
+                <picture>
+                  <source type="image/webp" srcset="img/catalog/image_3.webp">
+                  <source type="image/jpeg" srcset="img/catalog/image_3.jpg">
+                  <img data-src="img/catalog/image_3.jpg" alt="Доменико Гирландайо" loading="lazy" class="lazyload">
+                </picture>
                 <h3 class="painter-desc__title">Доменико Гирландайо</h3>
                 <p class="painter-desc__subtext">2 июня 1448 — 11 января 1494.</p>
                 <p class="painter-desc__text">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в течение года овладевал профессиональными навыками. Автор фресковых циклов, в которых выпукло, со всевозможными подробностями показана домашняя жизнь библейских персонажей (в их роли выступают знатные граждане Флоренции в костюмах того времени).</p>
@@ -427,7 +505,11 @@
               <div class="tabs__painter-desc painter-desc" data-target="vekkietta2" >Веккьетта</div>
               <div class="tabs__painter-desc painter-desc" data-target="andrea2" >Андреа Верроккьо</div>
               <div class="tabs__painter-desc painter-desc" data-target="domeniko2" >
-                <img src="img/catalog/image_3.jpg" alt="Доменико Гирландайо">
+                <picture>
+                  <source type="image/webp" srcset="img/catalog/image_3.webp">
+                  <source type="image/jpeg" srcset="img/catalog/image_3.jpg">
+                  <img data-src="img/catalog/image_3.jpg" alt="Доменико Гирландайо" loading="lazy" class="lazyload">
+                </picture>
                 <h3 class="painter-desc__title">Доменико Гирландайо</h3>
                 <p class="painter-desc__subtext">2 июня 1448 — 11 января 1494.</p>
                 <p class="painter-desc__text">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в течение года овладевал профессиональными навыками. Автор фресковых циклов, в которых выпукло, со всевозможными подробностями показана домашняя жизнь библейских персонажей (в их роли выступают знатные граждане Флоренции в костюмах того времени).</p>
@@ -501,7 +583,11 @@
               <div class="tabs__painter-desc painter-desc" data-target="vekkietta" >Веккьетта</div>
               <div class="tabs__painter-desc painter-desc" data-target="andrea" >Андреа Верроккьо</div>
               <div class="tabs__painter-desc painter-desc tabs__painter-desc-active" data-target="domeniko" >
-                <img src="img/catalog/image_3.jpg" alt="Доменико Гирландайо">
+                <picture>
+                  <source type="image/webp" srcset="img/catalog/image_3.webp">
+                  <source type="image/jpeg" srcset="img/catalog/image_3.jpg">
+                  <img data-src="img/catalog/image_3.jpg" alt="Доменико Гирландайо" loading="lazy" class="lazyload">
+                </picture>
                 <h3 class="painter-desc__title">Доменико Гирландайо</h3>
                 <p class="painter-desc__subtext">2 июня 1448 — 11 января 1494.</p>
                 <p class="painter-desc__text">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в течение года овладевал профессиональными навыками. Автор фресковых циклов, в которых выпукло, со всевозможными подробностями показана домашняя жизнь библейских персонажей (в их роли выступают знатные граждане Флоренции в костюмах того времени).</p>
@@ -642,7 +728,7 @@
         <div class="container section-event__container">
           <h2 class="section-event__headeng section-heading">События</h2>
           <ul class="section-event__list">
-            <li class="section-event__item event-card event-card1">
+            <li class="section-event__item event-card" data-bg="img/event/Rectangle_101.jpg" data-bg-webp="img/event/Rectangle_101.webp">
               <div class="event-card__content">
                 <div class="event-card__top">
                   <span class="event-card__label">Музей им. Щусева с&nbsp;20&nbsp;марта по 30 апреля</span>
@@ -654,10 +740,10 @@
                 </div>
               </div>
             </li>
-            <li class="section-event__item event-card event-card2">
+            <li class="section-event__item event-card" data-bg="img/event/Rectangle_101-1.jpg" data-bg-webp="img/event/Rectangle_101-1.webp">
               <div class="event-card__content">
                 <div class="event-card__top">
-                  <span class="event-card__label">ММОМА 24&nbsp;марта&nbsp;19:00</span>
+                  <span class="event-card__label event-card__label2">ММОМА 24&nbsp;марта&nbsp;19:00</span>
                   <h3 class="event-card__title">«Открытая дискуссия». Дмитрий Петров и Сергей Ильин.</h3>
                   <p class="event-card__desc">Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта.</p>
                 </div>
@@ -666,7 +752,7 @@
                 </div>
               </div>
             </li>
-            <li class="section-event__item event-card event-card3">
+            <li class="section-event__item event-card" data-bg="img/event/Rectangle_101-2.jpg" data-bg-webp="img/event/Rectangle_101-2.webp">
               <div class="event-card__content">
                 <div class="event-card__top">
                   <span class="event-card__label">Еврейский музей с&nbsp;31&nbsp;марта по 21 апреля</span>
@@ -678,10 +764,10 @@
                 </div>
               </div>
             </li>
-            <li class="section-event__item event-card event-card4 hidden fadeInUp">
+            <li class="section-event__item event-card hidden fadeInUp" data-bg="img/event/Rectangle_104.jpg" data-bg-webp="img/event/Rectangle_104.webp">
               <div class="event-card__content">
                 <div class="event-card__top">
-                  <span class="event-card__label">Третьяковка на Крымском валу с 30 марта по 30 апреля</span>
+                  <span class="event-card__label event-card__label4">Третьяковка на Крымском валу с 30 марта по 30 апреля</span>
                   <h3 class="event-card__title">XXIV Международная биеннале молодого искусства</h3>
                   <p class="event-card__desc">Внезапно, реплицированные с зарубежных источников, современные исследования.</p>
                 </div>
@@ -690,7 +776,7 @@
                 </div>
               </div>
             </li>
-            <li class="section-event__item event-card event-card5 hidden fadeInUp">
+            <li class="section-event__item event-card hidden fadeInUp" data-bg="img/event/Rectangle_105.jpg" data-bg-webp="img/event/Rectangle_105.webp">
               <div class="event-card__content">
                 <div class="event-card__top">
                   <span class="event-card__label">ММАМ с&nbsp;8&nbsp;апреля&nbsp;по&nbsp;20&nbsp;мая</span>
@@ -708,7 +794,7 @@
           </div>
         </div>
       </section>
-      <section class="section-publications" id="section-publications">
+      <section class="section-publications" id="section-publications" data-bg="img/publications/section-publications.jpg" data-bg-webp="img/publications/section-publications.webp">
         <div class="container section-publications__container">
           <h2 class="section-publications__headeng section-heading">Издания</h2>
           <div class="section-publications__wrap">
@@ -805,7 +891,11 @@
                 <div class="swiper-wrapper slider-publications__swiper-wrapper">
                   <!-- Slides -->
                   <div class="swiper-slide slider-publications__swiper-slide">
-                    <img src="img/publications/Rectangle_111.jpg" alt="Искусство цвета" class="slider-publications__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/publications/Rectangle_111.webp">
+                        <source type="image/jpeg" srcset="img/publications/Rectangle_111.jpg">
+                        <img loading="lazy" data-src="img/publications/Rectangle_111.jpg" alt="Искусство цвета" class="slider-publications__img lazyload">
+                      </picture>
                     <div class="slider-publications__heading">
                       <h4 class="slider-pulications__title">Искусство цвета</h4>
                       <span class="slider-pulications__price">620 руб</span>
@@ -816,7 +906,11 @@
                     </div>
                   </div>
                   <div class="swiper-slide slider-publications__swiper-slide">
-                    <img src="img/publications/Rectangle_111-1.jpg" alt="Типографика" class="slider-publications__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/publications/Rectangle_111-1.webp">
+                        <source type="image/jpeg" srcset="img/publications/Rectangle_111-1.jpg">
+                        <img loading="lazy" data-src="img/publications/Rectangle_111-1.jpg" alt="Типографика" class="slider-publications__img lazyload">
+                      </picture>
                     <div class="slider-publications__heading">
                       <h4 class="slider-pulications__title">Типографика</h4>
                       <span class="slider-pulications__price">2 450 руб</span>
@@ -827,7 +921,11 @@
                     </div>
                   </div>
                   <div class="swiper-slide slider-publications__swiper-slide">
-                    <img src="img/publications/Rectangle_111-2.jpg" alt="Книга про буквы" class="slider-publications__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/publications/Rectangle_111-2.webp">
+                        <source type="image/jpeg" srcset="img/publications/Rectangle_111-2.jpg">
+                        <img loading="lazy" data-src="img/publications/Rectangle_111-2.jpg" alt="Книга про буквы" class="slider-publications__img lazyload">
+                      </picture>
                     <div class="slider-publications__heading">
                       <h4 class="slider-pulications__title">Книга про буквы</h4>
                       <span class="slider-pulications__price">2 200 руб</span>
@@ -838,7 +936,11 @@
                     </div>
                   </div>
                   <div class="swiper-slide slider-publications__swiper-slide">
-                    <img src="img/publications/Rectangle_112.jpg" alt="Николай Ильин" class="slider-publications__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/publications/Rectangle_112.webp">
+                        <source type="image/jpeg" srcset="img/publications/Rectangle_112.jpg">
+                        <img loading="lazy" data-src="img/publications/Rectangle_112.jpg" alt="Николай Ильин" class="slider-publications__img lazyload">
+                      </picture>
                     <div class="slider-publications__heading">
                       <h4 class="slider-pulications__title">Николай Ильин</h4>
                       <span class="slider-pulications__price">1 100 руб</span>
@@ -849,7 +951,11 @@
                     </div>
                   </div>
                   <div class="swiper-slide slider-publications__swiper-slide">
-                    <img src="img/publications/Rectangle_112-1.jpg" alt="Модульные сетки в графическом дизайне" class="slider-publications__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/publications/Rectangle_112-1.webp">
+                        <source type="image/jpeg" srcset="img/publications/Rectangle_112-1.jpg">
+                        <img loading="lazy" data-src="img/publications/Rectangle_112-1.jpg" alt="Модульные сетки в графическом дизайне" class="slider-publications__img lazyload">
+                      </picture>
                     <div class="slider-publications__heading">
                       <h4 class="slider-pulications__title">Модульные сетки в граф...</h4>
                       <span class="slider-pulications__price">1 450 руб</span>
@@ -860,7 +966,11 @@
                     </div>
                   </div>
                   <div class="swiper-slide slider-publications__swiper-slide">
-                    <img src="img/publications/Rectangle_112-2.jpg" alt="Эволюция графических стилей" class="slider-publications__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/publications/Rectangle_112-2.webp">
+                        <source type="image/jpeg" srcset="img/publications/Rectangle_112-2.jpg">
+                        <img loading="lazy" data-src="img/publications/Rectangle_112-2.jpg" alt="Эволюция графических стилей" class="slider-publications__img lazyload">
+                      </picture>
                     <div class="slider-publications__heading">
                       <h4 class="slider-pulications__title">Эволюция графических ст...</h4>
                       <span class="slider-pulications__price">3 200 руб</span>
@@ -871,7 +981,11 @@
                     </div>
                   </div>
                   <div class="swiper-slide slider-publications__swiper-slide">
-                    <img src="img/publications/Rectangle_112-3.jpg" alt="Искусство и визуальное восприятие" class="slider-publications__img">
+                      <picture>
+                        <source type="image/webp" srcset="img/publications/Rectangle_112-3.webp">
+                        <source type="image/jpeg" srcset="img/publications/Rectangle_112-3.jpg">
+                        <img loading="lazy" data-src="img/publications/Rectangle_112-3.jpg" alt="Искусство и визуальное восприятие" class="slider-publications__img lazyload">
+                      </picture>
                     <div class="slider-publications__heading">
                       <h4 class="slider-pulications__title">Искусство и визуальное в...</h4>
                       <span class="slider-pulications__price">2 200 руб</span>
@@ -919,31 +1033,67 @@
               <div class="swiper-wrapper slider-projects__swiper-wrapper">
                 <!-- Slides -->
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
-                  <img src="img/projects/Group_65.jpg" alt="Freelands Founfation" class="slider-projects__img">
+                  <picture>
+                    <source type="image/webp" srcset="img/projects/Group_65.webp">
+                    <source type="image/jpeg" srcset="img/projects/Group_65.jpg">
+                    <img loading="lazy" data-src="img/projects/Group_65.jpg" alt="Freelands Founfation" class="slider-projects__img lazyload">
+                  </picture>
                 </div>
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
-                  <img src="img/projects/Group_66.jpg" alt="Institute for Contemporary Art" class="slider-projects__img">
+                  <picture>
+                    <source type="image/webp" srcset="img/projects/Group_66.webp">
+                    <source type="image/jpeg" srcset="img/projects/Group_66.jpg">
+                    <img loading="lazy" data-src="img/projects/Group_66.jpg" alt="Institute for Contemporary Art" class="slider-projects__img lazyload">
+                  </picture>
                 </div>
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
-                  <img src="img/projects/Group_67.jpg" alt="Workhouse" class="slider-projects__img">
+                  <picture>
+                    <source type="image/webp" srcset="img/projects/Group_67.webp">
+                    <source type="image/jpeg" srcset="img/projects/Group_67.jpg">
+                    <img loading="lazy" data-src="img/projects/Group_67.jpg" alt="Workhouse" class="slider-projects__img lazyload">
+                  </picture>
                 </div>
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
-                  <img src="img/projects/Group_22.jpg" alt="1849" class="slider-projects__img">
+                  <picture>
+                    <source type="image/webp" srcset="img/projects/Group_22.webp">
+                    <source type="image/jpeg" srcset="img/projects/Group_22.jpg">
+                    <img loading="lazy" data-src="img/projects/Group_22.jpg" alt="1849" class="slider-projects__img lazyload">
+                  </picture>
                 </div>
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
-                  <img src="img/projects/Group_25.jpg" alt="Hiscox" class="slider-projects__img">
+                  <picture>
+                    <source type="image/webp" srcset="img/projects/Group_25.webp">
+                    <source type="image/jpeg" srcset="img/projects/Group_25.jpg">
+                    <img loading="lazy" data-src="img/projects/Group_25.jpg" alt="Hiscox" class="slider-projects__img lazyload">
+                  </picture>
                 </div>
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
-                  <img src="img/projects/Group_23.jpg" alt="Camden" class="slider-projects__img">
+                  <picture>
+                    <source type="image/webp" srcset="img/projects/Group_23.webp">
+                    <source type="image/jpeg" srcset="img/projects/Group_23.jpg">
+                    <img loading="lazy" data-src="img/projects/Group_23.jpg" alt="Camden" class="slider-projects__img lazyload">
+                  </picture>
                 </div>
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
-                  <img src="img/projects/Group_26.jpg" alt="Stassen" class="slider-projects__img">
+                  <picture>
+                    <source type="image/webp" srcset="img/projects/Group_26.webp">
+                    <source type="image/jpeg" srcset="img/projects/Group_26.jpg">
+                    <img loading="lazy" data-src="img/projects/Group_26.jpg" alt="Stassen" class="slider-projects__img lazyload">
+                  </picture>
                 </div>
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
-                  <img src="img/projects/Group_24.jpg" alt="Watts gallery artists village" class="slider-projects__img">
+                  <picture>
+                    <source type="image/webp" srcset="img/projects/Group_24.webp">
+                    <source type="image/jpeg" srcset="img/projects/Group_24.jpg">
+                    <img loading="lazy" data-src="img/projects/Group_24.jpg" alt="Watts gallery artists village" class="slider-projects__img lazyload">
+                  </picture>
                 </div>
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
-                  <img src="img/projects/Group_27.jpg" alt="ESAD" class="slider-projects__img">
+                  <picture>
+                    <source type="image/webp" srcset="img/projects/Group_27.webp">
+                    <source type="image/jpeg" srcset="img/projects/Group_27.jpg">
+                    <img loading="lazy" data-src="img/projects/Group_27.jpg" alt="ESAD" class="slider-projects__img lazyload">
+                  </picture>
                 </div>
               </div>
             </div>
@@ -973,8 +1123,8 @@
               </form>
               <h4 class="form__title">Связаться в один клик</h4>
               <ul class="form__list">
-                <li class="form__item"><a href="" class="form__social1" aria-label="whatsapp"></a></li>
-                <li class="form__item"><a href="" class="form__social2" aria-label="телеграмм"></a></li>
+                <li class="form__item"><a href="" class="form__social" aria-label="whatsapp" data-bg="img/contacts/Whatsapp-Icon.png" data-bg-webp="img/contacts/Whatsapp-Icon.webp"></a></li>
+                <li class="form__item"><a href="" class="form__social" aria-label="телеграмм" data-bg="img/contacts/Telegram_2019_Logo.png" data-bg-webp="img/contacts/Telegram_2019_Logo.webp"></a></li>
               </ul>
             </div>
             <div class="section-contacts__map">
@@ -988,6 +1138,8 @@
       <div class="container footer__container">
         <a href="" class="footer__logo">
           <picture class="footer__picture">
+            <source type="image/webp" srcset="img/Лого.webp">
+            <source type="image/png" srcset="img/Лого.png">
             <img src="img/Лого.png" class="footer__logo-img" alt="Blanchard художественная галерея">
           </picture>
         </a>
@@ -1001,11 +1153,34 @@
     <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
     <script src="js/inputmask.min.js"></script>
     <script src="js/just-validate.min.js"></script>
     <script src="js/core.js"></script>
+    <script>
+      //ленивая загрузка img
+      if ('loading' in HTMLImageElement.prototype) {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach(img => {
+          img.src = img.dataset.src;
+        });
+      } else {
+        // Dynamically import the LazySizes library
+        const script = document.createElement('script');
+        script.src =
+          'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js';
+        document.body.appendChild(script);
+      }
+    </script>
+    <script>
+      //отложенная загрузка карты
+      setTimeout(function(){
+        var elem = document.createElement('script');
+        elem.type = 'text/javascript';
+        elem.src = '//api-maps.yandex.ru/2.1/?load=package.standard&lang=ru-RU&onload=getYaMap';
+        document.getElementsByTagName('body')[0].appendChild(elem);
+      }, 2000);
+    </script>
   </body>
 </html>

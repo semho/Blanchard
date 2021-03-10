@@ -1,3 +1,4 @@
+
 /*---------------- Header ----------------*/
 
 // Top header
@@ -22,18 +23,9 @@ for (let anchor of anchors) {
 var el = document.getElementsByClassName('nav-direction__item');
 
 for(var i=0; i<el.length; i++) {
- // el[i].addEventListener('mouseenter', showSub, false);
   el[i].addEventListener('click', clickSub, false)
   el[i].addEventListener('mouseleave', hideSub, false);
 }
-
-// function showSub() {
-//   if(this.children.length>1) {
-//     this.children[1].classList.add('show');
-//   } else {
-//     return false;
-//   }
-// }
 
 function clickSub() {
   if(this.children.length>1) {
@@ -141,7 +133,7 @@ $( function() {
     collapsible: true,
     heightStyle: 'content'
   });
-} );
+});
 
 // Tabs
 document.addEventListener('DOMContentLoaded', function(){
@@ -302,53 +294,93 @@ new JustValidate('.form__wrap', {
 });
 
 //Map
-// Функция ymaps.ready() будет вызвана, когда
-    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
-    ymaps.ready(init);
-    function init(){
-        // Создание карты.
-        var myMap = new ymaps.Map("myMap", {
-            // Координаты центра карты.
-            // Порядок по умолчанию: «широта, долгота».
-            // Чтобы не определять координаты центра карты вручную,
-            // воспользуйтесь инструментом Определение координат.
-            center: [55.7622,37.6461],
-            // Уровень масштабирования. Допустимые значения:
-            // от 0 (весь мир) до 19.
-            zoom: 14,
-            controls: []
-        });
-        var geolocationControl = new ymaps.control.GeolocationControl({
-          options: {
-            position: {
-              right: 10,
-              top: 355
-            }
-          }
-        });
-        myMap.controls.add(geolocationControl);
-        var zoomControl = new ymaps.control.ZoomControl({
-          options: {
-              size: "small",
-              position: {
-                right: 10,
-                top: 265
-              }
-            }
-        });
-        myMap.controls.add(zoomControl);
-        var myPlacemark = new ymaps.Placemark([55.758463,37.601079], {
-          balloonContentHeader: "Шоурум №4",
-        	balloonContentBody: "Леонтьевский переулок, дом 5, строение 1"
-        }, {
-          iconLayout: 'default#image',
-          iconImageHref: 'img/contacts/Group_68.svg',
-          iconImageSize: [20, 20],
-          iconImageOffset: [0, 0]
-        });
 
-        myMap.geoObjects.add(myPlacemark);
-    }
+function getYaMap(){
+    // Создание карты.
+    var myMap = new ymaps.Map("myMap", {
+        // Координаты центра карты.
+        // Порядок по умолчанию: «широта, долгота».
+        // Чтобы не определять координаты центра карты вручную,
+        // воспользуйтесь инструментом Определение координат.
+        center: [55.7622,37.6461],
+        // Уровень масштабирования. Допустимые значения:
+        // от 0 (весь мир) до 19.
+        zoom: 14,
+        controls: []
+    });
+    var geolocationControl = new ymaps.control.GeolocationControl({
+      options: {
+        position: {
+          right: 10,
+          top: 355
+        }
+      }
+    });
+    myMap.controls.add(geolocationControl);
+    var zoomControl = new ymaps.control.ZoomControl({
+      options: {
+          size: "small",
+          position: {
+            right: 10,
+            top: 265
+          }
+        }
+    });
+    myMap.controls.add(zoomControl);
+    var myPlacemark = new ymaps.Placemark([55.758463,37.601079], {
+      balloonContentHeader: "Шоурум №4",
+      balloonContentBody: "Леонтьевский переулок, дом 5, строение 1"
+    }, {
+      iconLayout: 'default#image',
+      iconImageHref: 'img/contacts/Group_68.svg',
+      iconImageSize: [20, 20],
+      iconImageOffset: [0, 0]
+    });
+
+    myMap.geoObjects.add(myPlacemark);
+}
 
 
 /*-------- End Section-Contacts -----------*/
+
+/*------- Делаем фоновые изображения с форматом webp для тех браузеров,
+ которые это поддерживают, иначе сохраняем jpeg ---------------*/
+
+// Проверяем, можно ли использовать Webp формат
+function canUseWebp() {
+  // Создаем элемент canvas
+  let elem = document.createElement('canvas');
+  // Приводим элемент к булеву типу
+  if (!!(elem.getContext && elem.getContext('2d'))) {
+      // Создаем изображение в формате webp, возвращаем индекс искомого элемента и сразу же проверяем его
+      return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+  }
+  // Иначе Webp не используем
+  return false;
+}
+
+window.onload = function () {
+  // Получаем все элементы с дата-атрибутом data-bg
+  let images = document.querySelectorAll('[data-bg]');
+  // Проходимся по каждому
+  for (let i = 0; i < images.length; i++) {
+      // Получаем значение каждого дата-атрибута
+      let image = images[i].getAttribute('data-bg');
+      // Каждому найденному элементу задаем свойство background-image с изображение формата jpg
+      images[i].style.backgroundImage = 'url(' + image + ')';
+  }
+
+  // Проверяем, является ли браузер посетителя сайта Firefox и получаем его версию
+  let isitFirefox = window.navigator.userAgent.match(/Firefox\/([0-9]+)\./);
+  let firefoxVer = isitFirefox ? parseInt(isitFirefox[1]) : 0;
+
+  // Если есть поддержка Webp или браузер Firefox версии больше или равно 65
+  if (canUseWebp() || firefoxVer >= 65) {
+      // Делаем все то же самое что и для jpg, но уже для изображений формата Webp
+      let imagesWebp = document.querySelectorAll('[data-bg-webp]');
+      for (let i = 0; i < imagesWebp.length; i++) {
+          let imageWebp = imagesWebp[i].getAttribute('data-bg-webp');
+          imagesWebp[i].style.backgroundImage = 'url(' + imageWebp + ')';
+      }
+  }
+};

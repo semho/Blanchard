@@ -4,6 +4,7 @@
   url('../fonts/opensans.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Open Sans';
@@ -11,6 +12,7 @@
   url('../fonts/opensanssemibold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Open Sans';
@@ -18,6 +20,7 @@
   url('../fonts/opensansbold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Open Sans';
@@ -25,6 +28,7 @@
   url('../fonts/opensansitalic.woff') format('woff');
   font-weight: normal;
   font-style: italic;
+  font-display: swap;
 }
 
 
@@ -84,7 +88,7 @@ img {
 }
 
 html {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', arial;
   font-size: 16px;
   font-weight: normal;
   color: var(--font-color-main);
@@ -300,22 +304,6 @@ header {
   opacity: 0;
 }
 
-.scroll-wrap__leonardo {
-  background-image: url(../img/Rectangle\ 59.jpg);
-}
-
-.scroll-wrap__tintoretto {
-  background-image: url(../img/Rectangle\ 57.jpg);
-}
-
-.scroll-wrap__fridrich {
-  background-image: url(../img/Rectangle\ 58.jpg);
-}
-
-.scroll-wrap__verrokko {
-  background-image: url(../img/Rectangle\ 60.jpg);
-}
-
 .scroll-wrap__link:hover {
   padding-left: 12px;
   padding-top: 9px;
@@ -476,7 +464,6 @@ input.header__search::-ms-input-placeholder {
   width: 100%;
   height: 800px;
   top: 0;
-  background-image: url(../img/birmingham-museums-trust-MK_98NuC4-4-unsplash\ 2.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -550,7 +537,6 @@ input.header__search::-ms-input-placeholder {
 .section-gallery {
   width: 100%;
   height: 995px;
-  background-image: url(../img/birmingham-museums-trust-MK_98NuC4-4-unsplash\ 3.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -910,26 +896,6 @@ input.header__search::-ms-input-placeholder {
   border: 2px solid var(--color-main);
 }
 
-.tabs__btn1 {
-  background-image: url(../img/catalog/image\ 4.jpg);
-}
-
-.tabs__btn2 {
-  background-image: url(../img/catalog/image\ 6.jpg);
-}
-
-.tabs__btn3 {
-  background-image: url(../img/catalog/image\ 7.jpg);
-}
-
-.tabs__btn4 {
-  background-image: url(../img/catalog/image\ 8.jpg);
-}
-
-.tabs__btn5 {
-  background-image: url(../img/catalog/image\ 5.jpg);
-}
-
 .tabs__content {
   display: none;
 }
@@ -1235,26 +1201,6 @@ input.header__search::-ms-input-placeholder {
   margin-right: 50px;
 }
 
-.event-card1 {
-  background-image: url(../img/event/Rectangle\ 101.jpg);
-}
-
-.event-card2 {
-  background-image: url(../img/event/Rectangle\ 101-1.jpg);
-}
-
-.event-card3 {
-  background-image: url(../img/event/Rectangle\ 101-2.jpg);
-}
-
-.event-card4 {
-  background-image: url(../img/event/Rectangle\ 104.jpg);
-}
-
-.event-card5 {
-  background-image: url(../img/event/Rectangle\ 105.jpg);
-}
-
 .event-card__label {
   align-self: flex-end;
   width: 150px;
@@ -1265,11 +1211,11 @@ input.header__search::-ms-input-placeholder {
   text-align: right;
 }
 
-.event-card2 .event-card__label {
+.event-card__label2 {
   width: 130px;
 }
 
-.event-card4 .event-card__label {
+.event-card__label4 {
   width: 200px;
 }
 
@@ -1397,7 +1343,6 @@ input.header__search::-ms-input-placeholder {
 
 .section-publications {
  margin-top: 80px;
- background-image: url(../img/publications/birmingham-museums-trust-MK_98NuC4-4-unsplash\ 4.jpg);
  height: 763px;
  color: var(--font-color-white);
 }
@@ -1918,18 +1863,18 @@ input.header__search::-ms-input-placeholder {
   transform: scale(1.2);
 }
 
-.form__social1, .form__social2 {
+.form__social {
   position: relative;
   display: inline-block;
   width: 40px;
   height: 40px;
 }
 
-.form__social1:focus, .form__social2:focus {
+.form__social:focus {
   outline: none;
 }
 
-.form__social1:focus::after, .form__social2:focus::after {
+.form__social:focus::after {
   position: absolute;
   content: '';
   padding: 2px;
@@ -1939,13 +1884,6 @@ input.header__search::-ms-input-placeholder {
   top: -4px;
   border-radius: 100px;
   border: 2px solid var(--color-main);
-}
-
-.form__social1 {
-  background-image: url('../img/contacts/Whatsapp-Icon.png');
-}
-.form__social2 {
-  background-image: url('../img/contacts/Telegram_2019_Logo.png');
 }
 
 /* //map */
