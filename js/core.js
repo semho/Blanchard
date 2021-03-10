@@ -252,6 +252,8 @@ var swiper2 = new Swiper('.slider-publications__swiper-container', {
 var swiper3 = new Swiper('.slider-projects__swiper-container', {
   slidesPerView: 3,
   spaceBetween: 50,
+  slidesPerGroup: 3,
+  loopFillGroupWithBlank: true,
   // Navigation arrows
   navigation: {
     nextEl: '.swiper-button-next',
@@ -335,11 +337,14 @@ new JustValidate('.form__wrap', {
             }
         });
         myMap.controls.add(zoomControl);
-        var myPlacemark = new ymaps.Placemark([55.758463,37.601079], {}, {
+        var myPlacemark = new ymaps.Placemark([55.758463,37.601079], {
+          balloonContentHeader: "Шоурум №4",
+        	balloonContentBody: "Леонтьевский переулок, дом 5, строение 1"
+        }, {
           iconLayout: 'default#image',
           iconImageHref: 'img/contacts/Group_68.svg',
           iconImageSize: [20, 20],
-          iconImageOffset: [-3, -42]
+          iconImageOffset: [0, 0]
         });
 
         myMap.geoObjects.add(myPlacemark);
