@@ -1,4 +1,4 @@
-
+document.addEventListener('DOMContentLoaded', function() {
 /*---------------- Header ----------------*/
 
 // Top header
@@ -67,7 +67,7 @@ function hideSub() {
 //переход от кнопки к футеру
 const btn = document.querySelector('#btn')
 
-btn.addEventListener('click', function(){
+btn.addEventListener('click', function() {
   document.querySelector('#footer').scrollIntoView({
     behavior: 'smooth',
     block: 'start'
@@ -120,7 +120,6 @@ var swiper = new Swiper('.swiper-container', {
     firstSlideMessage: 'Это первый слайд',
     lastSlideMessage: 'Это последний слайд'
   }
-
 });
 
 
@@ -136,77 +135,75 @@ $( function() {
 });
 
 // Tabs
-document.addEventListener('DOMContentLoaded', function(){
-  document.querySelectorAll('.tabs__btn').forEach(function(tabsBtn) {
-    tabsBtn.addEventListener('click', function(event){
 
-
-      //убрать класс активной кнопки у всех
-      document.querySelectorAll('.tabs__btn').forEach(function(tabsBtnActive) {
-        tabsBtnActive.classList.remove('tabs__btn-active')
-      })
-      //добавить класс текущей ативной кнопки
-      this.classList.add('tabs__btn-active')
-
-      const path = event.currentTarget.dataset.path
-      document.querySelectorAll('.tabs__content').forEach(function(tabsContent){
-        tabsContent.classList.remove('tabs__content-active')
-      })
-      document.querySelector(`[data-target="${path}"]`).classList.add('tabs__content-active')
-
-      //перезагружаем аккардион во вкладках
-      $( function() {
-        $( ".tabs__accordion" ).accordion("refresh");
-      } );
-
+document.querySelectorAll('.tabs__btn').forEach(function(tabsBtn) {
+  //событие нажатия кнопки
+  tabsBtn.addEventListener('click', function(event){
+    //убрать класс активной кнопки у всех
+    document.querySelectorAll('.tabs__btn').forEach(function(tabsBtnActive) {
+      tabsBtnActive.classList.remove('tabs__btn-active')
     })
+    //добавить класс текущей ативной кнопки
+    this.classList.add('tabs__btn-active')
+    const path = event.currentTarget.dataset.path
+    document.querySelectorAll('.tabs__content').forEach(function(tabsContent){
+      tabsContent.classList.remove('tabs__content-active')
+    })
+    document.querySelector(`[data-target="${path}"]`).classList.add('tabs__content-active')
+    //перезагружаем аккардион во вкладках
+    $( function() {
+      $( ".tabs__accordion" ).accordion("refresh");
+    } );
   })
-});
+  //событие наведения курсора мыши
+  tabsBtn.addEventListener('mouseover', function(event){
+    let target = event.target;
+    target.classList.add('tabs__shadow');
+  });
+  //событие ухода курсора мыши с кнопки таба
+  tabsBtn.addEventListener('mouseout', function(event){
+    let target = event.target;
+    target.classList.remove('tabs__shadow');
+  });
+})
 
 // Tabs-accordion
 
-document.addEventListener('DOMContentLoaded', function(){
-  document.querySelectorAll('.accordion__btn').forEach(function(tabsBtnAcc) {
-
-
-    tabsBtnAcc.addEventListener('click', function(event){
-      //убрать класс активной кнопки у всех
-      document.querySelectorAll('.accordion__btn').forEach(function(tabsBtnAccActive) {
-        tabsBtnAccActive.classList.remove('accordion__btn-active')
-      })
-      //добавить класс текущей ативной кнопки
-      this.classList.add('accordion__btn-active')
-
-      const pathAcc = event.currentTarget.dataset.path
-      //убрать класс активного контента у всех
-      document.querySelectorAll('.tabs__painter-desc').forEach(function(tabsContentAcc){
-        tabsContentAcc.classList.remove('tabs__painter-desc-active')
-      })
-
-      //добавить класс активного контента по ссылке текущей кнопки
-      document.querySelector(`[data-target="${pathAcc}"]`).classList.add('tabs__painter-desc-active')
+document.querySelectorAll('.accordion__btn').forEach(function(tabsBtnAcc) {
+  tabsBtnAcc.addEventListener('click', function(event){
+    //убрать класс активной кнопки у всех
+    document.querySelectorAll('.accordion__btn').forEach(function(tabsBtnAccActive) {
+      tabsBtnAccActive.classList.remove('accordion__btn-active')
     })
+    //добавить класс текущей ативной кнопки
+    this.classList.add('accordion__btn-active')
+    const pathAcc = event.currentTarget.dataset.path
+    //убрать класс активного контента у всех
+    document.querySelectorAll('.tabs__painter-desc').forEach(function(tabsContentAcc){
+      tabsContentAcc.classList.remove('tabs__painter-desc-active')
+    })
+    //добавить класс активного контента по ссылке текущей кнопки
+    document.querySelector(`[data-target="${pathAcc}"]`).classList.add('tabs__painter-desc-active')
   })
-});
+})
+
 
 
 /*----------- End Section-Catalog -----------*/
 
 /*------------ Section-Event ---------------*/
 
-document.addEventListener('DOMContentLoaded', function(){
-  //получаю кнопку по классу
-  let button = document.querySelector('.section-event__btn');
-  //нажимаю на кнопку с этим классом
-  button.addEventListener('click', function(){
-    //ищу все дивы с скрытым классом
-    document.querySelectorAll('.hidden').forEach(function(hiddenCard){
-      //убираю класс у найденых дивов
-      hiddenCard.classList.remove('hidden')
-    })
-    //добавляю класс текущей кнопке
-    this.classList.add('hidden')
-  });
+//получаю кнопку по классу
+let button = document.querySelector('.section-event__btn');
+//нажимаю на кнопку с этим классом
+button.addEventListener('click', function(){
+  //ищу все дивы с скрытым классом
+  document.querySelectorAll('.hidden').forEach(function(hiddenCard){
+    //убираю класс у найденых дивов
+    hiddenCard.classList.remove('hidden')
+  })
+  //добавляю класс текущей кнопке
+  this.classList.add('hidden')
 });
 
 /*------------- End Section-Event ----------*/
@@ -293,94 +290,75 @@ new JustValidate('.form__wrap', {
   }
 });
 
-//Map
-
-function getYaMap(){
-    // Создание карты.
-    var myMap = new ymaps.Map("myMap", {
-        // Координаты центра карты.
-        // Порядок по умолчанию: «широта, долгота».
-        // Чтобы не определять координаты центра карты вручную,
-        // воспользуйтесь инструментом Определение координат.
-        center: [55.7622,37.6461],
-        // Уровень масштабирования. Допустимые значения:
-        // от 0 (весь мир) до 19.
-        zoom: 14,
-        controls: []
-    });
-    var geolocationControl = new ymaps.control.GeolocationControl({
-      options: {
-        position: {
-          right: 10,
-          top: 355
-        }
-      }
-    });
-    myMap.controls.add(geolocationControl);
-    var zoomControl = new ymaps.control.ZoomControl({
-      options: {
-          size: "small",
-          position: {
-            right: 10,
-            top: 265
-          }
-        }
-    });
-    myMap.controls.add(zoomControl);
-    var myPlacemark = new ymaps.Placemark([55.758463,37.601079], {
-      balloonContentHeader: "Шоурум №4",
-      balloonContentBody: "Леонтьевский переулок, дом 5, строение 1"
-    }, {
-      iconLayout: 'default#image',
-      iconImageHref: 'img/contacts/Group_68.svg',
-      iconImageSize: [20, 20],
-      iconImageOffset: [0, 0]
-    });
-
-    myMap.geoObjects.add(myPlacemark);
-}
-
-
 /*-------- End Section-Contacts -----------*/
 
-/*------- Делаем фоновые изображения с форматом webp для тех браузеров,
- которые это поддерживают, иначе сохраняем jpeg ---------------*/
-
-// Проверяем, можно ли использовать Webp формат
-function canUseWebp() {
-  // Создаем элемент canvas
-  let elem = document.createElement('canvas');
-  // Приводим элемент к булеву типу
-  if (!!(elem.getContext && elem.getContext('2d'))) {
-      // Создаем изображение в формате webp, возвращаем индекс искомого элемента и сразу же проверяем его
-      return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
-  }
-  // Иначе Webp не используем
-  return false;
+//ленивая загрузка img
+if ('loading' in HTMLImageElement.prototype) {
+  const images = document.querySelectorAll('img[loading="lazy"]');
+  images.forEach(img => {
+    img.src = img.dataset.src;
+  });
+} else {
+  // Dynamically import the LazySizes library
+  const script = document.createElement('script');
+  script.src =
+    'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js';
+  document.body.appendChild(script);
 }
 
-window.onload = function () {
-  // Получаем все элементы с дата-атрибутом data-bg
-  let images = document.querySelectorAll('[data-bg]');
-  // Проходимся по каждому
-  for (let i = 0; i < images.length; i++) {
-      // Получаем значение каждого дата-атрибута
-      let image = images[i].getAttribute('data-bg');
-      // Каждому найденному элементу задаем свойство background-image с изображение формата jpg
-      images[i].style.backgroundImage = 'url(' + image + ')';
+//отложенная загрузка карты
+setTimeout(function(){
+  var elem = document.createElement('script');
+  elem.type = 'text/javascript';
+  elem.src = '//api-maps.yandex.ru/2.1/?load=package.standard&lang=ru-RU&onload=getYaMap';
+  document.getElementsByTagName('body')[0].appendChild(elem);
+}, 2000);
+
+});
+
+//Map
+function getYaMap(){
+// Создание карты.
+var myMap = new ymaps.Map("myMap", {
+    // Координаты центра карты.
+    // Порядок по умолчанию: «широта, долгота».
+    // Чтобы не определять координаты центра карты вручную,
+    // воспользуйтесь инструментом Определение координат.
+    center: [55.7622,37.6461],
+    // Уровень масштабирования. Допустимые значения:
+    // от 0 (весь мир) до 19.
+    zoom: 14,
+    controls: []
+});
+var geolocationControl = new ymaps.control.GeolocationControl({
+  options: {
+    position: {
+      right: 10,
+      top: 355
+    }
   }
-
-  // Проверяем, является ли браузер посетителя сайта Firefox и получаем его версию
-  let isitFirefox = window.navigator.userAgent.match(/Firefox\/([0-9]+)\./);
-  let firefoxVer = isitFirefox ? parseInt(isitFirefox[1]) : 0;
-
-  // Если есть поддержка Webp или браузер Firefox версии больше или равно 65
-  if (canUseWebp() || firefoxVer >= 65) {
-      // Делаем все то же самое что и для jpg, но уже для изображений формата Webp
-      let imagesWebp = document.querySelectorAll('[data-bg-webp]');
-      for (let i = 0; i < imagesWebp.length; i++) {
-          let imageWebp = imagesWebp[i].getAttribute('data-bg-webp');
-          imagesWebp[i].style.backgroundImage = 'url(' + imageWebp + ')';
+});
+myMap.controls.add(geolocationControl);
+var zoomControl = new ymaps.control.ZoomControl({
+  options: {
+      size: "small",
+      position: {
+        right: 10,
+        top: 265
       }
-  }
-};
+    }
+});
+myMap.controls.add(zoomControl);
+var myPlacemark = new ymaps.Placemark([55.758463,37.601079], {
+  balloonContentHeader: "Шоурум №4",
+  balloonContentBody: "Леонтьевский переулок, дом 5, строение 1"
+}, {
+  iconLayout: 'default#image',
+  iconImageHref: 'img/contacts/Group_68.svg',
+  iconImageSize: [20, 20],
+  iconImageOffset: [0, 0]
+});
+
+myMap.geoObjects.add(myPlacemark);
+
+}
