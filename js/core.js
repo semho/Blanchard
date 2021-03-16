@@ -62,7 +62,14 @@ function hideSub() {
 
 
 /*-------------- End Header ----------------*/
-
+/*----------------------- Burger --------------------- */
+document.querySelector('#burger').addEventListener('click', function(){
+  document.querySelector('#menu').classList.toggle('is-active')
+})
+document.querySelector('#burger__close').addEventListener('click', function(){
+  document.querySelector('#menu').classList.remove('is-active')
+})
+/*--------------------- End Burger ------------------- */
 /*-------------- Section-Hero ------------ */
 //переход от кнопки к футеру
 const btn = document.querySelector('#btn')
@@ -90,13 +97,6 @@ const choices = new Choices(element, {
 
 //   Slider Swiper
 var swiper = new Swiper('.swiper-container', {
-
-  slidesPerView: 3,
-  slidesPerColumn: 2,
-  spaceBetween: 50,
-  slidesPerGroup: 3,
-  loopFillGroupWithBlank: true,
-
   // If we need pagination
   pagination: {
     el: '.swiper-pagination',
@@ -104,8 +104,8 @@ var swiper = new Swiper('.swiper-container', {
     clickable: true,
   },
 
-   // Navigation arrows
-   navigation: {
+  // Navigation arrows
+  navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
@@ -119,6 +119,34 @@ var swiper = new Swiper('.swiper-container', {
     nextSlideMessage: 'Следующий слайд',
     firstSlideMessage: 'Это первый слайд',
     lastSlideMessage: 'Это последний слайд'
+  },
+
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 0
+    },
+    768: {
+      slidesPerView: 2,
+      slidesPerColumn: 2,
+      spaceBetween: 34,
+      slidesPerGroup: 2,
+      loopFillGroupWithBlank: true
+    },
+    992: {
+      slidesPerView: 2,
+      slidesPerColumn: 2,
+      spaceBetween: 34,
+      slidesPerGroup: 2,
+      loopFillGroupWithBlank: true
+    },
+    1200: {
+      slidesPerView: 3,
+      slidesPerColumn: 2,
+      spaceBetween: 50,
+      slidesPerGroup: 3,
+      loopFillGroupWithBlank: true
+    }
   }
 });
 
@@ -206,18 +234,73 @@ button.addEventListener('click', function(){
   this.classList.add('hidden')
 });
 
+
+//Скрываю блок на брэкпоинте
+const mediaQuery = window.matchMedia('(max-width: 991px)');
+function handleTabletChange(e) {
+  if (e.matches) {
+    document.querySelector('.event-card3').classList.add('hidden');
+    document.querySelector('.event-card3').classList.add('fadeInUp');
+  }
+}
+mediaQuery.addListener(handleTabletChange);
+handleTabletChange(mediaQuery);
+
+
+// медиавыражение для мобильной версии
+const mediaQuery320 = window.matchMedia('(max-width: 320px)');
+function handleTabletChange320(e) {
+  if (e.matches) {
+    //создаем контейнер слайдера
+    document.querySelector('.section-event__list').classList.add('swiper-wrapper');
+    //элементы слайдера
+    document.querySelectorAll('.section-event__item').forEach(function(AllCard){
+      AllCard.classList.add('swiper-slide');
+    })
+    //объявляем аккордион
+    $( function() {
+      $( ".section-publications__checkbox" ).accordion({
+        active: false,
+        collapsible: true,
+        heightStyle: 'content'
+      });
+    });
+  }
+}
+mediaQuery320.addListener(handleTabletChange320);
+handleTabletChange320(mediaQuery320);
+
+//слайдер для мобильной версии
+var swiperEvent = new Swiper('.section-event__wrapper', {
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      pagination: {
+        el: '.swiper-pagination-event',
+        type: 'bullets',
+        clickable: true,
+      },
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true
+      },
+      a11y: {
+        prevSlideMessage: 'Предыдущий',
+        nextSlideMessage: 'Следующий слайд',
+        firstSlideMessage: 'Это первый слайд',
+        lastSlideMessage: 'Это последний слайд'
+      }
+    }
+  }
+});
+
 /*------------- End Section-Event ----------*/
 
 /*--------- Section-Publications ----------*/
 //   Slider Swiper
 var swiper2 = new Swiper('.slider-publications__swiper-container', {
-  slidesPerView: 3,
-  spaceBetween: 48,
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'fraction',
-    clickable: true,
-  },
+
   // Navigation arrows
   navigation: {
     nextEl: '.swiper-button-next',
@@ -232,17 +315,45 @@ var swiper2 = new Swiper('.slider-publications__swiper-container', {
     nextSlideMessage: 'Следующий слайд',
     firstSlideMessage: 'Это первый слайд',
     lastSlideMessage: 'Это последний слайд'
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'fraction',
+    clickable: true,
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 34
+    },
+    992: {
+      slidesPerView: 2,
+      spaceBetween: 49
+    },
+    1200: {
+      slidesPerView: 3,
+      spaceBetween: 48
+    }
   }
 });
+
+// медиавыражение для мобильной версии
+const mediaQueryPublications320 = window.matchMedia('(max-width: 320px)');
+function handleTabletChangePublications320(e) {
+  if (e.matches) {
+    //убираем сладер в публикациях
+    swiper2.destroy();
+    document.querySelector('.slider-publications__swiper-wrapper').classList.remove('swiper-wrapper');
+  }
+}
+mediaQueryPublications320.addListener(handleTabletChangePublications320);
+handleTabletChangePublications320(mediaQueryPublications320);
+
 /*------- End Section-Publications --------*/
 
 /*------------ Section-Projects -----------*/
 //   Slider Swiper
 var swiper3 = new Swiper('.slider-projects__swiper-container', {
-  slidesPerView: 3,
-  spaceBetween: 50,
-  slidesPerGroup: 3,
-  loopFillGroupWithBlank: true,
   // Navigation arrows
   navigation: {
     nextEl: '.swiper-button-next',
@@ -257,6 +368,27 @@ var swiper3 = new Swiper('.slider-projects__swiper-container', {
     nextSlideMessage: 'Следующий слайд',
     firstSlideMessage: 'Это первый слайд',
     lastSlideMessage: 'Это последний слайд'
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 34
+    },
+    992: {
+      slidesPerView: 2,
+      spaceBetween: 50,
+      slidesPerGroup: 2
+    },
+    1200: {
+      slidesPerView: 3,
+      spaceBetween: 50,
+      slidesPerGroup: 3,
+      loopFillGroupWithBlank: true
+    }
   }
 });
 /*-------- End Section-Projects -----------*/
@@ -319,46 +451,66 @@ setTimeout(function(){
 //Map
 function getYaMap(){
 // Создание карты.
-var myMap = new ymaps.Map("myMap", {
-    // Координаты центра карты.
-    // Порядок по умолчанию: «широта, долгота».
-    // Чтобы не определять координаты центра карты вручную,
-    // воспользуйтесь инструментом Определение координат.
-    center: [55.7622,37.6461],
-    // Уровень масштабирования. Допустимые значения:
-    // от 0 (весь мир) до 19.
-    zoom: 14,
-    controls: []
-});
-var geolocationControl = new ymaps.control.GeolocationControl({
-  options: {
-    position: {
-      right: 10,
-      top: 355
-    }
-  }
-});
-myMap.controls.add(geolocationControl);
-var zoomControl = new ymaps.control.ZoomControl({
-  options: {
-      size: "small",
+  var myMap = new ymaps.Map("myMap", {
+      // Координаты центра карты.
+      // Порядок по умолчанию: «широта, долгота».
+      // Чтобы не определять координаты центра карты вручную,
+      // воспользуйтесь инструментом Определение координат.
+      center: [55.7622,37.6461],
+      // Уровень масштабирования. Допустимые значения:
+      // от 0 (весь мир) до 19.
+      zoom: 14,
+      controls: []
+  });
+  var geolocationControl = new ymaps.control.GeolocationControl({
+    options: {
       position: {
         right: 10,
-        top: 265
+        top: 355
       }
     }
-});
-myMap.controls.add(zoomControl);
-var myPlacemark = new ymaps.Placemark([55.758463,37.601079], {
-  balloonContentHeader: "Шоурум №4",
-  balloonContentBody: "Леонтьевский переулок, дом 5, строение 1"
-}, {
-  iconLayout: 'default#image',
-  iconImageHref: 'img/contacts/Group_68.svg',
-  iconImageSize: [20, 20],
-  iconImageOffset: [0, 0]
-});
+  });
+  myMap.controls.add(geolocationControl);
+  var zoomControl = new ymaps.control.ZoomControl({
+    options: {
+        size: "small",
+        position: {
+          right: 10,
+          top: 265
+        }
+      }
+  });
+  myMap.controls.add(zoomControl);
+  var myPlacemark = new ymaps.Placemark([55.758463,37.601079], {
+    balloonContentHeader: "Шоурум №4",
+    balloonContentBody: "Леонтьевский переулок, дом 5, строение 1"
+  }, {
+    iconLayout: 'default#image',
+    iconImageHref: 'img/contacts/Group_68.svg',
+    iconImageSize: [20, 20],
+    iconImageOffset: [0, 0]
+  });
 
-myMap.geoObjects.add(myPlacemark);
+  //
+  function onResizeMap() {
+    if ($(window).width() < '1199') {
+      //Set New center
+      myMap.setCenter([55.7599,37.6177]);
+      myMap.controls.remove(zoomControl);
+      myMap.controls.remove(geolocationControl);
+      if ($(window).width() < '991') {
+        myMap.setCenter([55.7600,37.6105]);
+      }
+    } else {
+      myMap.setCenter([55.7622,37.6461]);
+    }
+  }
+  onResizeMap();
+
+  window.onresize = function () {
+      onResizeMap();
+  };
+
+  myMap.geoObjects.add(myPlacemark);
 
 }
