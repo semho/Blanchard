@@ -109,7 +109,6 @@ var swiper = new Swiper('.swiper-container', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
-
   keyboard: {
     enabled: true,
     onlyInViewport: true
@@ -120,11 +119,21 @@ var swiper = new Swiper('.swiper-container', {
     firstSlideMessage: 'Это первый слайд',
     lastSlideMessage: 'Это последний слайд'
   },
-
   breakpoints: {
-    320: {
+    280: {
       slidesPerView: 1,
       spaceBetween: 0
+    },
+    480: {
+      slidesPerView: 1,
+      spaceBetween: 0
+    },
+    481: {
+      slidesPerView: 1,
+      slidesPerColumn: 2,
+      spaceBetween: 34,
+      slidesPerGroup: 1,
+      loopFillGroupWithBlank: true
     },
     768: {
       slidesPerView: 2,
@@ -141,6 +150,13 @@ var swiper = new Swiper('.swiper-container', {
       loopFillGroupWithBlank: true
     },
     1200: {
+      slidesPerView: 2,
+      slidesPerColumn: 2,
+      spaceBetween: 50,
+      slidesPerGroup: 2,
+      loopFillGroupWithBlank: true
+    },
+    1640: {
       slidesPerView: 3,
       slidesPerColumn: 2,
       spaceBetween: 50,
@@ -248,8 +264,8 @@ handleTabletChange(mediaQuery);
 
 
 // медиавыражение для мобильной версии
-const mediaQuery320 = window.matchMedia('(max-width: 320px)');
-function handleTabletChange320(e) {
+const mediaQuery480 = window.matchMedia('(max-width: 480px)');
+function handleTabletChange480(e) {
   if (e.matches) {
     //создаем контейнер слайдера
     document.querySelector('.section-event__list').classList.add('swiper-wrapper');
@@ -267,30 +283,34 @@ function handleTabletChange320(e) {
     });
   }
 }
-mediaQuery320.addListener(handleTabletChange320);
-handleTabletChange320(mediaQuery320);
+mediaQuery480.addListener(handleTabletChange480);
+handleTabletChange480(mediaQuery480);
 
 //слайдер для мобильной версии
 var swiperEvent = new Swiper('.section-event__wrapper', {
+  pagination: {
+    el: '.swiper-pagination-event',
+    type: 'bullets',
+    clickable: true,
+  },
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true
+  },
+  a11y: {
+    prevSlideMessage: 'Предыдущий',
+    nextSlideMessage: 'Следующий слайд',
+    firstSlideMessage: 'Это первый слайд',
+    lastSlideMessage: 'Это последний слайд'
+  },
   breakpoints: {
-    320: {
+    280: {
       slidesPerView: 1,
-      spaceBetween: 0,
-      pagination: {
-        el: '.swiper-pagination-event',
-        type: 'bullets',
-        clickable: true,
-      },
-      keyboard: {
-        enabled: true,
-        onlyInViewport: true
-      },
-      a11y: {
-        prevSlideMessage: 'Предыдущий',
-        nextSlideMessage: 'Следующий слайд',
-        firstSlideMessage: 'Это первый слайд',
-        lastSlideMessage: 'Это последний слайд'
-      }
+      spaceBetween: 10
+    },
+    480: {
+      slidesPerView: 1,
+      spaceBetween: 10
     }
   }
 });
@@ -322,6 +342,14 @@ var swiper2 = new Swiper('.slider-publications__swiper-container', {
     clickable: true,
   },
   breakpoints: {
+    321:{
+      slidesPerView: 1,
+      spaceBetween: 10
+    },
+    481: {
+      slidesPerView: 2,
+      spaceBetween: 30
+    },
     768: {
       slidesPerView: 2,
       spaceBetween: 34
@@ -370,9 +398,17 @@ var swiper3 = new Swiper('.slider-projects__swiper-container', {
     lastSlideMessage: 'Это последний слайд'
   },
   breakpoints: {
-    320: {
+    280: {
       slidesPerView: 1,
       spaceBetween: 0,
+    },
+    480: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+    },
+    485: {
+      slidesPerView: 2,
+      spaceBetween: 34
     },
     768: {
       slidesPerView: 2,
@@ -493,13 +529,16 @@ function getYaMap(){
 
   //
   function onResizeMap() {
-    if ($(window).width() < '1199') {
-      //Set New center
-      myMap.setCenter([55.7599,37.6177]);
-      myMap.controls.remove(zoomControl);
-      myMap.controls.remove(geolocationControl);
-      if ($(window).width() < '991') {
-        myMap.setCenter([55.7600,37.6105]);
+    if ($(window).width() < '1600') {
+      myMap.setCenter([55.7622,37.63]);
+      if ($(window).width() < '1199') {
+        //Set New center
+        myMap.setCenter([55.7599,37.6177]);
+        myMap.controls.remove(zoomControl);
+        myMap.controls.remove(geolocationControl);
+        if ($(window).width() < '991') {
+          myMap.setCenter([55.7600,37.6105]);
+        }
       }
     } else {
       myMap.setCenter([55.7622,37.6461]);
