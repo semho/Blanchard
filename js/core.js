@@ -60,6 +60,93 @@ function hideSub() {
  const simpleBar5 = new SimpleBar(document.getElementById('scroll-5'), { autoHide: false, scrollbarMaxSize: 28 });
  simpleBar5.recalculate();
 
+//Поле поиска, меняем цвет иконки батона в фокусе инпута
+$( "#search" ).focus(function() {
+  let imageUrlColor = "../img/Search_hover.svg";
+  $( this ).prev( "button" ).css("background-image", "url(" + imageUrlColor + ")");
+});
+$('#search').focusout(function(){
+  $( this ).prev( "button" ).attr('style', '');
+});
+
+
+//открываем инпут поиска при нажатии на кнопку
+const mediaQueryMax1199 = window.matchMedia('(max-width: 1199px)');
+function handleTabletChange1199(e) {
+  if (e.matches) {
+    document.querySelector('#header__btn-seach').addEventListener('click', function(e){
+      e.preventDefault();
+      this.classList.add('is-active');
+      this.classList.add('fadeInLeft');
+      document.querySelector('#input__search').classList.add('is-active');
+      document.querySelector('#input__search').classList.add('fadeInLeft');
+      document.querySelector('.header__logo').classList.add('move');
+    })
+  }
+}
+mediaQueryMax1199.addListener(handleTabletChange1199);
+handleTabletChange1199(mediaQueryMax1199);
+
+const mediaQueryMax991 = window.matchMedia('(max-width: 991px)');
+function handleTabletChange991(e) {
+  if (e.matches) {
+    document.querySelector('#header__btn-seach').addEventListener('click', function(e){
+      e.preventDefault();
+      this.classList.add('is-active');
+      this.classList.add('fadeInLeft');
+      //убираем лого и бургер
+      document.querySelector('.header__logo').classList.add('hidden');
+      document.querySelector('#burger').classList.add('hidden');
+
+      //появление инпута
+      document.querySelector('#input__search').classList.add('is-active');
+      document.querySelector('#input__search').classList.add('fadeInLeft');
+      //появления значка закрытия
+      document.querySelector('#burger__search-close').classList.add('is-active');
+      document.querySelector('#burger__search-close').classList.add('fadeInLeft');
+    });
+
+    document.querySelector('#burger__search-close').addEventListener('click', function(e){
+      e.preventDefault();
+      this.classList.remove('is-active');
+      this.classList.remove('fadeInLeft');
+      //появление лого и бургер
+      document.querySelector('.header__logo').classList.remove('hidden');
+      document.querySelector('.header__logo').classList.remove('move');
+      document.querySelector('#burger').classList.remove('hidden');
+
+      //скрытие инпута
+      document.querySelector('#input__search').classList.remove('is-active');
+      document.querySelector('#input__search').classList.remove('fadeInLeft');
+
+      document.querySelector('#header__btn-seach').classList.remove('is-active');
+      document.querySelector('#header__btn-seach').classList.remove('fadeInLeft');
+    })
+  }
+}
+mediaQueryMax991.addListener(handleTabletChange991);
+handleTabletChange991(mediaQueryMax991);
+
+
+const mediaQueryMax480 = window.matchMedia('(max-width: 480px)');
+function handleTabletChangeMax480(e) {
+  if (e.matches) {
+    document.querySelector('#header__btn-seach').addEventListener('click', function(e){
+      document.querySelector('.header__top').classList.add('add-Blur');
+      document.querySelector('.section-hero').style.height = "355px";
+      document.querySelector('.section-hero__content').style.top = "78px";
+    });
+    document.querySelector('#burger__search-close').addEventListener('click', function(e){
+      e.preventDefault();
+      document.querySelector('.header__top').classList.remove('add-Blur');
+      document.querySelector('.section-hero').style.height = "310px";
+      document.querySelector('.section-hero__content').style.top = "33px";
+    });
+  }
+}
+mediaQueryMax480.addListener(handleTabletChangeMax480);
+handleTabletChangeMax480(mediaQueryMax480);
+
 
 /*-------------- End Header ----------------*/
 /*----------------------- Burger --------------------- */
@@ -102,6 +189,9 @@ var swiper = new Swiper('.swiper-container', {
     el: '.swiper-pagination',
     type: 'fraction',
     clickable: true,
+    observer: true,
+    resizeObserver: true,
+    centeredSlides: true,
   },
 
   // Navigation arrows
@@ -122,11 +212,11 @@ var swiper = new Swiper('.swiper-container', {
   breakpoints: {
     280: {
       slidesPerView: 1,
-      spaceBetween: 0
+      spaceBetween: 10
     },
     480: {
       slidesPerView: 1,
-      spaceBetween: 0
+      spaceBetween: 10
     },
     481: {
       slidesPerView: 1,
@@ -165,7 +255,6 @@ var swiper = new Swiper('.swiper-container', {
     }
   }
 });
-
 
 /*--------- End Section-Gallery -----------*/
 
@@ -426,6 +515,28 @@ var swiper3 = new Swiper('.slider-projects__swiper-container', {
       loopFillGroupWithBlank: true
     }
   }
+});
+
+
+//tooltips
+tippy('#marker1', {
+  theme: 'custom',
+  content: 'Пример современных тенденций - современная методология разработки',
+  duration: [600, 600],
+  maxWidth: 270,
+
+});
+tippy('#marker2', {
+  theme: 'custom',
+  content: 'Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции',
+  duration: [600, 600],
+  maxWidth: 270,
+});
+tippy('#marker3', {
+  theme: 'custom',
+  content: 'В стремлении повысить качество',
+  duration: [600, 600],
+  maxWidth: 270,
 });
 /*-------- End Section-Projects -----------*/
 

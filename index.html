@@ -14,6 +14,12 @@
     type="text/css" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/tippy.js@6/themes/light.css"/>
+
+
     <script src="js/modernizr3.6.0.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script defer src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
@@ -23,6 +29,13 @@
     <script defer src="js/jquery-ui.min.js"></script>
     <script defer src="js/inputmask.min.js"></script>
     <script defer src="js/just-validate.min.js"></script>
+
+
+    <script defer src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script defer src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
     <script defer src="js/core.js"></script>
   </head>
   <body>
@@ -37,11 +50,6 @@
               <span class="header__close-span"></span>
             </button>
             <ul class="menu-burger__list">
-              <li class="menu-burger__item">
-                <div class="header__lk">
-                  <a href="" class="header__lk-link">Войти</a>
-                </div>
-              </li>
               <li class="menu-burger__item">
                 <a href="#section-about" class="nav-header__link menu-burger__link">О нас</a>
               </li>
@@ -62,6 +70,11 @@
               </li>
               <li class="menu-burger__item">
                 <a href="#section-contacts" class="nav-header__link menu-burger__link">Контакты</a>
+              </li>
+              <li class="menu-burger__item">
+                <button class="menu-burger__btn">
+                   Войти
+                </button>
               </li>
             </ul>
           </div>
@@ -105,7 +118,13 @@
             <a href="" class="header__lk-link">Войти</a>
           </div>
           <div class="header__search-btn">
-            <button class="header__btn"></button>
+            <form  action="https://jsonplaceholder.typicode.com/posts" autocomplete="on" method="POST">
+              <button class="header__btn" id="header__btn-seach"></button>
+              <input type="search" tabindex="-1" name="search" class="header__search" id="input__search">
+              <button class="header__search-close" id="burger__search-close">
+                <span class="header__search-span"></span>
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -121,7 +140,7 @@
                     <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link fridrich">Фридрих</a></li>
                     <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link leonardo">Леонардо</a></li>
                     <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link verrokko">Верроккьо</a></li>
-                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link tintoretto" dat tintorettoa->Тинторетто</a></li>
+                    <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link tintoretto">Тинторетто</a></li>
                     <li class="scroll-wrap__item "><a href="" class="scroll-wrap__link fridrich">Фридрих</a></li>
                   </ul>
                 </div>
@@ -181,9 +200,9 @@
             </ul>
           </nav>
           <div class="header__form">
-            <form action="https://jsonplaceholder.typicode.com/posts" autocomplete="on" method="POST">
+            <form  action="https://jsonplaceholder.typicode.com/posts" autocomplete="on" method="POST">
               <button class="header__btn"></button>
-              <input type="search" name="search" class="header__search" id="search" placeholder="Поиск по сайту">
+              <input type="search" tabindex="-1" name="search" class="header__search" id="search" placeholder="Поиск по сайту">
             </form>
           </div>
         </div>
@@ -240,7 +259,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle70.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_70.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_70.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_70.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_70.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -256,7 +275,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle72.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_72.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_72.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_72.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_72.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -272,7 +291,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle69.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_69.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_69.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_69.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_69.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -288,7 +307,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle73.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_73.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_73.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_73.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_73.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -304,7 +323,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle68.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_68.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_68.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_68.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_68.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -320,7 +339,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle71.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_71.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_71.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_71.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_71.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -336,7 +355,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle98.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_3.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_3.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_3.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_3.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -352,7 +371,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle100.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_5.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_5.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_5.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_5.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -368,7 +387,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle92.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_1.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_1.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_1.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_1.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -384,7 +403,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle94.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_4.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_4.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_4.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_4.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -400,7 +419,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle102.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_2.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_2.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_2.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_2.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -416,7 +435,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle96.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_6.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_6.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_6.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_6.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -432,7 +451,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle99.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_77.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_77.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_77.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_77.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -448,7 +467,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle101.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_78.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_78.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_78.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_78.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -464,7 +483,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle93.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_74.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_74.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_74.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_74.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -480,7 +499,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle95.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_75.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_75.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_75.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_75.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -496,7 +515,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle103.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_79.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_79.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_79.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_79.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -512,7 +531,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle97.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/rectangle_76.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_76.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_76.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_76.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -528,7 +547,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle86.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/Rectangle_80-min.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_80-min.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_80-min.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_80-min.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -544,7 +563,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle88.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/Rectangle_81-min.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_81-min.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_81-min.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_81-min.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -560,7 +579,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle80.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/Rectangle_82-min.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_82-min.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_82-min.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_82-min.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -576,7 +595,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle82.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/Rectangle_83-min.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_83-min.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_83-min.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_83-min.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -592,7 +611,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle90.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/Rectangle_84-min.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_84-min.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_84-min.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_84-min.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -608,7 +627,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle84.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/Rectangle_85-min.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_85-min.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_85-min.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_85-min.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -624,7 +643,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle87.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/Rectangle_86-min.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_86-min.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_86-min.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_86-min.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -640,7 +659,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle89.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/Rectangle_87-min.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_87-min.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_87-min.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_87-min.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -656,7 +675,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle81.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/Rectangle_88-min.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_88-min.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_88-min.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_88-min.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -672,7 +691,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle83.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/Rectangle_89-min.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_89-min.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_89-min.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_89-min.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -688,7 +707,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle91.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/Rectangle_90-min.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_90-min.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_90-min.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_90-min.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -704,7 +723,7 @@
                         <source type="image/jpeg" srcset="img/adaptive/768/gallery/Rectangle85.jpg" media="(max-width: 991px)">
                         <source type="image/webp" srcset="img/gallery/Rectangle_91-min.webp">
                         <source type="image/jpeg" srcset="img/gallery/Rectangle_91-min.jpg">
-                        <img class="slider-gallery__img lazyload" data-src="img/gallery/Rectangle_91-min.jpg" alt="картина" loading="lazy">
+                        <img class="slider-gallery__img lazyload" src="img/gallery/Rectangle_91-min.jpg" alt="картина" loading="lazy">
                       </picture>
                       <div class="slider-gallery__box">
                         <div class="slider-gallery__loupe"></div>
@@ -748,7 +767,7 @@
                 <picture>
                   <source type="image/webp" srcset="img/catalog/image_3.webp">
                   <source type="image/jpeg" srcset="img/catalog/image_3.jpg">
-                  <img data-src="img/catalog/image_3.jpg" alt="Доменико Гирландайо" loading="lazy" class="lazyload">
+                  <img src="img/catalog/image_3.jpg" alt="Доменико Гирландайо" loading="lazy" class="lazyload">
                 </picture>
                 <h3 class="painter-desc__title">Доменико Гирландайо</h3>
                 <p class="painter-desc__subtext">2 июня 1448 — 11 января 1494.</p>
@@ -826,7 +845,7 @@
                 <picture>
                   <source type="image/webp" srcset="img/catalog/image_3.webp">
                   <source type="image/jpeg" srcset="img/catalog/image_3.jpg">
-                  <img data-src="img/catalog/image_3.jpg" alt="Доменико Гирландайо" loading="lazy" class="lazyload">
+                  <img src="img/catalog/image_3.jpg" alt="Доменико Гирландайо" loading="lazy" class="lazyload">
                 </picture>
                 <h3 class="painter-desc__title">Доменико Гирландайо</h3>
                 <p class="painter-desc__subtext">2 июня 1448 — 11 января 1494.</p>
@@ -904,7 +923,7 @@
                 <picture>
                   <source type="image/webp" srcset="img/catalog/image_3.webp">
                   <source type="image/jpeg" srcset="img/catalog/image_3.jpg">
-                  <img data-src="img/catalog/image_3.jpg" alt="Доменико Гирландайо" loading="lazy" class="lazyload">
+                  <img src="img/catalog/image_3.jpg" alt="Доменико Гирландайо" loading="lazy" class="lazyload">
                 </picture>
                 <h3 class="painter-desc__title">Доменико Гирландайо</h3>
                 <p class="painter-desc__subtext">2 июня 1448 — 11 января 1494.</p>
@@ -1217,7 +1236,7 @@
                     <picture>
                         <source type="image/webp" srcset="img/publications/Rectangle_111.webp">
                         <source type="image/jpeg" srcset="img/publications/Rectangle_111.jpg">
-                        <img loading="lazy" data-src="img/publications/Rectangle_111.jpg" alt="Искусство цвета" class="slider-publications__img lazyload">
+                        <img loading="lazy" src="img/publications/Rectangle_111.jpg" alt="Искусство цвета" class="slider-publications__img lazyload">
                       </picture>
                     <div class="slider-publications__heading">
                       <h4 class="slider-pulications__title">Искусство цвета</h4>
@@ -1232,7 +1251,7 @@
                       <picture>
                         <source type="image/webp" srcset="img/publications/Rectangle_111-1.webp">
                         <source type="image/jpeg" srcset="img/publications/Rectangle_111-1.jpg">
-                        <img loading="lazy" data-src="img/publications/Rectangle_111-1.jpg" alt="Типографика" class="slider-publications__img lazyload">
+                        <img loading="lazy" src="img/publications/Rectangle_111-1.jpg" alt="Типографика" class="slider-publications__img lazyload">
                       </picture>
                     <div class="slider-publications__heading">
                       <h4 class="slider-pulications__title">Типографика</h4>
@@ -1247,7 +1266,7 @@
                       <picture>
                         <source type="image/webp" srcset="img/publications/Rectangle_111-2.webp">
                         <source type="image/jpeg" srcset="img/publications/Rectangle_111-2.jpg">
-                        <img loading="lazy" data-src="img/publications/Rectangle_111-2.jpg" alt="Книга про буквы" class="slider-publications__img lazyload">
+                        <img loading="lazy" src="img/publications/Rectangle_111-2.jpg" alt="Книга про буквы" class="slider-publications__img lazyload">
                       </picture>
                     <div class="slider-publications__heading">
                       <h4 class="slider-pulications__title">Книга про буквы</h4>
@@ -1262,7 +1281,7 @@
                       <picture>
                         <source type="image/webp" srcset="img/publications/Rectangle_112.webp">
                         <source type="image/jpeg" srcset="img/publications/Rectangle_112.jpg">
-                        <img loading="lazy" data-src="img/publications/Rectangle_112.jpg" alt="Николай Ильин" class="slider-publications__img lazyload">
+                        <img loading="lazy" src="img/publications/Rectangle_112.jpg" alt="Николай Ильин" class="slider-publications__img lazyload">
                       </picture>
                     <div class="slider-publications__heading">
                       <h4 class="slider-pulications__title">Николай Ильин</h4>
@@ -1277,7 +1296,7 @@
                       <picture>
                         <source type="image/webp" srcset="img/publications/Rectangle_112-1.webp">
                         <source type="image/jpeg" srcset="img/publications/Rectangle_112-1.jpg">
-                        <img loading="lazy" data-src="img/publications/Rectangle_112-1.jpg" alt="Модульные сетки в графическом дизайне" class="slider-publications__img lazyload">
+                        <img loading="lazy" src="img/publications/Rectangle_112-1.jpg" alt="Модульные сетки в графическом дизайне" class="slider-publications__img lazyload">
                       </picture>
                     <div class="slider-publications__heading">
                       <h4 class="slider-pulications__title">Модульные сетки в граф...</h4>
@@ -1292,7 +1311,7 @@
                       <picture>
                         <source type="image/webp" srcset="img/publications/Rectangle_112-2.webp">
                         <source type="image/jpeg" srcset="img/publications/Rectangle_112-2.jpg">
-                        <img loading="lazy" data-src="img/publications/Rectangle_112-2.jpg" alt="Эволюция графических стилей" class="slider-publications__img lazyload">
+                        <img loading="lazy" src="img/publications/Rectangle_112-2.jpg" alt="Эволюция графических стилей" class="slider-publications__img lazyload">
                       </picture>
                     <div class="slider-publications__heading">
                       <h4 class="slider-pulications__title">Эволюция графических ст...</h4>
@@ -1307,7 +1326,7 @@
                       <picture>
                         <source type="image/webp" srcset="img/publications/Rectangle_112-3.webp">
                         <source type="image/jpeg" srcset="img/publications/Rectangle_112-3.jpg">
-                        <img loading="lazy" data-src="img/publications/Rectangle_112-3.jpg" alt="Искусство и визуальное восприятие" class="slider-publications__img lazyload">
+                        <img loading="lazy" src="img/publications/Rectangle_112-3.jpg" alt="Искусство и визуальное восприятие" class="slider-publications__img lazyload">
                       </picture>
                     <div class="slider-publications__heading">
                       <h4 class="slider-pulications__title">Искусство и визуальное в...</h4>
@@ -1331,18 +1350,12 @@
             Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи.
             А ещё независимые государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности.
             Прежде всего, постоянное информационно - пропагандистское
-            <span class="marker" tabindex="0" aria-label="Пример современных тенденций - современная методология разработки">
-              <span class="popup">Пример современных тенденций - современная методология разработки</span>
-            </span>
+            <span class="marker" id="marker1" tabindex="0" aria-label="Пример современных тенденций - современная методология разработки"></span>
             обеспечение нашей деятельности однозначно фиксирует необходимость экономической целесообразности принимаемых решений.
             И нет сомнений, что действия представителей оппозиции могут быть рассмотрены
-            <span class="marker" tabindex="0" aria-label="Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции">
-              <span class="popup">Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции</span>
-            </span>
+            <span class="marker" id="marker2" tabindex="0" aria-label="Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции"></span>
             исключительно в разрезе маркетинговых и финансовых
-            <span class="marker marker-last" tabindex="0" aria-label="В стремлении повысить качество">
-              <span class="popup">В стремлении повысить качество</span>
-            </span>
+            <span class="marker marker-last" id="marker3" tabindex="0" aria-label="В стремлении повысить качество"></span>
             предпосылок. Банальные, но неопровержимые выводы, а также представители современных социальных резервов призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не
             уникальными данными до степени совершенной неузнаваемости. Подробнее:
             <a href="" class="section-projects_link">blanchard-art.ru/projects/about</a>
@@ -1359,63 +1372,63 @@
                   <picture>
                     <source type="image/webp" srcset="img/projects/1.webp">
                     <source type="image/jpeg" srcset="img/projects/1.jpg">
-                    <img loading="lazy" data-src="img/projects/1.jpg" alt="Freelands Founfation" class="slider-projects__img lazyload">
+                    <img loading="lazy" src="img/projects/1.jpg" alt="Freelands Founfation" class="slider-projects__img lazyload">
                   </picture>
                 </div>
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/2.webp">
                     <source type="image/jpeg" srcset="img/projects/2.jpg">
-                    <img loading="lazy" data-src="img/projects/2.jpg" alt="Institute for Contemporary Art" class="slider-projects__img lazyload">
+                    <img loading="lazy" src="img/projects/2.jpg" alt="Institute for Contemporary Art" class="slider-projects__img lazyload">
                   </picture>
                 </div>
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/3.webp">
                     <source type="image/jpeg" srcset="img/projects/3.jpg">
-                    <img loading="lazy" data-src="img/projects/3.jpg" alt="Workhouse" class="slider-projects__img lazyload">
+                    <img loading="lazy" src="img/projects/3.jpg" alt="Workhouse" class="slider-projects__img lazyload">
                   </picture>
                 </div>
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/4.webp">
                     <source type="image/jpeg" srcset="img/projects/4.jpg">
-                    <img loading="lazy" data-src="img/projects/4.jpg" alt="1849" class="slider-projects__img lazyload">
+                    <img loading="lazy" src="img/projects/4.jpg" alt="1849" class="slider-projects__img lazyload">
                   </picture>
                 </div>
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/5.webp">
                     <source type="image/jpeg" srcset="img/projects/5.jpg">
-                    <img loading="lazy" data-src="img/projects/5.jpg" alt="Hiscox" class="slider-projects__img lazyload">
+                    <img loading="lazy" src="img/projects/5.jpg" alt="Hiscox" class="slider-projects__img lazyload">
                   </picture>
                 </div>
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/6.webp">
                     <source type="image/jpeg" srcset="img/projects/6.jpg">
-                    <img loading="lazy" data-src="img/projects/6.jpg" alt="Camden" class="slider-projects__img lazyload">
+                    <img loading="lazy" src="img/projects/6.jpg" alt="Camden" class="slider-projects__img lazyload">
                   </picture>
                 </div>
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/7.webp">
                     <source type="image/jpeg" srcset="img/projects/7.jpg">
-                    <img loading="lazy" data-src="img/projects/7.jpg" alt="Stassen" class="slider-projects__img lazyload">
+                    <img loading="lazy" src="img/projects/7.jpg" alt="Stassen" class="slider-projects__img lazyload">
                   </picture>
                 </div>
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/8.webp">
                     <source type="image/jpeg" srcset="img/projects/8.jpg">
-                    <img loading="lazy" data-src="img/projects/8.jpg" alt="Watts gallery artists village" class="slider-projects__img lazyload">
+                    <img loading="lazy" src="img/projects/8.jpg" alt="Watts gallery artists village" class="slider-projects__img lazyload">
                   </picture>
                 </div>
                 <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/9.webp">
                     <source type="image/jpeg" srcset="img/projects/9.jpg">
-                    <img loading="lazy" data-src="img/projects/9.jpg" alt="ESAD" class="slider-projects__img lazyload">
+                    <img loading="lazy" src="img/projects/9.jpg" alt="ESAD" class="slider-projects__img lazyload">
                   </picture>
                 </div>
               </div>
