@@ -156,6 +156,11 @@ document.querySelector('#burger').addEventListener('click', function(){
 document.querySelector('#burger__close').addEventListener('click', function(){
   document.querySelector('#menu').classList.remove('is-active')
 })
+
+
+
+
+
 /*--------------------- End Burger ------------------- */
 /*-------------- Section-Hero ------------ */
 //переход от кнопки к футеру

@@ -602,7 +602,7 @@ input.header__search::-ms-input-placeholder {
   top: 0;
   bottom: 0;
   width: 100vw;
-  background-color: var(--color-black);
+  background-color:rgba(0, 0, 0, 0.9);
   opacity: 0;
   transition-property: transform, opacity;
   transition-duration: 0.3s;
@@ -2505,14 +2505,16 @@ footer {
 
   /*----------hidden menu------------*/
   .header__menu {
-    display: block;
+    display: none;
     right: 0;
     height: 768px;
     transform: translateX(101vw);
+    transition: transform .3s, opacity .3s;
     z-index: 10;
   }
 
   .header__menu.is-active {
+    display: block;
     opacity: 1;
     transform: translateX(0);
   }
