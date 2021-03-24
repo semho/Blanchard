@@ -150,16 +150,20 @@ handleTabletChangeMax480(mediaQueryMax480);
 
 /*-------------- End Header ----------------*/
 /*----------------------- Burger --------------------- */
-document.querySelector('#burger').addEventListener('click', function(){
-  document.querySelector('#menu').classList.toggle('is-active')
-})
-document.querySelector('#burger__close').addEventListener('click', function(){
-  document.querySelector('#menu').classList.remove('is-active')
-})
+/* Старое решение, криво работает на мобильной версии*/
+// document.querySelector('#burger').addEventListener('click', function(){
+//   document.querySelector('#menu').classList.toggle('is-active')
+// })
+// document.querySelector('#burger__close').addEventListener('click', function(){
+//   document.querySelector('#menu').classList.remove('is-active')
+// })
 
-
-
-
+$('#burger').click(function () {
+  $("#menu").show('slide', {direction: 'right'}, 300);
+});
+$('#burger__close').click(function () {
+  $("#menu").hide('slide', {direction: 'right'}, 300);
+});
 
 /*--------------------- End Burger ------------------- */
 /*-------------- Section-Hero ------------ */

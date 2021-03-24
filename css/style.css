@@ -596,14 +596,14 @@ input.header__search::-ms-input-placeholder {
 
 .header__menu {
   display: none;
-  position: fixed;
+  position: absolute;
   padding: 40px;
   padding-top: 27px;
   top: 0;
   bottom: 0;
   width: 100vw;
   background-color:rgba(0, 0, 0, 0.9);
-  opacity: 0;
+  /* opacity: 0; */
   transition-property: transform, opacity;
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
@@ -2508,7 +2508,7 @@ footer {
     display: none;
     right: 0;
     height: 768px;
-    transform: translateX(101vw);
+    /* transform: translateX(101vw); */
     transition: transform .3s, opacity .3s;
     z-index: 10;
   }
