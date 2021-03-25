@@ -651,6 +651,7 @@ input.header__search::-ms-input-placeholder {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow: hidden;
   z-index: 1;
   animation: change-background 6s ease infinite;
 }
@@ -688,6 +689,7 @@ input.header__search::-ms-input-placeholder {
   left: -3px;
   max-width: 600px;
   color: var(--font-color-white);
+  overflow: hidden;
 }
 
 .section-hero__title {
@@ -727,8 +729,8 @@ input.header__search::-ms-input-placeholder {
 /*------------ Section-Gallery --------------*/
 
 .section-gallery {
+  padding-bottom: 70px;
   width: 100%;
-  height: 995px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1698,7 +1700,7 @@ input.header__search::-ms-input-placeholder {
 
 .section-publications {
  margin-top: 80px;
- height: 763px;
+ padding-bottom: 75px;
  color: var(--font-color-white);
 }
 
@@ -2150,7 +2152,6 @@ input.header__search::-ms-input-placeholder {
   padding-left: 7.9%;
   padding-top: 123px;
   width: 30%;
-  height: 700px;
   border: 1px solid var(--color-gray);
 }
 
@@ -2671,9 +2672,6 @@ footer {
   }
 
   /*------------- Section-Gallery --------------*/
-  .section-gallery {
-    height: 839px;
-  }
 
   .no-webp .section-gallery {
     background-image: url('../img/adaptive/1024/birmingham-museums.jpg');
@@ -2822,6 +2820,11 @@ footer {
   }
 
   /*------------- Section-Publications ---------*/
+
+  .section-publications__wrap {
+    margin-bottom: 75px;
+  }
+
   .section-publications__checkbox {
     max-width: 30%;
   }
@@ -3032,9 +3035,6 @@ footer {
     margin-left: 2px;
   }
   /*------------- Section-Gallery --------------*/
-  .section-gallery {
-    height: 1169px;
-  }
 
   .no-webp .section-gallery {
     background-image: url('../img/adaptive/768/section-gallery.jpg');
@@ -3170,9 +3170,6 @@ footer {
   }
 
   /*------------ Section-Publications --------------*/
-  .section-publications {
-    height: 1048px;
-  }
 
   .no-webp .section-publications {
     background-image: url('../img/adaptive/768/section-publications.jpg');
@@ -3183,6 +3180,7 @@ footer {
   }
 
   .section-publications__wrap {
+    margin-bottom: 0;
     flex-direction: column;
   }
 
@@ -3217,7 +3215,7 @@ footer {
 
   .section-publications__slider {
     align-self: center;
-    margin-top: 186px;
+    margin-top: 108px;
     max-width: 614px;
   }
 
@@ -3227,7 +3225,7 @@ footer {
   }
 
   .section-publications__price {
-    top: 185px;
+    position: static;
     width: 100%;
   }
 
@@ -3430,9 +3428,6 @@ footer {
   }
 
   /*------------ Section-Publication -----------*/
-  .section-publications {
-    height: 1100px;
-  }
 
   .checkbox__list {
     width: 100%;
@@ -3460,9 +3455,13 @@ footer {
   }
 
   .slider-publications__swiper-container {
-    height: 480px;
+    height: 100%;
   }
 
+  .slider-pulications__price {
+    font-size: 2.4vw;
+    line-height: 4.5vh;
+  }
   /*--------------- Section-Projects ------------*/
   .section-projects__slider {
     max-width: 85%;
@@ -3677,9 +3676,6 @@ footer {
   }
 
   /*--------------- Section-Gallery -------------*/
-  .section-gallery {
-    height: 962px;
-  }
 
   .no-webp .section-gallery {
     background-image: url('../img/adaptive/320/section-gallery.jpg');
@@ -3863,8 +3859,8 @@ footer {
   }
 
   .event-card__content {
-    padding: 15px 10px 54px 28px;
-    min-height: auto;
+    padding: 21px 10px 54px 28px;
+    min-height: 488px;
     border:none;
   }
 
@@ -3882,8 +3878,8 @@ footer {
 
   .section-event__wrapper.swiper-container-initialized {
     margin: 0 auto;
-    width: 98%;
-    height: 683px;
+    width: 95%;
+    height: 100%;
     overflow: hidden;
   }
 
@@ -3892,7 +3888,8 @@ footer {
   }
 
   .section-event__item {
-    padding-top: 60%;
+    margin-bottom: 0;
+    padding-top: 67%;
     max-width: 100%;
     border: 1px solid var(--color-gray);
   }
@@ -3900,7 +3897,7 @@ footer {
   .swiper-pagination-event {
     display: flex;
     justify-content: space-between;
-    margin: 19px auto 0 auto;
+    margin: 12px auto 0 auto;
     width: 38%;
   }
 
@@ -3920,9 +3917,13 @@ footer {
     border: 2px solid var(--color-main-active);
   }
   /*------------ Section-Publications --------------*/
+  .checkbox__item:nth-child(-n+6) {
+    margin-right: 0;
+  }
+
+
   .section-publications {
     margin-top: 51px;
-    height: 1048px;
   }
 
   .section-publications__headeng {
@@ -4253,9 +4254,6 @@ footer {
   }
 
   /*--------------- Section-Gallery -------------*/
-  .section-gallery {
-    height: 962px;
-  }
 
   .no-webp .section-gallery {
     background-image: url('../img/adaptive/320/section-gallery.jpg');
@@ -4440,7 +4438,7 @@ footer {
   }
 
   .event-card__content {
-    padding: 15px 10px 54px 28px;
+    padding: 21px 10px 54px 28px;
   }
 
   .event-card__title {
@@ -4464,7 +4462,7 @@ footer {
   .section-event__wrapper.swiper-container-initialized {
     margin: 0 auto;
     width: 98%;
-    height: 683px;
+    height: 100%;
     overflow: hidden;
   }
 
@@ -4473,14 +4471,14 @@ footer {
   }
 
   .section-event__item {
-    padding-top: 68%;
+    padding-top: 67%;
     width: 100%;
   }
 
   .swiper-pagination-event {
     display: flex;
     justify-content: space-between;
-    margin: 19px auto 0 auto;
+    margin: 12px auto 0 auto;
     width: 38%;
   }
 
@@ -4502,7 +4500,7 @@ footer {
   /*------------ Section-Publications --------------*/
   .section-publications {
     margin-top: 51px;
-    height: 1542px;
+    padding-bottom: 52px;
   }
 
   .no-webp .section-publications {
