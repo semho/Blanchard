@@ -602,6 +602,39 @@ setTimeout(function(){
   document.getElementsByTagName('body')[0].appendChild(elem);
 }, 2000);
 
+
+/*------------- Modal ---------------*/
+const cardGallery = document.querySelectorAll('.slider-gallery__item');
+
+for (let card of cardGallery) {
+  card.addEventListener('click', function () {
+    //popup
+    const popup = document.querySelector('.popup');
+    popup.classList.add('popup__is-active');
+    //получаем путь к картинке
+    let imgSrc = card.querySelector('picture source:nth-child(5)').getAttribute('srcset');
+    //путь к картинке при разрешении меньше 480px
+    const mediaQueryMax480img = window.matchMedia('(max-width: 480px)');
+    function handleTabletChange480img(e) {
+      if (e.matches) {
+        imgSrc = card.querySelector('picture source:nth-child(1)').getAttribute('srcset');
+      }
+    }
+    mediaQueryMax480img.addListener(handleTabletChange480img);
+    handleTabletChange480img(mediaQueryMax480img);
+    //создаем новую картинку
+    const newImg = document.createElement('img');
+    newImg.src = imgSrc;
+
+    //заменяем текущую картинку на новую
+    $('.popup__content img').replaceWith(newImg);
+  });
+}
+//закрываем модальное окно
+document.querySelector('#popup__close').addEventListener('click', function(){
+  document.querySelector('.popup').classList.remove('popup__is-active');
+});
+
 });
 
 //Map
