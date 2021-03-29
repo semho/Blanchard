@@ -379,6 +379,17 @@ function handleTabletChange480(e) {
         heightStyle: 'content'
       });
     });
+    //добавил в эту функцию медиавыражения скролл в секции "Каталог" от аккардиона
+    //при нажатии на художественного деятеля к его описанию
+    const accButton = document.querySelectorAll('button.accordion__btn');
+    for (let button of accButton) {
+      button.addEventListener('click', function() {
+        document.querySelector('.tabs__painter-desc-active').scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    }
   }
 }
 mediaQuery480.addListener(handleTabletChange480);
