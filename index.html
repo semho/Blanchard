@@ -1444,17 +1444,17 @@
               <h3 class="form__header">Шоурум №4</h3>
               <address class="form__address">Леонтьевский переулок, дом 5, строение 1</address>
               <h4 class="form__title">Заказать обратный звонок</h4>
-              <form class="form__wrap" action="https://jsonplaceholder.typicode.com/posts" autocomplete="on" method="POST">
+              <form class="form__wrap" id="form" autocomplete="on">
                 <div class="form__group">
                   <label for="name"></label>
-                  <input type="text" class="form__name" id="name" name="Имя" placeholder="Имя*" data-validate-field="name">
+                  <input type="text" class="form__name req" id="name" name="name" placeholder="Имя*" data-validate-field="name">
                 </div>
                 <div class="form__group">
                   <label for="phone"></label>
-                  <input type="tel" class="form__phone" id="phone" name="tel" placeholder="Телефон*" data-validate-field="tel">
+                  <input type="tel" class="form__phone req" id="phone" name="tel" placeholder="Телефон*" data-validate-field="tel">
                 </div>
                 <div class="form__footer">
-                  <button class="form__btn section-event__btn" type="submit">Заказать</button>
+                  <button class="form__btn section-event__btn" id="btn__callback" type="submit">Заказать</button>
                 </div>
               </form>
               <h4 class="form__title">Связаться в один клик</h4>

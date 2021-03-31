@@ -569,7 +569,7 @@ let selector = document.querySelector("input[type='tel']");
 let im = new Inputmask("+7(999) 999-99-99");
 im.mask(selector);
 
-new JustValidate('.form__wrap', {
+let validator = new JustValidate('.form__wrap', {
   colorWrong: '#7943A4',
   rules: {
     name: {
@@ -645,6 +645,99 @@ for (let card of cardGallery) {
 document.querySelector('#popup__close').addEventListener('click', function(){
   document.querySelector('.popup').classList.remove('popup__is-active');
 });
+
+/*------------- Форма обратного звонка -----------------*/
+  const form = document.getElementById('form');
+  const btnForm = document.getElementById('btn__callback');
+  //form.addEventListener('submit', formSend);
+  btnForm.addEventListener('click', formSend);
+
+  async function formSend(event) {
+    event.preventDefault();
+
+    let error = formValidate(form);
+    let formData = new FormData(form);
+
+    if (error === 0) {
+      btnForm.classList.add('_disabled');
+      btnForm.disabled = true;
+
+      let response = await fetch('data.php', {
+          method: 'POST',
+          body: formData
+      });
+      if (response.ok){
+        let result = await response.json();
+        form.style.visibility = "hidden";
+
+        const divResult = document.createElement('div');
+        divResult.className = 'result-message';
+        divResult.innerHTML = result.message;
+        const containerForm = document.querySelector('.section-contacts__form');
+        containerForm.append(divResult);
+
+        btnForm.classList.remove('_disabled');
+        btnForm.disabled = false;
+      } else {
+        alert("Ошибка");
+        btnForm.classList.remove('_disabled');
+        btnForm.disabled = false;
+      }
+    } else {
+      const divErrorName = document.createElement('div');
+      divErrorName.className = 'js-validate-error-label';
+      divErrorName.innerHTML = 'Как Вас завут?';
+      divErrorName.style.color = '#7943A4';
+
+      const divErrorPhone = document.createElement('div');
+      divErrorPhone.className = 'js-validate-error-label';
+      divErrorPhone.innerHTML = 'Укажите Ваш телефон!';
+      divErrorPhone.style.color = '#7943A4';
+
+      const formGroup = document.getElementsByClassName('form__group');
+      formGroup[0].append(divErrorName);
+      formGroup[1].append(divErrorPhone);
+      //alert('Заполните поля');
+    }
+  }
+
+  function formValidate(form) {
+    let error = 0;
+    let formReq = document.querySelectorAll('.req');
+
+    for (let index = 0; index < formReq.length; index++) {
+      const input = formReq[index];
+
+      formRemoveError(input);
+
+      if (input.classList.contains('form__name')) {
+        if (input.value.length < 3) {
+          formAddError(input);
+          error++;
+        }
+      } else if (input.classList.contains('form__phone')) {
+        let phone = input.inputmask.unmaskedvalue();
+        if (phone.length < 10 ) {
+          formAddError(input);
+          error++;
+        }
+      } else {
+        if (input.value === '') {
+          formAddError(input);
+          error++;
+        }
+      }
+    }
+    return error;
+  }
+
+  function formAddError(input) {
+    input.classList.add('_error');
+  }
+
+  function formRemoveError(input) {
+    input.classList.remove('_error');
+  }
 
 });
 

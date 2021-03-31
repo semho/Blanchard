@@ -2148,6 +2148,7 @@ input.header__search::-ms-input-placeholder {
 
 /*form*/
 .section-contacts__form {
+  position: relative;
   flex-grow: 1;
   padding-left: 7.9%;
   padding-top: 123px;
@@ -2472,6 +2473,27 @@ footer {
   content: "";
   transform: rotate(-90deg);
 }
+
+._error {
+  box-shadow: 0 0 15px var(--color-main-active);
+}
+
+.form__name._error, .form__phone._error {
+  border: none;
+}
+
+._disabled, ._disabled:focus, ._disabled:active, ._disabled:hover {
+  background-color: #9C9C9C;
+  color: white;
+  border: none;
+}
+
+.result-message {
+  position: absolute;
+  bottom: 50%;
+  right: 18%;
+}
+
 /*------------------------- @Media ----------------------*/
 @media (max-width: 1640px) {
   .container {
