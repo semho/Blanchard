@@ -319,6 +319,9 @@ document.querySelectorAll('.accordion__btn').forEach(function(tabsBtnAcc) {
     })
     //добавить класс текущей ативной кнопки
     this.classList.add('accordion__btn-active')
+    //записываем текущего художественного деятеля в переменную
+    let currentBtnActive = this.innerHTML;
+
     const pathAcc = event.currentTarget.dataset.path
     //убрать класс активного контента у всех
     document.querySelectorAll('.tabs__painter-desc').forEach(function(tabsContentAcc){
@@ -326,6 +329,14 @@ document.querySelectorAll('.accordion__btn').forEach(function(tabsBtnAcc) {
     })
     //добавить класс активного контента по ссылке текущей кнопки
     document.querySelector(`[data-target="${pathAcc}"]`).classList.add('tabs__painter-desc-active')
+
+    //записываем в переменную контент текущего художественного деятеля
+    let currentContentActive = document.querySelector(`[data-target="${pathAcc}"]`);
+
+    //функция ищет контент на художественного деятеля в википедии и добавляет на страницу
+    createContentWiki(currentBtnActive, currentContentActive);
+
+
   })
 })
 
@@ -809,4 +820,46 @@ function getYaMap(){
 
   myMap.geoObjects.add(myPlacemark);
 
+}
+
+
+//функция поиска контента на художественного деятеля.
+async function createContentWiki(currentBtnActive, currentContentActive) {
+  //ссылка где ищем
+  let url = "https://ru.wikipedia.org/w/api.php";
+  //объект параметров. Передаем художественного деятеля и ищем его страницу
+  let params = {
+      action: "parse",
+      page: `${currentBtnActive}`,
+      //prop: 'wikitext',
+      format: "json"
+  };
+  //формируем запрос
+  url = url + "?origin=*";
+  Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];});
+
+  let response = await fetch(url);
+  //переменая с данными о деятеле
+  let jsonResultText;
+
+  if (response.ok) { // если HTTP-статус в диапазоне 200-299
+    // получаем тело ответа
+    let json = await response.json();
+    jsonResultText = json.parse.text['*'];
+  } else {
+    alert("Ошибка HTTP: " + response.status);
+  }
+
+  document.querySelectorAll('.js-wrap-content').forEach(function(AllContent){
+    AllContent.remove();
+  })
+
+  let divWrap = document.createElement('div');
+  divWrap.className = "js-wrap-content";
+  divWrap.innerHTML = jsonResultText;
+
+  currentContentActive.append(divWrap);
+
+  // return divWrap.insertAdjacentHTML('beforeend', jsonResultText);
+  return;
 }

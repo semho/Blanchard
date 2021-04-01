@@ -1306,7 +1306,7 @@ input.header__search::-ms-input-placeholder {
 }
 
 .accordion__item {
-  width: 26%;
+  width: 27%;
 }
 
 .ui-accordion .ui-accordion-header {
@@ -1496,6 +1496,7 @@ input.header__search::-ms-input-placeholder {
 
 .ui-accordion .ui-accordion-content {
   padding: 0;
+  padding-left: 2px;
 }
 
 /*-------------- Section-event ----------------*/
@@ -2555,6 +2556,17 @@ footer {
 .result-message {
   position: absolute;
   bottom: 50%;
+}
+
+/*------------------- Wiki ------------------*/
+.mw-editsection, .toc, #Примечания, #Примечания + span, .reflist, #Ссылки,
+#Ссылки + span, .external, .ref-info, .navbox, .gallery.mw-gallery-traditional,
+#Галерея, #Галерея + span   {
+  display: none;
+}
+
+.mw-parser-output, .mw-parser-output a, .mw-parser-output p a, .mw-parser-output ul li a, .plainlist a {
+  color: var(--font-color-main);
 }
 
 /*------------------------- @Media ----------------------*/
