@@ -126,6 +126,15 @@
               </button>
             </form>
           </div>
+
+           <!-- перенес контент секции hero для абсолютного позиционирования в верхнее меню
+          в рамки контейнера, чтобы этот контент не добавлять в каждый слайдер, при этом
+          контент отталкивался от границ контейнера -->
+          <div class="section-hero__content">
+            <h1 class="section-hero__title">Прикоснитесь к прекрасному</h1>
+            <p class="section-hero__text">Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
+            <button class="btn btn-to-footer">Подписаться на рассылку</button>
+          </div>
         </div>
       </div>
       <div class="header__bottom">
@@ -209,12 +218,13 @@
       </div>
     </header>
     <main>
-      <section class="section-hero">
-        <div class="container section-hero__container">
-          <div class="section-hero__content">
-            <h1 class="section-hero__title">Прикоснитесь к прекрасному</h1>
-            <p class="section-hero__text">Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
-            <button class="btn" id="btn">Подписаться на рассылку</button>
+      <section class="section-hero swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide section-hero__slide" id="hero-slide1">
+          </div>
+          <div class="swiper-slide section-hero__slide" id="hero-slide2">
+          </div>
+          <div class="swiper-slide section-hero__slide" id="hero-slide3">
           </div>
         </div>
       </section>

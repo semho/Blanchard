@@ -170,6 +170,7 @@ header {
 }
 
 .header__container {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -648,100 +649,60 @@ input.header__search::-ms-input-placeholder {
   width: 100%;
   height: 800px;
   top: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.section-hero__slide {
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  width: 100vw !important;
+
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  overflow: hidden;
-  z-index: 1;
-
+  animation: change-background 6s ease infinite;
 }
 
-.no-webp .section-hero {
-  animation: change-background-jpg 20s ease infinite;
+.no-webp #hero-slide1 {
+  background-image: url('../img/section-hero.jpg');
 }
 
-.webp .section-hero {
-  animation: change-background-webp 20s ease infinite;
+.webp #hero-slide1 {
+  background-image: url('../img/section-hero.webp');
 }
 
-@keyframes change-background-jpg {
+.no-webp #hero-slide2 {
+  background-image: url('../img/section-hero2.jpg');
+}
+
+.webp #hero-slide2 {
+  background-image: url('../img/section-hero2.webp');
+}
+
+.no-webp #hero-slide3 {
+  background-image: url('../img/section-hero3.jpg');
+}
+
+.webp #hero-slide3 {
+  background-image: url('../img/section-hero3.webp');
+}
+
+@keyframes change-background {
   0% {
-    background-image: url('../img/section-hero.jpg');
     background-size: 120%;
     background-position: 50% 50%;
   }
-  16.5% {
-    background-image: url('../img/section-hero.jpg');
-    background-size: 110%;
-    background-position: 20% 80%;
-  }
-  33% {
-    background-image: url('../img/section-hero2.jpg');
-    background-size: 120%;
-    background-position: 50% 50%;
-  }
-  49.5% {
-    background-image: url('../img/section-hero2.jpg');
-    background-size: 110%;
-    background-position: 20% 80%;
-  }
-  66% {
-    background-image: url('../img/section-hero3.jpg');
-    background-size: 120%;
-    background-position: 50% 50%;
-  }
-  82.5% {
-    background-image: url('../img/section-hero3.jpg');
+  50% {
     background-size: 110%;
     background-position: 20% 80%;
   }
   100% {
-    background-image: url('../img/section-hero.jpg');
     background-size: 120%;
     background-position: 50% 50%;
   }
-
 }
-
-@keyframes change-background-webp {
-  0% {
-    background-image: url('../img/section-hero.webp');
-    background-size: 120%;
-    background-position: 50% 50%;
-  }
-  16.5% {
-    background-image: url('../img/section-hero.webp');
-    background-size: 110%;
-    background-position: 20% 80%;
-  }
-  33% {
-    background-image: url('../img/section-hero2.webp');
-    background-size: 120%;
-    background-position: 50% 50%;
-  }
-  49.5% {
-    background-image: url('../img/section-hero2.webp');
-    background-size: 110%;
-    background-position: 20% 80%;
-  }
-  66% {
-    background-image: url('../img/section-hero3.webp');
-    background-size: 120%;
-    background-position: 50% 50%;
-  }
-  82.5% {
-    background-image: url('../img/section-hero3.webp');
-    background-size: 110%;
-    background-position: 20% 80%;
-  }
-  100% {
-    background-image: url('../img/section-hero.webp');
-    background-size: 120%;
-    background-position: 50% 50%;
-  }
-
-}
-
 
 .section-hero__container {
   position: relative;
@@ -749,11 +710,13 @@ input.header__search::-ms-input-placeholder {
 
 .section-hero__content {
   position: absolute;
+  padding-bottom: 10px;
   top: 240px;
-  left: -3px;
+  left: -4px;
   max-width: 600px;
   color: var(--font-color-white);
   overflow: hidden;
+  z-index: 99;
 }
 
 .section-hero__title {
@@ -2621,84 +2584,6 @@ footer {
   .header__form {
     margin-right: 0;
   }
-
-  @keyframes change-background-jpg {
-    0% {
-      background-image: url('../img/section-hero.jpg');
-      background-size: 150%;
-      background-position: 50% 50%;
-    }
-    16.5% {
-      background-image: url('../img/section-hero.jpg');
-      background-size: 140%;
-      background-position: 20% 80%;
-    }
-    33% {
-      background-image: url('../img/section-hero2.jpg');
-      background-size: 150%;
-      background-position: 50% 50%;
-    }
-    49.5% {
-      background-image: url('../img/section-hero2.jpg');
-      background-size: 140%;
-      background-position: 20% 80%;
-    }
-    66% {
-      background-image: url('../img/section-hero3.jpg');
-      background-size: 150%;
-      background-position: 50% 50%;
-    }
-    82.5% {
-      background-image: url('../img/section-hero3.jpg');
-      background-size: 140%;
-      background-position: 20% 80%;
-    }
-    100% {
-      background-image: url('../img/section-hero.jpg');
-      background-size: 150%;
-      background-position: 50% 50%;
-    }
-
-  }
-
-  @keyframes change-background-webp {
-    0% {
-      background-image: url('../img/section-hero.webp');
-      background-size: 150%;
-      background-position: 50% 50%;
-    }
-    16.5% {
-      background-image: url('../img/section-hero.webp');
-      background-size: 140%;
-      background-position: 20% 80%;
-    }
-    33% {
-      background-image: url('../img/section-hero2.webp');
-      background-size: 150%;
-      background-position: 50% 50%;
-    }
-    49.5% {
-      background-image: url('../img/section-hero2.webp');
-      background-size: 140%;
-      background-position: 20% 80%;
-    }
-    66% {
-      background-image: url('../img/section-hero3.webp');
-      background-size: 150%;
-      background-position: 50% 50%;
-    }
-    82.5% {
-      background-image: url('../img/section-hero3.webp');
-      background-size: 140%;
-      background-position: 20% 80%;
-    }
-    100% {
-      background-image: url('../img/section-hero.webp');
-      background-size: 150%;
-      background-position: 50% 50%;
-    }
-
-  }
   /*---------------- Section-Gallery -------------*/
   .section-gallery__select-custom {
     width: 26%;
@@ -2914,94 +2799,32 @@ footer {
     height: 668px;
   }
 
-  .no-webp .section-hero {
-    animation: change-background-jpg 20s ease infinite;
+  .no-webp #hero-slide1 {
+    background-image: url('../img/adaptive/1024/section-hero_1024.jpg');
   }
 
-  .webp .section-hero {
-    animation: change-background-webp 20s ease infinite;
+  .webp #hero-slide1 {
+    background-image: url('../img/adaptive/1024/section-hero_1024.webp');
   }
 
-  @keyframes change-background-jpg {
-    0% {
-      background-image: url('../img/adaptive/1024/section-hero_1024.jpg');
-      background-size: 120%;
-      background-position: 50% 50%;
-    }
-    16.5% {
-      background-image: url('../img/adaptive/1024/section-hero_1024.jpg');
-      background-size: 110%;
-      background-position: 20% 80%;
-    }
-    33% {
-      background-image: url('../img/adaptive/1024/section-hero_1024_2.jpg');
-      background-size: 120%;
-      background-position: 50% 50%;
-    }
-    49.5% {
-      background-image: url('../img/adaptive/1024/section-hero_1024_2.jpg');
-      background-size: 110%;
-      background-position: 20% 80%;
-    }
-    66% {
-      background-image: url('../img/adaptive/1024/section-hero_1024_3.jpg');
-      background-size: 120%;
-      background-position: 50% 50%;
-    }
-    82.5% {
-      background-image: url('../img/adaptive/1024/section-hero_1024_3.jpg');
-      background-size: 110%;
-      background-position: 20% 80%;
-    }
-    100% {
-      background-image: url('../img/adaptive/1024/section-hero_1024.jpg');
-      background-size: 120%;
-      background-position: 50% 50%;
-    }
-
+  .no-webp #hero-slide2 {
+    background-image: url('../img/adaptive/1024/section-hero_1024_2.jpg');
   }
 
-  @keyframes change-background-webp {
-    0% {
-      background-image: url('../img/adaptive/1024/section-hero_1024.webp');
-      background-size: 120%;
-      background-position: 50% 50%;
-    }
-    16.5% {
-      background-image: url('../img/adaptive/1024/section-hero_1024.webp');
-      background-size: 110%;
-      background-position: 20% 80%;
-    }
-    33% {
-      background-image: url('../img/adaptive/1024/section-hero_1024_2.webp');
-      background-size: 120%;
-      background-position: 50% 50%;
-    }
-    49.5% {
-      background-image: url('../img/adaptive/1024/section-hero_1024_2.webp');
-      background-size: 110%;
-      background-position: 20% 80%;
-    }
-    66% {
-      background-image: url('../img/adaptive/1024/section-hero_1024_3.webp');
-      background-size: 120%;
-      background-position: 50% 50%;
-    }
-    82.5% {
-      background-image: url('../img/adaptive/1024/section-hero_1024_3.webp');
-      background-size: 110%;
-      background-position: 20% 80%;
-    }
-    100% {
-      background-image: url('../img/adaptive/1024/section-hero_1024.webp');
-      background-size: 120%;
-      background-position: 50% 50%;
-    }
+  .webp #hero-slide2 {
+    background-image: url('../img/adaptive/1024/section-hero_1024_2.webp');
+  }
 
+  .no-webp #hero-slide3 {
+    background-image: url('../img/adaptive/1024/section-hero_1024_3.jpg');
+  }
+
+  .webp #hero-slide3 {
+    background-image: url('../img/adaptive/1024/section-hero_1024_3.webp');
   }
 
   .section-hero__content {
-    top: 113px;
+    top: 211px;
     left: -6px;
     max-width: 670px;
   }
@@ -3382,90 +3205,19 @@ footer {
   }
   /*----------- Section-Hero ----------------*/
 
-  .no-webp .section-hero {
-    animation: change-background-jpg 20s ease infinite;
-  }
-
-  .webp .section-hero {
-    animation: change-background-webp 20s ease infinite;
-  }
-
-  @keyframes change-background-jpg {
+  @keyframes change-background {
     0% {
-      background-image: url('../img/adaptive/1024/section-hero_1024.jpg');
-      background-size: 140%;
-      background-position: 50% 50%;
+      background-size: 120%;
+      background-position: 80% 80%
     }
-    16.5% {
-      background-image: url('../img/adaptive/1024/section-hero_1024.jpg');
+    50% {
       background-size: 130%;
-      background-position: 20% 80%;
-    }
-    33% {
-      background-image: url('../img/adaptive/1024/section-hero_1024_2.jpg');
-      background-size: 140%;
       background-position: 50% 50%;
-    }
-    49.5% {
-      background-image: url('../img/adaptive/1024/section-hero_1024_2.jpg');
-      background-size: 130%;
-      background-position: 20% 80%;
-    }
-    66% {
-      background-image: url('../img/adaptive/1024/section-hero_1024_3.jpg');
-      background-size: 140%;
-      background-position: 50% 50%;
-    }
-    82.5% {
-      background-image: url('../img/adaptive/1024/section-hero_1024_3.jpg');
-      background-size: 130%;
-      background-position: 20% 80%;
     }
     100% {
-      background-image: url('../img/adaptive/1024/section-hero_1024.jpg');
-      background-size: 140%;
-      background-position: 50% 50%;
+      background-size: 120%;
+      background-position: 80% 80%
     }
-
-  }
-
-  @keyframes change-background-webp {
-    0% {
-      background-image: url('../img/adaptive/1024/section-hero_1024.webp');
-      background-size: 140%;
-      background-position: 50% 50%;
-    }
-    16.5% {
-      background-image: url('../img/adaptive/1024/section-hero_1024.webp');
-      background-size: 130%;
-      background-position: 20% 80%;
-    }
-    33% {
-      background-image: url('../img/adaptive/1024/section-hero_1024_2.webp');
-      background-size: 140%;
-      background-position: 50% 50%;
-    }
-    49.5% {
-      background-image: url('../img/adaptive/1024/section-hero_1024_2.webp');
-      background-size: 130%;
-      background-position: 20% 80%;
-    }
-    66% {
-      background-image: url('../img/adaptive/1024/section-hero_1024_3.webp');
-      background-size: 140%;
-      background-position: 50% 50%;
-    }
-    82.5% {
-      background-image: url('../img/adaptive/1024/section-hero_1024_3.webp');
-      background-size: 130%;
-      background-position: 20% 80%;
-    }
-    100% {
-      background-image: url('../img/adaptive/1024/section-hero_1024.webp');
-      background-size: 140%;
-      background-position: 50% 50%;
-    }
-
   }
 
   /*---------- Section-About ----------------*/
@@ -3792,7 +3544,7 @@ footer {
   }
 
   .section-hero__content {
-    top: 85px;
+    top: 175px;
   }
 
   .section-hero__title {
@@ -3807,6 +3559,16 @@ footer {
   }
 
   .btn {
+    padding: 3vw 5vw;
+    font-size: 2.34vw;
+  }
+
+  .btn:hover {
+    padding: 3vw 5vw;
+    font-size: 2.34vw;
+  }
+
+  .btn:active {
     padding: 3vw 5vw;
     font-size: 2.34vw;
   }
@@ -4102,93 +3864,15 @@ footer {
   }
 
   .no-webp .section-hero {
-    animation: change-background-jpg 20s ease infinite;
+    background-image: url('../img/adaptive/320/section-hero.jpg');
   }
 
   .webp .section-hero {
-    animation: change-background-webp 20s ease infinite;
-  }
-
-  @keyframes change-background-jpg {
-    0% {
-      background-image: url('../img/adaptive/320/section-hero.jpg');
-      background-size: 120%;
-      background-position: 50% 50%;
-    }
-    16.5% {
-      background-image: url('../img/adaptive/320/section-hero.jpg');
-      background-size: 110%;
-      background-position: 20% 80%;
-    }
-    33% {
-      background-image: url('../img/adaptive/320/section-hero2.jpg');
-      background-size: 120%;
-      background-position: 50% 50%;
-    }
-    49.5% {
-      background-image: url('../img/adaptive/320/section-hero2.jpg');
-      background-size: 110%;
-      background-position: 20% 80%;
-    }
-    66% {
-      background-image: url('../img/adaptive/320/section-hero3.jpg');
-      background-size: 120%;
-      background-position: 50% 50%;
-    }
-    82.5% {
-      background-image: url('../img/adaptive/320/section-hero3.jpg');
-      background-size: 110%;
-      background-position: 20% 80%;
-    }
-    100% {
-      background-image: url('../img/adaptive/320/section-hero.jpg');
-      background-size: 120%;
-      background-position: 50% 50%;
-    }
-
-  }
-
-  @keyframes change-background-webp {
-    0% {
-      background-image: url('../img/adaptive/320/section-hero.webp');
-      background-size: 120%;
-      background-position: 50% 50%;
-    }
-    16.5% {
-      background-image: url('../img/adaptive/320/section-hero.webp');
-      background-size: 110%;
-      background-position: 20% 80%;
-    }
-    33% {
-      background-image: url('../img/adaptive/320/section-hero2.webp');
-      background-size: 120%;
-      background-position: 50% 50%;
-    }
-    49.5% {
-      background-image: url('../img/adaptive/320/section-hero2.webp');
-      background-size: 110%;
-      background-position: 20% 80%;
-    }
-    66% {
-      background-image: url('../img/adaptive/320/section-hero3.webp');
-      background-size: 120%;
-      background-position: 50% 50%;
-    }
-    82.5% {
-      background-image: url('../img/adaptive/320/section-hero3.webp');
-      background-size: 110%;
-      background-position: 20% 80%;
-    }
-    100% {
-      background-image: url('../img/adaptive/320/section-hero.webp');
-      background-size: 120%;
-      background-position: 50% 50%;
-    }
-
+    background-image: url('../img/adaptive/320/section-hero.webp');
   }
 
   .section-hero__content {
-    top: 48px;
+    top: 79px;
     left: 0;
     max-width: 480px;
     text-align: center;
@@ -4207,6 +3891,18 @@ footer {
   }
 
   .btn {
+    padding: 13px 18px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .btn:hover {
+    padding: 13px 18px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .btn:active {
     padding: 13px 18px;
     font-size: 12px;
     line-height: 16px;
@@ -4816,7 +4512,7 @@ footer {
   }
 
   .section-hero__content {
-    top: 33px;
+    top: 79px;
     left: 4.6%;
     max-width: 265px;
     text-align: center;

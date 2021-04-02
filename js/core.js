@@ -168,13 +168,24 @@ $('#burger__close').click(function () {
 /*--------------------- End Burger ------------------- */
 /*-------------- Section-Hero ------------ */
 //переход от кнопки к футеру
-const btn = document.querySelector('#btn')
+let btn =document.querySelector('.btn-to-footer')
 
 btn.addEventListener('click', function() {
   document.querySelector('#footer').scrollIntoView({
     behavior: 'smooth',
     block: 'start'
   })
+});
+
+
+let swiperSectionHero = new Swiper('.section-hero.swiper-container', {
+  effect: 'fade',
+  loop:true,
+  autoplay: {
+    delay: 4000,
+  },
+  speed: 1000,
+  spaceBetween: 30,
 });
 /*---------- End Section-Hero ------------ */
 
@@ -874,7 +885,7 @@ async function createContentWiki(currentBtnActive, currentContentActive) {
     dateBirth = "неизвестно"
   }
   if (dateBirth !== "неизвестно") {
-    dateBirth = dateBirth.textContent;
+    dateBirth = dateBirth.innerHTML;
     //убираем ссылка на источник
     dateBirth = dateBirth.replace(/ок.|\[(.*)\]/g, '');
   }
@@ -907,6 +918,7 @@ async function createContentWiki(currentBtnActive, currentContentActive) {
   //создаем div-обертку куда помещаем всю инфу
   let divWrap = document.createElement('div');
   divWrap.className = "js-wrap-content";
+
   //помещаем картинку
   divWrap.append(imgArtist);
   //создаем заголовок h3, в него кидаем название художника и помещаем в див
