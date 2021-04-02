@@ -313,6 +313,10 @@ document.querySelectorAll('.tabs__btn').forEach(function(tabsBtn) {
 
 document.querySelectorAll('.accordion__btn').forEach(function(tabsBtnAcc) {
   tabsBtnAcc.addEventListener('click', function(event){
+    //убираем контент по умолчанию
+    document.querySelectorAll(".default").forEach(function(e){
+      e.remove();
+    })
     //убрать класс активной кнопки у всех
     document.querySelectorAll('.accordion__btn').forEach(function(tabsBtnAccActive) {
       tabsBtnAccActive.classList.remove('accordion__btn-active')
@@ -850,16 +854,84 @@ async function createContentWiki(currentBtnActive, currentContentActive) {
     alert("Ошибка HTTP: " + response.status);
   }
 
+  //если есть созданный див с информацией из вики уже на странице - удаляем его
   document.querySelectorAll('.js-wrap-content').forEach(function(AllContent){
     AllContent.remove();
   })
 
+  //создаем новый див
+  let divInfo = document.createElement('div');
+  //помещаем туда информацию из вики
+  divInfo.innerHTML = jsonResultText;
+
+  //находим в этом диве даты рождения и смерти и помещаем в переменные
+  let dateBirth = divInfo.querySelector("[data-wikidata-property-id='P569']");
+  //убираем теги, оставляем только текст
+  if (dateBirth !== null){
+    //убираем теги, оставляем только текст
+    getCleanContent(dateBirth);
+  } else {
+    dateBirth = "неизвестно"
+  }
+  if (dateBirth !== "неизвестно") {
+    dateBirth = dateBirth.textContent;
+    //убираем ссылка на источник
+    dateBirth = dateBirth.replace(/ок.|\[(.*)\]/g, '');
+  }
+  let dateDeath = divInfo.querySelector("[data-wikidata-property-id='P570']");
+  if (dateDeath !== null){
+    //убираем теги, оставляем только текст
+    getCleanContent(dateDeath);
+  } else {
+    dateDeath = "неизвестно"
+  }
+  if (dateDeath !== "неизвестно") {
+    dateDeath = dateDeath.innerHTML;
+    //убираем ссылка на источник
+    dateDeath = dateDeath.replace(/ок.|\[(.*)\]/g, '');
+  }
+  //находим краткую информацию о художнике
+  let descArtist = divInfo.querySelector(".mw-parser-output p");
+  if (descArtist !== null){
+  //убираем теги, оставляем только текст
+    getCleanContent(descArtist);
+  } else {
+    descArtist = "";
+  }
+
+  //получаем первую картинку
+  //let imgArtist = divInfo.querySelector(".wikidata-snak .image img");
+  let imgArtist = divInfo.querySelector(".mw-parser-output .image img");
+  imgArtist.className = "painter-img";
+
+  //создаем div-обертку куда помещаем всю инфу
   let divWrap = document.createElement('div');
   divWrap.className = "js-wrap-content";
-  divWrap.innerHTML = jsonResultText;
+  //помещаем картинку
+  divWrap.append(imgArtist);
+  //создаем заголовок h3, в него кидаем название художника и помещаем в див
+  let titleArtist = document.createElement('h3');
+  titleArtist.className = "painter-desc__title";
+  titleArtist.append(currentBtnActive);
+  divWrap.append(titleArtist);
+  //создаем параграф для времени жизни художника и помещаем в див
+  let subtextArtist = document.createElement('p');
+  subtextArtist.className = "painter-desc__subtext";
+  subtextArtist.append(dateBirth + " — " + dateDeath);
+  divWrap.append(subtextArtist);
+  //создаем параграф для краткого описания художника и помещаем в див
+  let textDescArtist = document.createElement('p');
+  textDescArtist.className = "painter-desc__text";
+  textDescArtist.append(descArtist);
+  divWrap.append(textDescArtist);
 
   currentContentActive.append(divWrap);
 
-  // return divWrap.insertAdjacentHTML('beforeend', jsonResultText);
+  // return divInfo.insertAdjacentHTML('beforeend', jsonResultText);
   return;
+}
+
+//функция очищает от тегов
+function getCleanContent(element) {
+  element.innerHTML = element.innerText || element.textContent;
 }
