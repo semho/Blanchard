@@ -1255,6 +1255,11 @@ input.header__search::-ms-input-placeholder {
   line-height: var(--font-line-height-main);
 }
 
+.painter-desc__img {
+  margin: 0 auto;
+  display: block;
+}
+
 /*second right block*/
 .tabs__accordion {
   width: 50%;

@@ -913,7 +913,7 @@ async function createContentWiki(currentBtnActive, currentContentActive) {
   //получаем первую картинку
   //let imgArtist = divInfo.querySelector(".wikidata-snak .image img");
   let imgArtist = divInfo.querySelector(".mw-parser-output .image img");
-  imgArtist.className = "painter-img";
+  imgArtist.className = "painter-desc__img";
 
   //создаем div-обертку куда помещаем всю инфу
   let divWrap = document.createElement('div');
