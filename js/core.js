@@ -751,6 +751,7 @@ const cardGallery = document.querySelectorAll('.slider-gallery__item');
 
 for (let card of cardGallery) {
   card.addEventListener('click', function () {
+    document.body.style.overflowY = 'hidden';
     //popup
     const popup = document.querySelector('.popup');
     popup.classList.add('popup__is-active');
@@ -775,6 +776,7 @@ for (let card of cardGallery) {
 }
 //закрываем модальное окно
 document.querySelector('#popup__close').addEventListener('click', function(){
+  document.body.style.overflowY = 'auto';
   document.querySelector('.popup').classList.remove('popup__is-active');
 });
 
