@@ -76,11 +76,19 @@ function handleTabletChange1199(e) {
   if (e.matches) {
     document.querySelector('#header__btn-seach').addEventListener('click', function(e){
       e.preventDefault();
-      this.classList.add('is-active');
-      this.classList.add('fadeInLeft');
-      document.querySelector('#input__search').classList.add('is-active');
-      document.querySelector('#input__search').classList.add('fadeInLeft');
-      document.querySelector('.header__logo').classList.add('move');
+      if (!this.classList.contains('is-active')) {
+        this.classList.add('is-active');
+        this.classList.add('fadeInLeft');
+        document.querySelector('#input__search').classList.add('is-active');
+        document.querySelector('#input__search').classList.add('fadeInLeft');
+        document.querySelector('.header__logo').classList.add('move');
+      } else {
+        this.classList.remove('is-active');
+        this.classList.remove('fadeInLeft');
+        document.querySelector('#input__search').classList.remove('is-active');
+        document.querySelector('#input__search').classList.remove('fadeInLeft');
+        document.querySelector('.header__logo').classList.remove('move');
+      }
     })
   }
 }
@@ -140,7 +148,7 @@ function handleTabletChangeMax480(e) {
       e.preventDefault();
       document.querySelector('.header__top').classList.remove('add-Blur');
       document.querySelector('.section-hero').style.height = "310px";
-      document.querySelector('.section-hero__content').style.top = "33px";
+      document.querySelector('.section-hero__content').style.top = "78px";
     });
   }
 }
@@ -168,7 +176,7 @@ $('#burger__close').click(function () {
 /*--------------------- End Burger ------------------- */
 /*-------------- Section-Hero ------------ */
 //переход от кнопки к футеру
-let btn =document.querySelector('.btn-to-footer')
+let btn = document.querySelector('.btn-to-footer')
 
 btn.addEventListener('click', function() {
   document.querySelector('#footer').scrollIntoView({
@@ -203,8 +211,9 @@ const choices = new Choices(element, {
 
 
 //   Slider Swiper
-var swiper = new Swiper('.swiper-container', {
-  // If we need pagination
+var swiper = new Swiper('.section-gallery__slider-container', {
+
+  // // If we need pagination
   pagination: {
     el: '.swiper-pagination',
     type: 'fraction',
@@ -240,41 +249,48 @@ var swiper = new Swiper('.swiper-container', {
     },
     481: {
       slidesPerView: 1,
-      slidesPerColumn: 2,
       spaceBetween: 34,
       slidesPerGroup: 1,
-      loopFillGroupWithBlank: true
+      grid: {
+        rows: 2,
+      },
     },
     768: {
       slidesPerView: 2,
-      slidesPerColumn: 2,
       spaceBetween: 34,
       slidesPerGroup: 2,
-      loopFillGroupWithBlank: true
+      grid: {
+        rows: 2,
+      },
     },
     992: {
       slidesPerView: 2,
-      slidesPerColumn: 2,
       spaceBetween: 34,
       slidesPerGroup: 2,
-      loopFillGroupWithBlank: true
+      grid: {
+        rows: 2,
+      },
     },
     1200: {
       slidesPerView: 2,
-      slidesPerColumn: 2,
       spaceBetween: 50,
       slidesPerGroup: 2,
-      loopFillGroupWithBlank: true
+      grid: {
+        rows: 2,
+      },
     },
     1640: {
       slidesPerView: 3,
-      slidesPerColumn: 2,
       spaceBetween: 50,
       slidesPerGroup: 3,
-      loopFillGroupWithBlank: true
+      grid: {
+        rows: 2,
+      },
     }
   }
 });
+
+
 
 /*--------- End Section-Gallery -----------*/
 
@@ -303,6 +319,42 @@ document.querySelectorAll('.tabs__btn').forEach(function(tabsBtn) {
       tabsContent.classList.remove('tabs__content-active')
     })
     document.querySelector(`[data-target="${path}"]`).classList.add('tabs__content-active')
+
+    //удаляем активные классы заглушки
+    document.querySelector('#plug').classList.remove('tabs__painter-desc-active')
+    document.querySelector('#plugButton').classList.remove('accordion__btn-active')
+    //берем всех деятелей активной вкладки страны
+    let firstMatch = document.querySelector(`[data-target="${path}"]`).querySelectorAll('.accordion__item button');
+    //ищем одного выбранного деятеля
+    let activeFirstMatch;
+    firstMatch.forEach(element => {
+      if (element.classList.contains('accordion__btn-active')) {
+        activeFirstMatch = element;
+      }
+    });
+    //если его нет
+    let firstMatchValue;
+    let dataValueFirstMatch;
+    if (!activeFirstMatch) {
+
+      //делаем активным первого в списке
+      firstMatch = document.querySelector(`[data-target="${path}"]`).querySelector('.ui-accordion-content-active .accordion__item button');
+      firstMatch.classList.add('accordion__btn-active');
+      firstMatchValue = firstMatch.innerHTML;
+
+      dataValueFirstMatch =  firstMatch.dataset.path;
+    } else {
+      //если же есть, то собираем его данные и отправляем так же на апи вики
+      firstMatchValue = activeFirstMatch.innerHTML;
+
+      dataValueFirstMatch =  activeFirstMatch.dataset.path;
+    }
+      const areaFirstMatch = document.querySelector(`[data-target="${dataValueFirstMatch}"]`)
+      areaFirstMatch.classList.add('tabs__painter-desc-active');
+
+      createContentWiki(firstMatchValue, areaFirstMatch);
+
+
     //перезагружаем аккардион во вкладках
     $( function() {
       $( ".tabs__accordion" ).accordion("refresh");
@@ -405,15 +457,69 @@ function handleTabletChange480(e) {
         heightStyle: 'content'
       });
     });
+
+    //собираем все чекбоксы в категориях издания
+    let checkAll = document.querySelectorAll('.checkbox__input');
+    checkAll.forEach(check => {
+      check.addEventListener('click', () => {
+        if (check.checked) { //если чекбокс включен
+          check.parentElement.parentElement.classList.add('check--on') //родителю добавляем класс
+        } else {
+          check.parentElement.parentElement.classList.remove('check--on')
+        }
+      })
+    });
+
+    const checkboxTitle = document.querySelector('.checkbox__title'); //категория
+    let parentCheckAll = document.querySelectorAll('.checkbox__item');//элементы списка категорий
+    let flag = false; //первый флаг
+    let flagTwo = false; //второй флаг
+    checkboxTitle.addEventListener('click', () => { //событие клика по категории
+      const wrapAccordion = document.querySelector('.checkbox__list.ui-accordion-content.ui-corner-bottom.ui-helper-reset.ui-widget-content'); //контейнер элементорв катерии в аккордионе
+      parentCheckAll.forEach(li => {
+        if (li.classList.contains('check--on')) { //если какой то элемент выбран, то флаг тру
+          flag = true;
+        }
+      });
+
+      if (flagTwo) {  //если второй флаг тру, то первый фолс. делаем для логики переключения активных и неактивных элементов аккордиона
+        flag = false;
+      }
+
+      if (flag) { //если первый флаг тру, значит есть активный элемент категории
+        wrapAccordion.classList.add('show'); //значит не даем аккордиону сворачивать активные элемениы
+        flagTwo = true; //второй флаг делаем тру, запоминаем что у нас уже есть открытый список только с активными элементами
+        parentCheckAll.forEach(li => {
+          if (!li.classList.contains('check--on')) {
+            li.style.display = 'none';  //и сами скрываваем все неактивные
+          }
+        });
+      } else {
+        wrapAccordion.classList.remove('show'); //иначе удаляем запрет сворачивания аккардиона
+        parentCheckAll.forEach(li => {
+          li.style.display = 'block'; //делаем все элементы видимыми
+        });
+        flagTwo = false; //а второй флаг фолсе, который запрещал открывать второй раз только активные элементы
+      }
+
+
+      flag = false;
+    });
+
+
+
+
     //добавил в эту функцию медиавыражения скролл в секции "Каталог" от аккардиона
     //при нажатии на художественного деятеля к его описанию
     const accButton = document.querySelectorAll('button.accordion__btn');
     for (let button of accButton) {
       button.addEventListener('click', function() {
-        document.querySelector('.tabs__painter-desc-active').scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        setTimeout(function(){ //задержка для того, чтобы успел прийти ответ от сервера апи вики
+          document.querySelector('.tabs__painter-desc-active').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }, 300)
       });
     }
   }
@@ -701,6 +807,11 @@ document.querySelector('#popup__close').addEventListener('click', function(){
         divResult.innerHTML = result.message;
         const containerForm = document.querySelector('.section-contacts__form');
         containerForm.append(divResult);
+        setTimeout(function(){
+          divResult.remove();
+          form.style.visibility = "initial";
+          form.reset();
+        }, 3000);
 
         btnForm.classList.remove('_disabled');
         btnForm.disabled = false;
@@ -712,7 +823,7 @@ document.querySelector('#popup__close').addEventListener('click', function(){
     } else {
       const divErrorName = document.createElement('div');
       divErrorName.className = 'js-validate-error-label';
-      divErrorName.innerHTML = 'Как Вас завут?';
+      divErrorName.innerHTML = 'Как Вас зовут?';
       divErrorName.style.color = '#7943A4';
 
       const divErrorPhone = document.createElement('div');
@@ -913,14 +1024,19 @@ async function createContentWiki(currentBtnActive, currentContentActive) {
   //получаем первую картинку
   //let imgArtist = divInfo.querySelector(".wikidata-snak .image img");
   let imgArtist = divInfo.querySelector(".mw-parser-output .image img");
-  imgArtist.className = "painter-desc__img";
+  if (imgArtist) {
+    imgArtist.className = "painter-desc__img";
+  }
+
 
   //создаем div-обертку куда помещаем всю инфу
   let divWrap = document.createElement('div');
   divWrap.className = "js-wrap-content";
 
   //помещаем картинку
-  divWrap.append(imgArtist);
+  if (imgArtist) {
+    divWrap.append(imgArtist);
+  }
   //создаем заголовок h3, в него кидаем название художника и помещаем в див
   let titleArtist = document.createElement('h3');
   titleArtist.className = "painter-desc__title";

@@ -31,7 +31,7 @@
     <script defer src="js/just-validate.min.js"></script>
 
 
-    <script defer src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script defer src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
     <script defer src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
@@ -41,43 +41,43 @@
   <body>
     <header class="header">
       <div class="header__top">
+        <div class="header__menu menu-burger" id="menu">
+          <button class="header__close" id="burger__close">
+            <span class="header__close-span"></span>
+          </button>
+          <ul class="menu-burger__list">
+            <li class="menu-burger__item">
+              <a href="#section-about" class="nav-header__link menu-burger__link">О нас</a>
+            </li>
+            <li class="menu-burger__item">
+              <a href="#section-gallery" class="nav-header__link menu-burger__link">Галерея</a>
+            </li>
+            <li class="menu-burger__item">
+              <a href="#section-catalog" class="nav-header__link menu-burger__link">Каталог</a>
+            </li>
+            <li class="menu-burger__item">
+              <a href="#section-event" class="nav-header__link menu-burger__link">События</a>
+            </li>
+            <li class="menu-burger__item">
+              <a href="#section-publications" class="nav-header__link menu-burger__link">Издания</a>
+            </li>
+            <li class="menu-burger__item">
+              <a href="#section-projects" class="nav-header__link menu-burger__link">Проекты</a>
+            </li>
+            <li class="menu-burger__item">
+              <a href="#section-contacts" class="nav-header__link menu-burger__link">Контакты</a>
+            </li>
+            <li class="menu-burger__item">
+              <button class="menu-burger__btn">
+                 Войти
+              </button>
+            </li>
+          </ul>
+        </div>
         <div class="container header__container">
           <button class="header__burger" id="burger">
             <span class="header__line"></span>
           </button>
-          <div class="header__menu menu-burger" id="menu">
-            <button class="header__close" id="burger__close">
-              <span class="header__close-span"></span>
-            </button>
-            <ul class="menu-burger__list">
-              <li class="menu-burger__item">
-                <a href="#section-about" class="nav-header__link menu-burger__link">О нас</a>
-              </li>
-              <li class="menu-burger__item">
-                <a href="#section-gallery" class="nav-header__link menu-burger__link">Галерея</a>
-              </li>
-              <li class="menu-burger__item">
-                <a href="#section-catalog" class="nav-header__link menu-burger__link">Каталог</a>
-              </li>
-              <li class="menu-burger__item">
-                <a href="#section-event" class="nav-header__link menu-burger__link">События</a>
-              </li>
-              <li class="menu-burger__item">
-                <a href="#section-publications" class="nav-header__link menu-burger__link">Издания</a>
-              </li>
-              <li class="menu-burger__item">
-                <a href="#section-projects" class="nav-header__link menu-burger__link">Проекты</a>
-              </li>
-              <li class="menu-burger__item">
-                <a href="#section-contacts" class="nav-header__link menu-burger__link">Контакты</a>
-              </li>
-              <li class="menu-burger__item">
-                <button class="menu-burger__btn">
-                   Войти
-                </button>
-              </li>
-            </ul>
-          </div>
           <a href="" class="header__logo">
             <picture class="header__picture">
               <source type="image/webp" srcset="img/adaptive/320/Лого.webp" media="(max-width: 480px)">
@@ -115,7 +115,12 @@
             </ul>
           </nav>
           <div class="header__lk">
-            <a href="" class="header__lk-link">Войти</a>
+            <a href="" class="header__lk-link">
+              <!-- <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.12056 9.09278L6.13889 10.1111L9.75 6.5L6.13889 2.88889L5.12056 3.90722L6.98389 5.77778H0V7.22222H6.98389L5.12056 9.09278ZM11.5556 0H1.44444C0.642778 0 0 0.65 0 1.44444V4.33333H1.44444V1.44444H11.5556V11.5556H1.44444V8.66667H0V11.5556C0 12.35 0.642778 13 1.44444 13H11.5556C12.35 13 13 12.35 13 11.5556V1.44444C13 0.65 12.35 0 11.5556 0Z" fill="white"/>
+              </svg> -->
+              Войти
+            </a>
           </div>
           <div class="header__search-btn">
             <form  action="https://jsonplaceholder.typicode.com/posts" autocomplete="on" method="POST">
@@ -253,7 +258,7 @@
             <div class="section-gallery__slider slider-gallery">
               <div class="swiper-container section-gallery__slider-container">
                 <div class="slider-gallery__navigation">
-                  <div class="swiper-button-prev slider-gallery__click"></div>
+                  <div class="swiper-button-prev slider-gallery__click slider-gallery__click-left"></div>
                   <div class="swiper-pagination slider-gallery__number"></div>
                   <div class="swiper-button-next slider-gallery__click slider-gallery__click-right"></div>
                 </div>
@@ -762,71 +767,28 @@
               <li class="tabs__item"><button class="tabs__btn tabs__btnBl" data-path="five" aria-label="Бельгия"></button></li>
             </ul>
             <div class="tabs__content" data-target="one">
-              <div class="tabs__painter-desc painter-desc" data-target="benedetto1" >Бенедетто ди Биндо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="bergonie1" >Бергоньоне, Амброджо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="bissolo1" >Биссоло, Франческо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="boltraffio1" >Больтраффио, Джованни</div>
-              <div class="tabs__painter-desc painter-desc" data-target="bonsinory1" >Бонсиньори, Франческо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="botticheni1" >Боттичини, Рафаэлло</div>
-              <div class="tabs__painter-desc painter-desc" data-target="bramantino1" >Брамантино</div>
-              <div class="tabs__painter-desc painter-desc" data-target="brea1" >Бреа, Людовико</div>
-              <div class="tabs__painter-desc painter-desc" data-target="biadjo1" >Бьяджо д’Антонио Туччи</div>
-              <div class="tabs__painter-desc painter-desc" data-target="vekkietta1" >Веккьетта</div>
-              <div class="tabs__painter-desc painter-desc" data-target="andrea1" >Андреа Верроккьо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="domeniko1" >
-                <picture class="default">
-                  <source type="image/webp" srcset="img/catalog/image_3.webp">
-                  <source type="image/jpeg" srcset="img/catalog/image_3.jpg">
-                  <img src="img/catalog/image_3.jpg" alt="Доменико Гирландайо" loading="lazy" class="lazyload">
-                </picture>
-                <h3 class="painter-desc__title default">Доменико Гирландайо</h3>
-                <p class="painter-desc__subtext default">2 июня 1448 — 11 января 1494.</p>
-                <p class="painter-desc__text default">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в течение года овладевал профессиональными навыками. Автор фресковых циклов, в которых выпукло, со всевозможными подробностями показана домашняя жизнь библейских персонажей (в их роли выступают знатные граждане Флоренции в костюмах того времени).</p>
-              </div>
-              <div class="tabs__painter-desc painter-desc" data-target="benocco1" >Беноццо Гоццоли</div>
-              <div class="tabs__painter-desc painter-desc" data-target="granachi1" >Граначчи, Франческо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="gregorio1" >Грегорио ди Чекко</div>
-              <div class="tabs__painter-desc painter-desc" data-target="udine1" >Джованни да Удине</div>
-              <div class="tabs__painter-desc painter-desc" data-target="paolo1" >Джованни ди Паоло</div>
-              <div class="tabs__painter-desc painter-desc" data-target="djordjone1" >Джорджоне</div>
-              <div class="tabs__painter-desc painter-desc" data-target="perantino1" >Парентино, Бернардо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="pezallino1" >Пезеллино</div>
-              <div class="tabs__painter-desc painter-desc" data-target="pietro1" >Пьетро Перуджино</div>
-              <div class="tabs__painter-desc painter-desc" data-target="perucci1" >Перуцци, Бальдассаре</div>
-              <div class="tabs__painter-desc painter-desc" data-target="pizanello1" >Пизанелло</div>
-              <div class="tabs__painter-desc painter-desc" data-target="pinturikkio1" >Пинтуриккьо</div>
+              <div class="tabs__painter-desc painter-desc" data-target="benedetto1" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="bergonie1" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="bissolo1" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="boltraffio1" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="bonsinory1" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="botticheni1" ></div>
+
               <div class="tabs__accordion accordion">
                 <h3 class="accordion__title">С 1400 по 1499 гг.</h3>
                 <div class="accordion__desc">
                   <ul class="accordion__list">
-                    <li class="accordion__item"><button class="accordion__btn" data-path="benedetto1">Бенедетто ди Биндо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="bergonie1">Бергоньоне, Амброджо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="bissolo1">Биссоло, Франческо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="boltraffio1">Больтраффио, Джованни</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="bonsinory1">Бонсиньори, Франческо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="botticheni1">Боттичини, Рафаэлло</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="bramantino1">Брамантино</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="brea1">Бреа, Людовико</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="biadjo1">Бьяджо д’Антонио Туччи</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="vekkietta1">Веккьетта</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="andrea1">Андреа Верроккьо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="domeniko1">Доменико Гирландайо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="benocco1">Беноццо Гоццоли</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="granachi1">Граначчи, Франческо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="gregorio1">Грегорио ди Чекко</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="udine1">Джованни да Удине</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="paolo1">Джованни ди Паоло</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="djordjone1">Джорджоне</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="perantino1">Парентино, Бернардо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="pezallino1">Пезеллино</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="pietro1">Пьетро Перуджино</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="perucci1">Перуцци, Бальдассаре</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="pizanello1">Пизанелло</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="pinturikkio1">Пинтуриккьо</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="benedetto1">Бартелеми д’Эйк</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="bergonie1">Домбе, Гийом</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="bissolo1">Лиферинкс, Йос</button></li>
                   </ul>
                 </div>
                 <h3 class="accordion__title">С 1500 по 1599 гг.</h3>
-                <div class="accordion__desc"></div>
+                <div class="accordion__desc">
+                  <li class="accordion__item"><button class="accordion__btn" data-path="boltraffio1">Буш, Валентин</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="bonsinory1">Дюмустье, Косм</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="botticheni1">Клуэ, Жан</button></li>
+                </div>
                 <h3 class="accordion__title">С 1600 по 1699 гг.</h3>
                 <div class="accordion__desc"></div>
                 <h3 class="accordion__title">С 1700 по 1799 гг.</h3>
@@ -840,71 +802,33 @@
               </div>
             </div>
             <div class="tabs__content" data-target="two">
-              <div class="tabs__painter-desc painter-desc" data-target="benedetto2" >Бенедетто ди Биндо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="bergonie2" >Бергоньоне, Амброджо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="bissolo2" >Биссоло, Франческо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="boltraffio2" >Больтраффио, Джованни</div>
-              <div class="tabs__painter-desc painter-desc" data-target="bonsinory2" >Бонсиньори, Франческо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="botticheni2" >Боттичини, Рафаэлло</div>
-              <div class="tabs__painter-desc painter-desc" data-target="bramantino2" >Брамантино</div>
-              <div class="tabs__painter-desc painter-desc" data-target="brea2" >Бреа, Людовико</div>
-              <div class="tabs__painter-desc painter-desc" data-target="biadjo2" >Бьяджо д’Антонио Туччи</div>
-              <div class="tabs__painter-desc painter-desc" data-target="vekkietta2" >Веккьетта</div>
-              <div class="tabs__painter-desc painter-desc" data-target="andrea2" >Андреа Верроккьо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="domeniko2" >
-                <picture class="default">
-                  <source type="image/webp" srcset="img/catalog/image_3.webp">
-                  <source type="image/jpeg" srcset="img/catalog/image_3.jpg">
-                  <img src="img/catalog/image_3.jpg" alt="Доменико Гирландайо" loading="lazy" class="lazyload">
-                </picture>
-                <h3 class="painter-desc__title default">Доменико Гирландайо</h3>
-                <p class="painter-desc__subtext default">2 июня 1448 — 11 января 1494.</p>
-                <p class="painter-desc__text default">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в течение года овладевал профессиональными навыками. Автор фресковых циклов, в которых выпукло, со всевозможными подробностями показана домашняя жизнь библейских персонажей (в их роли выступают знатные граждане Флоренции в костюмах того времени).</p>
-              </div>
-              <div class="tabs__painter-desc painter-desc" data-target="benocco2" >Беноццо Гоццоли</div>
-              <div class="tabs__painter-desc painter-desc" data-target="granachi2" >Граначчи, Франческо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="gregorio2" >Грегорио ди Чекко</div>
-              <div class="tabs__painter-desc painter-desc" data-target="udine2" >Джованни да Удине</div>
-              <div class="tabs__painter-desc painter-desc" data-target="paolo2" >Джованни ди Паоло</div>
-              <div class="tabs__painter-desc painter-desc" data-target="djordjone2" >Джорджоне</div>
-              <div class="tabs__painter-desc painter-desc" data-target="perantino2" >Парентино, Бернардо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="pezallino2" >Пезеллино</div>
-              <div class="tabs__painter-desc painter-desc" data-target="pietro2" >Пьетро Перуджино</div>
-              <div class="tabs__painter-desc painter-desc" data-target="perucci2" >Перуцци, Бальдассаре</div>
-              <div class="tabs__painter-desc painter-desc" data-target="pizanello2" >Пизанелло</div>
-              <div class="tabs__painter-desc painter-desc" data-target="pinturikkio2" >Пинтуриккьо</div>
+              <div class="tabs__painter-desc painter-desc" data-target="benedetto2" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="bergonie2" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="bissolo2" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="boltraffio2" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="test1" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="test2" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="test3" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="test4" ></div>
               <div class="tabs__accordion accordion">
                 <h3 class="accordion__title">С 1400 по 1499 гг.</h3>
                 <div class="accordion__desc">
                   <ul class="accordion__list">
-                    <li class="accordion__item"><button class="accordion__btn" data-path="benedetto2">Бенедетто ди Биндо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="bergonie2">Бергоньоне, Амброджо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="bissolo2">Биссоло, Франческо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="boltraffio2">Больтраффио, Джованни</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="bonsinory2">Бонсиньори, Франческо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="botticheni2">Боттичини, Рафаэлло</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="bramantino2">Брамантино</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="brea2">Бреа, Людовико</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="biadjo2">Бьяджо д’Антонио Туччи</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="vekkietta2">Веккьетта</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="andrea2">Андреа Верроккьо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="domeniko2">Доменико Гирландайо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="benocco2">Беноццо Гоццоли</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="granachi2">Граначчи, Франческо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="gregorio2">Грегорио ди Чекко</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="udine2">Джованни да Удине</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="paolo2">Джованни ди Паоло</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="djordjone2">Джорджоне</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="perantino2">Парентино, Бернардо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="pezallino2">Пезеллино</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="pietro2">Пьетро Перуджино</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="perucci2">Перуцци, Бальдассаре</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="pizanello2">Пизанелло</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="pinturikkio2">Пинтуриккьо</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="benedetto2">Аахен, Ханс фон</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="bergonie2">Бальдунг, Ханс</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="bissolo2">Вольгемут, Михаэль</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="boltraffio2">Губер, Вольф</button></li>
                   </ul>
                 </div>
                 <h3 class="accordion__title">С 1500 по 1599 гг.</h3>
-                <div class="accordion__desc"></div>
+                <div class="accordion__desc">
+                  <ul class="accordion__list">
+                    <li class="accordion__item"><button class="accordion__btn" data-path="test1">Бури, Фридрих</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="test2">Графф, Антон</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="test3">Дженелли, Янус</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="test4">Кверфурт, Август</button></li>
+                  </ul>
+                </div>
                 <h3 class="accordion__title">С 1600 по 1699 гг.</h3>
                 <div class="accordion__desc"></div>
                 <h3 class="accordion__title">С 1700 по 1799 гг.</h3>
@@ -929,7 +853,7 @@
               <div class="tabs__painter-desc painter-desc" data-target="biadjo" ></div>
               <div class="tabs__painter-desc painter-desc" data-target="vekkietta" ></div>
               <div class="tabs__painter-desc painter-desc" data-target="andrea" ></div>
-              <div class="tabs__painter-desc painter-desc tabs__painter-desc-active" data-target="domeniko" >
+              <div id="plug" class="tabs__painter-desc painter-desc tabs__painter-desc-active" data-target="domeniko" >
                 <picture class="default">
                   <source type="image/webp" srcset="img/catalog/image_3.webp">
                   <source type="image/jpeg" srcset="img/catalog/image_3.jpg">
@@ -952,9 +876,13 @@
               <div class="tabs__painter-desc painter-desc" data-target="pizanello" ></div>
               <div class="tabs__painter-desc painter-desc" data-target="pinturikkio" ></div>
 
-              <div class="tabs__painter-desc painter-desc" data-target="test1" >Содержание тест1</div>
-              <div class="tabs__painter-desc painter-desc" data-target="test2" >Содержание тест2</div>
-              <div class="tabs__painter-desc painter-desc" data-target="test3" >Содержание тест3</div>
+              <div class="tabs__painter-desc painter-desc" data-target="abbate" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="badile" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="bassano" ></div>
+
+              <div class="tabs__painter-desc painter-desc" data-target="ang" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="bitti" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="verrio" ></div>
 
               <div class="tabs__accordion accordion">
                 <h3 class="accordion__title">С 1400 по 1499 гг.</h3>
@@ -971,7 +899,7 @@
                     <li class="accordion__item"><button class="accordion__btn" data-path="biadjo">Бьяджо д’Антонио Туччи</button></li>
                     <li class="accordion__item"><button class="accordion__btn" data-path="vekkietta">Веккьетта</button></li>
                     <li class="accordion__item"><button class="accordion__btn" data-path="andrea">Андреа Верроккьо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn accordion__btn-active" data-path="domeniko">Доменико Гирландайо</button></li>
+                    <li class="accordion__item"><button id="plugButton" class="accordion__btn accordion__btn-active" data-path="domeniko">Доменико Гирландайо</button></li>
                     <li class="accordion__item"><button class="accordion__btn" data-path="benocco">Беноццо Гоццоли</button></li>
                     <li class="accordion__item"><button class="accordion__btn" data-path="granachi">Граначчи, Франческо</button></li>
                     <li class="accordion__item"><button class="accordion__btn" data-path="gregorio">Грегорио ди Чекко</button></li>
@@ -989,13 +917,19 @@
                 <h3 class="accordion__title">С 1500 по 1599 гг.</h3>
                 <div class="accordion__desc">
                   <ul class="accordion__list">
-                    <li class="accordion__item"><button class="accordion__btn" data-path="test1">Тест 1</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="test2">Тест 2</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="test3">Тест 3</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="abbate">Аббате, Никколо дель</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="badile">Бадиле, Антонио</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="bassano">Бассано, Леандро</button></li>
                   </ul>
                 </div>
                 <h3 class="accordion__title">С 1600 по 1699 гг.</h3>
-                <div class="accordion__desc"></div>
+                <div class="accordion__desc">
+                  <ul class="accordion__list">
+                    <li class="accordion__item"><button class="accordion__btn" data-path="ang">Ангвиссола, Софонисба</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="bitti">Битти, Бернардо</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="verrio">Веррио, Антонио</button></li>
+                  </ul>
+                </div>
                 <h3 class="accordion__title">С 1700 по 1799 гг.</h3>
                 <div class="accordion__desc"></div>
                 <h3 class="accordion__title">С 1800 по 1899 гг.</h3>
@@ -1007,24 +941,26 @@
               </div>
             </div>
             <div class="tabs__content" data-target="four">
-              <div class="tabs__painter-desc painter-desc" data-target="benedetto4" >Бенедетто ди Биндо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="bergonie4" >Бергоньоне, Амброджо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="bissolo4" >Биссоло, Франческо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="boltraffio4" >Больтраффио, Джованни</div>
-              <div class="tabs__painter-desc painter-desc" data-target="bonsinory4" >Бонсиньори, Франческо</div>
+              <div class="tabs__painter-desc painter-desc" data-target="benedetto4" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="bergonie4" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="bissolo4" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="boltraffio4" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="chirin" ></div>
               <div class="tabs__accordion accordion">
                 <h3 class="accordion__title">С 1400 по 1499 гг.</h3>
                 <div class="accordion__desc">
                   <ul class="accordion__list">
-                    <li class="accordion__item"><button class="accordion__btn" data-path="benedetto4">Бенедетто ди Биндо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="bergonie4">Бергоньоне, Амброджо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="bissolo4">Биссоло, Франческо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="boltraffio4">Больтраффио, Джованни</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="bonsinory4">Бонсиньори, Франческо</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="bergonie4">Андрей Рублёв</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="bissolo4">Дионисий (иконописец)</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="boltraffio4">Прохор с Городца</button></li>
                   </ul>
                 </div>
                 <h3 class="accordion__title">С 1500 по 1599 гг.</h3>
-                <div class="accordion__desc"></div>
+                <div class="accordion__desc">
+                  <ul class="accordion__list">
+                    <li class="accordion__item"><button class="accordion__btn" data-path="chirin">Чирин, Прокопий Иванович</button></li>
+                  </ul>
+                </div>
                 <h3 class="accordion__title">С 1600 по 1699 гг.</h3>
                 <div class="accordion__desc"></div>
                 <h3 class="accordion__title">С 1700 по 1799 гг.</h3>
@@ -1038,24 +974,25 @@
               </div>
             </div>
             <div class="tabs__content" data-target="five">
-              <div class="tabs__painter-desc painter-desc" data-target="benedetto5" >Бенедетто ди Биндо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="bergonie5" >Бергоньоне, Амброджо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="bissolo5" >Биссоло, Франческо</div>
-              <div class="tabs__painter-desc painter-desc" data-target="boltraffio5" >Больтраффио, Джованни</div>
-              <div class="tabs__painter-desc painter-desc" data-target="bonsinory5" >Бонсиньори, Франческо</div>
+              <div class="tabs__painter-desc painter-desc" data-target="benedetto5" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="bergonie5" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="bissolo5" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="boltraffio5" ></div>
+              <div class="tabs__painter-desc painter-desc" data-target="bonsinory5" ></div>
               <div class="tabs__accordion accordion">
                 <h3 class="accordion__title">С 1400 по 1499 гг.</h3>
                 <div class="accordion__desc">
                   <ul class="accordion__list">
-                    <li class="accordion__item"><button class="accordion__btn" data-path="benedetto5">Бенедетто ди Биндо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="bergonie5">Бергоньоне, Амброджо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="bissolo5">Биссоло, Франческо</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="boltraffio5">Больтраффио, Джованни</button></li>
-                    <li class="accordion__item"><button class="accordion__btn" data-path="bonsinory5">Бонсиньори, Франческо</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="benedetto5">Альбертус Пиктор</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="bergonie5">Ван Эйк, Хуберт</button></li>
+                    <li class="accordion__item"><button class="accordion__btn" data-path="bissolo5">Мастер W</button></li>
                   </ul>
                 </div>
                 <h3 class="accordion__title">С 1500 по 1599 гг.</h3>
-                <div class="accordion__desc"></div>
+                <div class="accordion__desc">
+                  <li class="accordion__item"><button class="accordion__btn" data-path="boltraffio5">Субр, Шарль</button></li>
+                  <li class="accordion__item"><button class="accordion__btn" data-path="bonsinory5">Шарле, Франц</button></li>
+                </div>
                 <h3 class="accordion__title">С 1600 по 1699 гг.</h3>
                 <div class="accordion__desc"></div>
                 <h3 class="accordion__title">С 1700 по 1799 гг.</h3>
@@ -1156,80 +1093,116 @@
                     <input class="checkbox__input" type="checkbox" name="bestsellers" id="check-one">
                     <span class="checkbox__text">Бестселлеры</span>
                   </label>
+                  <button class="checkbox__close">
+                    <span class="checkbox__close-span"></span>
+                  </button>
                 </li>
                 <li class="checkbox__item checkbox__media-col1">
                   <label for="check-two" class="checkbox__label">
                     <input class="checkbox__input" type="checkbox" name="art" id="check-two">
                     <span class="checkbox__text">Искусство</span>
                   </label>
+                  <button class="checkbox__close">
+                    <span class="checkbox__close-span"></span>
+                  </button>
                 </li>
                 <li class="checkbox__item checkbox__media-col1">
                   <label for="check-three" class="checkbox__label">
                     <input class="checkbox__input" type="checkbox" name="Architecture" id="check-three">
                     <span class="checkbox__text">Архитектура</span>
                   </label>
+                  <button class="checkbox__close">
+                    <span class="checkbox__close-span"></span>
+                  </button>
                 </li>
                 <li class="checkbox__item checkbox__media-col1">
                   <label for="check-four" class="checkbox__label">
                     <input class="checkbox__input" type="checkbox" name="Design" id="check-four">
                     <span class="checkbox__text">Дизайн</span>
                   </label>
+                  <button class="checkbox__close">
+                    <span class="checkbox__close-span"></span>
+                  </button>
                 </li>
                 <li class="checkbox__item">
                   <label for="check-five" class="checkbox__label">
                     <input class="checkbox__input" type="checkbox" name="Fashion" id="check-five">
                     <span class="checkbox__text">Мода</span>
                   </label>
+                  <button class="checkbox__close">
+                    <span class="checkbox__close-span"></span>
+                  </button>
                 </li>
                 <li class="checkbox__item">
                   <label for="check-six" class="checkbox__label">
                     <input class="checkbox__input" type="checkbox" name="children" id="check-six">
                     <span class="checkbox__text">Детям</span>
                   </label>
+                  <button class="checkbox__close">
+                    <span class="checkbox__close-span"></span>
+                  </button>
                 </li>
                 <li class="checkbox__item">
                   <label for="check-7" class="checkbox__label">
                     <input class="checkbox__input" type="checkbox" name="Fiction" id="check-7">
                     <span class="checkbox__text">Художественная&nbsp;литература</span>
                   </label>
+                  <button class="checkbox__close">
+                    <span class="checkbox__close-span"></span>
+                  </button>
                 </li>
                 <li class="checkbox__item">
                   <label for="check-8" class="checkbox__label">
                     <input class="checkbox__input" type="checkbox" name="Journalism" id="check-8">
                     <span class="checkbox__text">Публицистика</span>
                   </label>
+                  <button class="checkbox__close">
+                    <span class="checkbox__close-span"></span>
+                  </button>
                 </li>
                 <li class="checkbox__item checkbox__media-col3">
                   <label for="check-9" class="checkbox__label">
                     <input class="checkbox__input" type="checkbox" name="Travel" id="check-9">
                     <span class="checkbox__text">Путеводители</span>
                   </label>
+                  <button class="checkbox__close">
+                    <span class="checkbox__close-span"></span>
+                  </button>
                 </li>
                 <li class="checkbox__item checkbox__media-col3">
                   <label for="check-10" class="checkbox__label">
                     <input class="checkbox__input" type="checkbox" name="Philosophy" id="check-10">
                     <span class="checkbox__text">Философия</span>
                   </label>
+                  <button class="checkbox__close">
+                    <span class="checkbox__close-span"></span>
+                  </button>
                 </li>
                 <li class="checkbox__item checkbox__media-col3">
                   <label for="check-11" class="checkbox__label">
                     <input class="checkbox__input" type="checkbox" name="Educational" id="check-11">
                     <span class="checkbox__text">Учебная литература</span>
                   </label>
+                  <button class="checkbox__close">
+                    <span class="checkbox__close-span"></span>
+                  </button>
                 </li>
                 <li class="checkbox__item checkbox__media-col3">
                   <label for="check-12" class="checkbox__label">
                     <input class="checkbox__input" type="checkbox" name="newspapers" id="check-12">
                     <span class="checkbox__text">Журналы и газеты</span>
                   </label>
+                  <button class="checkbox__close">
+                    <span class="checkbox__close-span"></span>
+                  </button>
                 </li>
               </ul>
             </div>
             <div class="section-publications__price price">
               <h3 class="checkbox__title">Цена</h3>
               <div class="price__wrap">
-                <label for="from">От <input class="price__input" id="from" type="text" name="min-price" value="50"></label>
-                <label for="before">до <input class="price__input" id="before" type="text" name="min-price" value="25 000"> руб.</label>
+                <label for="from">От <input class="price__input" id="from" type="number" name="min-price" value="50"></label>
+                <label for="before">до <input class="price__input" id="before" type="number" name="min-price" value="25000"> руб.</label>
               </div>
             </div>
             <div class="section-publications__slider slider-publications">
@@ -1360,12 +1333,24 @@
             Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи.
             А ещё независимые государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности.
             Прежде всего, постоянное информационно - пропагандистское
-            <span class="marker" id="marker1" tabindex="0" aria-label="Пример современных тенденций - современная методология разработки"></span>
+            <span class="marker" id="marker1" tabindex="0" aria-label="Пример современных тенденций - современная методология разработки">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM8 3C7.33333 3 7 3.31919 7 3.95758C7 4.60026 7.33333 4.92159 8 4.92159C8.33333 4.92159 8.58233 4.83805 8.74699 4.67095C8.91566 4.49957 9 4.26178 9 3.95758C9 3.31919 8.66667 3 8 3ZM7.07831 13H8.91566V5.81491H7.07831V13Z" fill="#BCBCBC"/>
+              </svg>
+            </span>
             обеспечение нашей деятельности однозначно фиксирует необходимость экономической целесообразности принимаемых решений.
             И нет сомнений, что действия представителей оппозиции могут быть рассмотрены
-            <span class="marker" id="marker2" tabindex="0" aria-label="Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции"></span>
+            <span class="marker" id="marker2" tabindex="0" aria-label="Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM8 3C7.33333 3 7 3.31919 7 3.95758C7 4.60026 7.33333 4.92159 8 4.92159C8.33333 4.92159 8.58233 4.83805 8.74699 4.67095C8.91566 4.49957 9 4.26178 9 3.95758C9 3.31919 8.66667 3 8 3ZM7.07831 13H8.91566V5.81491H7.07831V13Z" fill="#BCBCBC"/>
+              </svg>
+            </span>
             исключительно в разрезе маркетинговых и финансовых
-            <span class="marker marker-last" id="marker3" tabindex="0" aria-label="В стремлении повысить качество"></span>
+            <span class="marker marker-last" id="marker3" tabindex="0" aria-label="В стремлении повысить качество">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM8 3C7.33333 3 7 3.31919 7 3.95758C7 4.60026 7.33333 4.92159 8 4.92159C8.33333 4.92159 8.58233 4.83805 8.74699 4.67095C8.91566 4.49957 9 4.26178 9 3.95758C9 3.31919 8.66667 3 8 3ZM7.07831 13H8.91566V5.81491H7.07831V13Z" fill="#BCBCBC"/>
+              </svg>
+            </span>
             предпосылок. Банальные, но неопровержимые выводы, а также представители современных социальных резервов призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не
             уникальными данными до степени совершенной неузнаваемости. Подробнее:
             <a href="" class="section-projects_link">blanchard-art.ru/projects/about</a>
@@ -1378,69 +1363,69 @@
               <!-- Additional required wrapper -->
               <div class="swiper-wrapper slider-projects__swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
+                <a href="#" class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/1.webp">
                     <source type="image/jpeg" srcset="img/projects/1.jpg">
                     <img loading="lazy" src="img/projects/1.jpg" alt="Freelands Founfation" class="slider-projects__img lazyload">
                   </picture>
-                </div>
-                <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
+                </a>
+                <a href="#" class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/2.webp">
                     <source type="image/jpeg" srcset="img/projects/2.jpg">
                     <img loading="lazy" src="img/projects/2.jpg" alt="Institute for Contemporary Art" class="slider-projects__img lazyload">
                   </picture>
-                </div>
-                <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
+                </a>
+                <a href="#" class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/3.webp">
                     <source type="image/jpeg" srcset="img/projects/3.jpg">
                     <img loading="lazy" src="img/projects/3.jpg" alt="Workhouse" class="slider-projects__img lazyload">
                   </picture>
-                </div>
-                <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
+                </a>
+                <a href="#" class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/4.webp">
                     <source type="image/jpeg" srcset="img/projects/4.jpg">
                     <img loading="lazy" src="img/projects/4.jpg" alt="1849" class="slider-projects__img lazyload">
                   </picture>
-                </div>
-                <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
+                </a>
+                <a href="#" class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/5.webp">
                     <source type="image/jpeg" srcset="img/projects/5.jpg">
                     <img loading="lazy" src="img/projects/5.jpg" alt="Hiscox" class="slider-projects__img lazyload">
                   </picture>
-                </div>
-                <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
+                </a>
+                <a href="#" class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/6.webp">
                     <source type="image/jpeg" srcset="img/projects/6.jpg">
                     <img loading="lazy" src="img/projects/6.jpg" alt="Camden" class="slider-projects__img lazyload">
                   </picture>
-                </div>
-                <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
+                </a>
+                <a href="#" class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/7.webp">
                     <source type="image/jpeg" srcset="img/projects/7.jpg">
                     <img loading="lazy" src="img/projects/7.jpg" alt="Stassen" class="slider-projects__img lazyload">
                   </picture>
-                </div>
-                <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
+                </a>
+                <a href="#" class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/8.webp">
                     <source type="image/jpeg" srcset="img/projects/8.jpg">
                     <img loading="lazy" src="img/projects/8.jpg" alt="Watts gallery artists village" class="slider-projects__img lazyload">
                   </picture>
-                </div>
-                <div class="swiper-slide slider-projects__swiper-slide" tabindex="0">
+                </a>
+                <a href="#" class="swiper-slide slider-projects__swiper-slide" tabindex="0">
                   <picture>
                     <source type="image/webp" srcset="img/projects/9.webp">
                     <source type="image/jpeg" srcset="img/projects/9.jpg">
                     <img loading="lazy" src="img/projects/9.jpg" alt="ESAD" class="slider-projects__img lazyload">
                   </picture>
-                </div>
+                </a>
               </div>
             </div>
           </div>
@@ -1452,7 +1437,7 @@
           <div class="section-contacts__wrap">
             <div class="section-contacts__form form">
               <h3 class="form__header">Шоурум №4</h3>
-              <address class="form__address">Леонтьевский переулок, дом 5, строение 1</address>
+              <address class="form__address">Леонтьевский переулок, дом 5, строение&nbsp;1</address>
               <h4 class="form__title">Заказать обратный звонок</h4>
               <form class="form__wrap" id="form" autocomplete="on">
                 <div class="form__group">
