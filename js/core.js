@@ -20,28 +20,26 @@ for (let anchor of anchors) {
 
 // Bottom header
 // нижнее выпадающее меню
-var el = document.getElementsByClassName('nav-direction__item');
-
-for(var i=0; i<el.length; i++) {
-  el[i].addEventListener('click', clickSub, false)
-  el[i].addEventListener('mouseleave', hideSub, false);
-}
-
-function clickSub() {
-  if(this.children.length>1) {
-    this.children[1].classList.add('nav-direction__show');
-  } else {
-    return false;
-  }
-}
-
-function hideSub() {
-  if(this.children.length>1) {
-    this.children[1].classList.remove('nav-direction__show');
-  } else {
-    return false;
-  }
-}
+const buttonDrop = document.querySelectorAll('.nav-direction__link');
+  //на каждую кнопку вешаем обработчик
+  buttonDrop.forEach(function (btn){
+    btn.addEventListener('click', function(e){
+      if (e.target.classList.contains('activ')) { //если уже класс есть на этой кнопке
+        e.currentTarget.classList.remove('activ') //то удаляем конкретно на этой кнопке
+      } else {
+        e.target.classList.add('activ') //иначе добавляем класс
+      }
+    })
+  })
+  //если это не кнопка и не само выпадающее меню, то удаляем класс
+  //первое условие необходимо добавить, чтобы незацикливать появление->исчезновение класса
+  document.addEventListener('click', function(event){
+    if (!event.target.classList.contains('nav-direction__link') && !event.target.classList.contains('nav-direction__scroll')){
+      buttonDrop.forEach(function(e){
+        e.classList.remove('activ')
+      })
+    }
+  })
 
 //скрол в выпадающем меню
 
@@ -60,14 +58,15 @@ function hideSub() {
  const simpleBar5 = new SimpleBar(document.getElementById('scroll-5'), { autoHide: false, scrollbarMaxSize: 28 });
  simpleBar5.recalculate();
 
-//Поле поиска, меняем цвет иконки батона в фокусе инпута
-$( "#search" ).focus(function() {
-  let imageUrlColor = "../img/Search_hover.svg";
-  $( this ).prev( "button" ).css("background-image", "url(" + imageUrlColor + ")");
-});
-$('#search').focusout(function(){
-  $( this ).prev( "button" ).attr('style', '');
-});
+// //Поле поиска, меняем цвет иконки батона в фокусе инпута
+// $( "#search" ).focus(function() {
+//   let imageUrlColor = "../img/Search_hover.svg";
+//   $( this ).prev( "button" ).css("background-image", "url(" + imageUrlColor + ")");
+
+// });
+// $('#search').focusout(function(){
+//   $( this ).prev( "button" ).attr('style', '');
+// });
 
 
 //открываем инпут поиска при нажатии на кнопку
@@ -129,6 +128,8 @@ function handleTabletChange991(e) {
 
       document.querySelector('#header__btn-seach').classList.remove('is-active');
       document.querySelector('#header__btn-seach').classList.remove('fadeInLeft');
+
+
     })
   }
 }
@@ -151,10 +152,42 @@ function handleTabletChangeMax480(e) {
       document.querySelector('.section-hero__content').style.top = "78px";
     });
   }
+
+
 }
 mediaQueryMax480.addListener(handleTabletChangeMax480);
 handleTabletChangeMax480(mediaQueryMax480);
 
+// const mediaQueryMax767 = window.matchMedia('(max-width: 767px)');
+// function handleTabletChangeMax767(e) {
+//   if (e.matches) {
+//     document.querySelectorAll('.footer__social-big').forEach(big => {
+//       big.classList.add('is-hidden');
+//     });
+//     document.querySelectorAll('.footer__social-small').forEach(small => {
+//       small.classList.remove('is-hidden');
+//     });
+//   }
+// }
+
+// mediaQueryMax767.addListener(handleTabletChangeMax767);
+// handleTabletChangeMax767(mediaQueryMax767);
+
+
+// const mediaQueryMax1199_2 = window.matchMedia('(max-width: 1199px)');
+// function handleTabletChangeMax1199_2(e) {
+//   if (e.matches) {
+//     document.querySelectorAll('.footer__social-mid').forEach(mid => {
+//       mid.classList.add('is-hidden');
+//     });
+//     document.querySelectorAll('.footer__social-big').forEach(big => {
+//       big.classList.remove('is-hidden');
+//     });
+//   }
+// }
+
+// mediaQueryMax1199_2.addListener(handleTabletChangeMax1199_2);
+// handleTabletChangeMax1199_2(mediaQueryMax1199_2);
 
 /*-------------- End Header ----------------*/
 /*----------------------- Burger --------------------- */
@@ -168,9 +201,11 @@ handleTabletChangeMax480(mediaQueryMax480);
 
 $('#burger').click(function () {
   $("#menu").show('slide', {direction: 'right'}, 300);
+  document.body.style.overflow = "hidden";
 });
 $('#burger__close').click(function () {
   $("#menu").hide('slide', {direction: 'right'}, 300);
+  document.body.style.overflow = "auto";
 });
 
 /*--------------------- End Burger ------------------- */
@@ -370,6 +405,16 @@ document.querySelectorAll('.tabs__btn').forEach(function(tabsBtn) {
     let target = event.target;
     target.classList.remove('tabs__shadow');
   });
+  //событие фокус
+  tabsBtn.addEventListener('focus', function(event){
+    let target = event.target;
+    target.classList.add('tabs__shadow');
+  });
+  //событие ухода фокуса
+  tabsBtn.addEventListener('blur', function(event){
+    let target = event.target;
+    target.classList.remove('tabs__shadow');
+  });
 })
 
 // Tabs-accordion
@@ -407,7 +452,20 @@ document.querySelectorAll('.accordion__btn').forEach(function(tabsBtnAcc) {
   })
 })
 
+const linksToAcc = document.querySelectorAll('a.desc-plug__link')
 
+for (let element of linksToAcc) {
+  element.addEventListener('click', function (e) {
+    e.preventDefault()
+
+    const blockID = element.getAttribute('href')
+
+    document.querySelector(blockID).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+  })
+}
 
 /*----------- End Section-Catalog -----------*/
 
@@ -449,62 +507,62 @@ function handleTabletChange480(e) {
     document.querySelectorAll('.section-event__item').forEach(function(AllCard){
       AllCard.classList.add('swiper-slide');
     })
-    //объявляем аккордион
-    $( function() {
-      $( ".section-publications__checkbox" ).accordion({
-        active: false,
-        collapsible: true,
-        heightStyle: 'content'
-      });
-    });
+    // //объявляем аккордион
+    // $( function() {
+    //   $( ".section-publications__checkbox" ).accordion({
+    //     active: false,
+    //     collapsible: true,
+    //     heightStyle: 'content'
+    //   });
+    // });
 
-    //собираем все чекбоксы в категориях издания
-    let checkAll = document.querySelectorAll('.checkbox__input');
-    checkAll.forEach(check => {
-      check.addEventListener('click', () => {
-        if (check.checked) { //если чекбокс включен
-          check.parentElement.parentElement.classList.add('check--on') //родителю добавляем класс
-        } else {
-          check.parentElement.parentElement.classList.remove('check--on')
-        }
-      })
-    });
+    // //собираем все чекбоксы в категориях издания
+    // let checkAll = document.querySelectorAll('.checkbox__input');
+    // checkAll.forEach(check => {
+    //   check.addEventListener('click', () => {
+    //     if (check.checked) { //если чекбокс включен
+    //       check.parentElement.parentElement.classList.add('check--on') //родителю добавляем класс
+    //     } else {
+    //       check.parentElement.parentElement.classList.remove('check--on')
+    //     }
+    //   })
+    // });
 
-    const checkboxTitle = document.querySelector('.checkbox__title'); //категория
-    let parentCheckAll = document.querySelectorAll('.checkbox__item');//элементы списка категорий
-    let flag = false; //первый флаг
-    let flagTwo = false; //второй флаг
-    checkboxTitle.addEventListener('click', () => { //событие клика по категории
-      const wrapAccordion = document.querySelector('.checkbox__list.ui-accordion-content.ui-corner-bottom.ui-helper-reset.ui-widget-content'); //контейнер элементорв катерии в аккордионе
-      parentCheckAll.forEach(li => {
-        if (li.classList.contains('check--on')) { //если какой то элемент выбран, то флаг тру
-          flag = true;
-        }
-      });
+    // const checkboxTitle = document.querySelector('.checkbox__title'); //категория
+    // let parentCheckAll = document.querySelectorAll('.checkbox__item');//элементы списка категорий
+    // let flag = false; //первый флаг
+    // let flagTwo = false; //второй флаг
+    // checkboxTitle.addEventListener('click', () => { //событие клика по категории
+    //   const wrapAccordion = document.querySelector('.checkbox__list.ui-accordion-content.ui-corner-bottom.ui-helper-reset.ui-widget-content'); //контейнер элементорв катерии в аккордионе
+    //   parentCheckAll.forEach(li => {
+    //     if (li.classList.contains('check--on')) { //если какой то элемент выбран, то флаг тру
+    //       flag = true;
+    //     }
+    //   });
 
-      if (flagTwo) {  //если второй флаг тру, то первый фолс. делаем для логики переключения активных и неактивных элементов аккордиона
-        flag = false;
-      }
+    //   if (flagTwo) {  //если второй флаг тру, то первый фолс. делаем для логики переключения активных и неактивных элементов аккордиона
+    //     flag = false;
+    //   }
 
-      if (flag) { //если первый флаг тру, значит есть активный элемент категории
-        wrapAccordion.classList.add('show'); //значит не даем аккордиону сворачивать активные элемениы
-        flagTwo = true; //второй флаг делаем тру, запоминаем что у нас уже есть открытый список только с активными элементами
-        parentCheckAll.forEach(li => {
-          if (!li.classList.contains('check--on')) {
-            li.style.display = 'none';  //и сами скрываваем все неактивные
-          }
-        });
-      } else {
-        wrapAccordion.classList.remove('show'); //иначе удаляем запрет сворачивания аккардиона
-        parentCheckAll.forEach(li => {
-          li.style.display = 'block'; //делаем все элементы видимыми
-        });
-        flagTwo = false; //а второй флаг фолсе, который запрещал открывать второй раз только активные элементы
-      }
+    //   if (flag) { //если первый флаг тру, значит есть активный элемент категории
+    //     wrapAccordion.classList.add('show'); //значит не даем аккордиону сворачивать активные элемениы
+    //     flagTwo = true; //второй флаг делаем тру, запоминаем что у нас уже есть открытый список только с активными элементами
+    //     parentCheckAll.forEach(li => {
+    //       if (!li.classList.contains('check--on')) {
+    //         li.style.display = 'none';  //и сами скрываваем все неактивные
+    //       }
+    //     });
+    //   } else {
+    //     wrapAccordion.classList.remove('show'); //иначе удаляем запрет сворачивания аккардиона
+    //     parentCheckAll.forEach(li => {
+    //       li.style.display = 'block'; //делаем все элементы видимыми
+    //     });
+    //     flagTwo = false; //а второй флаг фолсе, который запрещал открывать второй раз только активные элементы
+    //   }
 
 
-      flag = false;
-    });
+    //   flag = false;
+    // });
 
 
 
@@ -522,6 +580,39 @@ function handleTabletChange480(e) {
         }, 300)
       });
     }
+
+
+
+
+    const categories = document.querySelector('.checkbox__title--3');
+    const itemCategories = document.querySelectorAll('.checkbox__item');
+    const checkAll = document.querySelectorAll('.checkbox__input');
+    let flag = true;
+
+    checkAll.forEach(check => { //перебираем все чекбоксы и вешаем на еих событие клик
+      check.addEventListener('click', () => {
+        if (check.checked) { //если чекбокс включен
+          check.closest('.checkbox__item').classList.add('check-on'); //родителю добавляем класс
+        } else {
+          check.closest('.checkbox__item').classList.remove('check-on');
+          if (flag) {
+            check.closest('.checkbox__item').classList.add('is-none');
+          }
+        }
+      })
+    });
+    //cобытие на титл категорий
+    categories.addEventListener('click', () => {
+      categories.classList.toggle('on-click');
+      itemCategories.forEach(item => { //перебираем каждый элемент списка категорий
+        if ((!item.classList.contains('is-none')) && (!item.classList.contains('check-on'))) { //если нет класса с display=none и не включен чек бокс
+          item.classList.add('is-none') //скрываем елементы
+        } else {
+          item.classList.remove('is-none') //иначе все видимые
+        }
+      });
+      flag = !flag;
+    })
   }
 }
 mediaQuery480.addListener(handleTabletChange480);
@@ -823,19 +914,25 @@ document.querySelector('#popup__close').addEventListener('click', function(){
         btnForm.disabled = false;
       }
     } else {
+
       const divErrorName = document.createElement('div');
-      divErrorName.className = 'js-validate-error-label';
-      divErrorName.innerHTML = 'Как Вас зовут?';
-      divErrorName.style.color = '#7943A4';
+      divErrorName.className = 'js-validate-error-label error-name';
+      divErrorName.innerHTML = 'Недопустимый формат';
+      divErrorName.style.color = '#D11616';
 
       const divErrorPhone = document.createElement('div');
-      divErrorPhone.className = 'js-validate-error-label';
-      divErrorPhone.innerHTML = 'Укажите Ваш телефон!';
-      divErrorPhone.style.color = '#7943A4';
+      divErrorPhone.className = 'js-validate-error-label error-phone';
+      divErrorPhone.innerHTML = 'Недопустимый формат';
+      divErrorPhone.style.color = '#D11616';
 
       const formGroup = document.getElementsByClassName('form__group');
-      formGroup[0].append(divErrorName);
-      formGroup[1].append(divErrorPhone);
+
+      if (document.querySelectorAll('.js-validate-error-label.error-name').length < 1)  {
+        formGroup[0].append(divErrorName);
+      }
+      if (document.querySelectorAll('.js-validate-error-label.error-phone').length < 1)  {
+        formGroup[1].append(divErrorPhone);
+      }
       //alert('Заполните поля');
     }
   }
@@ -846,11 +943,10 @@ document.querySelector('#popup__close').addEventListener('click', function(){
 
     for (let index = 0; index < formReq.length; index++) {
       const input = formReq[index];
-
       formRemoveError(input);
 
       if (input.classList.contains('form__name')) {
-        if (input.value.length < 3) {
+        if ((input.value.length < 3) || (!input.value.match(/^[а-яёa-z-\s]+$/ig))) {
           formAddError(input);
           error++;
         }
@@ -872,14 +968,36 @@ document.querySelector('#popup__close').addEventListener('click', function(){
 
   function formAddError(input) {
     input.classList.add('_error');
+
   }
 
   function formRemoveError(input) {
     input.classList.remove('_error');
   }
 
-});
 
+
+  const inputsForm = form.querySelectorAll('input');
+  inputsForm.forEach(input => {
+    input.addEventListener('input', function() {
+      if (this.value !== '') {
+        this.classList.add('exist');
+        const validate = this.parentElement.querySelectorAll('.js-validate-error-label');
+        if (validate) {
+          validate.forEach(element => {
+            element.remove();
+          });
+        }
+        if (input.classList.contains('_error')) {
+          input.classList.remove('_error')
+        }
+      } else {
+        this.classList.remove('exist');
+      }
+    })
+  });
+
+});
 //Map
 function getYaMap(){
 // Создание карты.
