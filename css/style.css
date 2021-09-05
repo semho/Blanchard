@@ -864,7 +864,6 @@ input.header__search::-ms-input-placeholder {
 .section-hero__title {
   margin: 0;
   margin-bottom: 19px;
-  margin-left: -5px;
   font-size: 72px;
   line-height: 84px;
 }
@@ -1451,7 +1450,7 @@ input.header__search::-ms-input-placeholder {
 .accordion__list {
   display: flex;
   flex-flow: column wrap;
-  padding-right: 27px;
+  padding-right: 35px;
   padding-left: 2px;
   margin-bottom: 3px;
   max-height: 310px;
@@ -1850,7 +1849,7 @@ input.header__search::-ms-input-placeholder {
 }
 /*-------------- Section-event ----------------*/
 .section-event {
-  padding-top: 80px;
+  padding-top: 85px;
   margin-bottom: 80px;
 }
 
@@ -2341,7 +2340,7 @@ input.header__search::-ms-input-placeholder {
 }
 
 .slider-publications__swiper-slide img {
-  margin-bottom: 23px;
+  margin-bottom: 20px;
 }
 
 .slider-publications__heading {
@@ -2426,6 +2425,10 @@ input.header__search::-ms-input-placeholder {
 
 .section-projects {
   padding-top: 80px;
+}
+
+.section-projects__headeng {
+  margin-bottom: 13px;
 }
 
 .section-projects__text {
@@ -2659,7 +2662,7 @@ input.header__search::-ms-input-placeholder {
 .section-contacts__form {
   position: relative;
   flex-grow: 1;
-  padding-left: 8%;
+  padding-left: 7.9%;
   padding-right: 6.4%;
   padding-top: 123px;
   width: 30%;
@@ -2744,6 +2747,10 @@ input.header__search::-ms-input-placeholder {
 
 .form__btn {
   padding: 16px 33px;
+}
+
+.form__btn.section-event__btn:active {
+  padding: 15px 32px
 }
 
 .js-validate-error-label {
@@ -3361,7 +3368,7 @@ footer {
 
   .section-hero__text {
     margin:0;
-    margin-bottom: 19.3%;
+    margin-bottom: 20%;
   }
 
   .header__search-close {
@@ -3443,6 +3450,10 @@ footer {
     padding-top: 81px;
   }
 
+  .accordion__list {
+    padding-left: 1px;
+  }
+
   .tabs__list {
     top: 18px;
     left: 24.2%;
@@ -3463,7 +3474,7 @@ footer {
   }
 
   .accordion__item {
-    width: 57%;
+    width: 60%;
   }
 
   .accordion__img-plug {
@@ -3556,6 +3567,10 @@ footer {
     padding-bottom: 77px;
   }
 
+  .section-publications__headeng {
+    margin-bottom: 17px;
+  }
+
   .section-publications__wrap {
     margin-bottom: 75px;
   }
@@ -3628,6 +3643,9 @@ footer {
     padding-top: 82px;
   }
 
+  .section-projects__headeng {
+    margin-bottom: 15px;
+  }
 
   .slider-projects__swiper-slide {
     width: 384px;
@@ -3635,7 +3653,7 @@ footer {
   }
 
   .section-projects__slider {
-    max-width: 88%;
+    max-width: 88.3%;
   }
 
   .slider-projects__click {
@@ -3644,7 +3662,7 @@ footer {
   }
 
   .slider-projects__click-right {
-    right: -55px;
+    right: -56px;
     top: 50px;
   }
 
@@ -3658,7 +3676,7 @@ footer {
   }
 
   .section-contacts__headeng {
-    padding-left: 4.5%;
+    padding-left: 4.8%;
   }
 
   .section-contacts__form {
@@ -3778,6 +3796,15 @@ footer {
   }
   /*----------- Section-Hero ----------------*/
 
+  .section-hero__title {
+    margin-left: 0;
+  }
+
+  .section-hero__text {
+    margin: 0;
+    margin-bottom: 20%;
+  }
+
   @keyframes change-background {
     0% {
       background-size: 120%;
@@ -3795,7 +3822,7 @@ footer {
 
   /*---------- Section-About ----------------*/
   .section-about__text {
-    margin-left: 2px;
+    margin-left: 0;
   }
   /*------------- Section-Gallery --------------*/
 
@@ -3812,8 +3839,22 @@ footer {
   }
 
   .section-gallery__select-custom {
-    margin-bottom: 167px;
+    margin-bottom: 109px;
     width: 42%;
+  }
+
+  .choices[data-type*=select-one]:after {
+    top: 45%;
+    right: 17px;
+  }
+
+  .choices__list--dropdown.is-active  {
+    position: relative;
+  }
+
+  .choices[data-type*=select-one].is-open:after {
+    position: absolute;
+    top: 25px;
   }
 
   .choices__list--dropdown {
@@ -3827,6 +3868,7 @@ footer {
 
   .slider-gallery__navigation {
     left: -10px;
+    bottom: calc(100% + 25px);
   }
 
   .slider-gallery__item {
@@ -3849,8 +3891,13 @@ footer {
 
   .tabs__list {
     top: 12px;
-    left: 33.4%;
+    left: 33.1%;
     width: 58vw;
+  }
+
+  .ui-accordion .ui-accordion-header {
+    padding-top: 40px;
+    padding-bottom: 42px;
   }
 
   .tabs__content-active {
@@ -3880,7 +3927,7 @@ footer {
   }
 
   .accordion__item {
-    width: 36.2%;
+    width: 38%;
   }
 
   .accordion__img-plug {
@@ -3899,11 +3946,25 @@ footer {
   }
 
   .tabs__painter-desc img {
-    margin-bottom: 29px;
+    margin-bottom: 26px;
   }
   /*--------------- Section-Event ------------*/
   .section-event {
     padding-top: 72px;
+    margin-bottom: 78px;
+  }
+
+  .section-event__headeng {
+    margin-bottom: 13px;
+  }
+
+  .event-card__content {
+    padding: 15px 15px 54px 33px
+  }
+
+  .event-card__title {
+    margin-bottom: 1px;
+    padding-right: 7px;
   }
 
   .section-event__item {
@@ -3967,10 +4028,15 @@ footer {
   /*------------ Section-Publications --------------*/
   .section-publications {
     padding-top: 82px;
+    padding-bottom: 79px;
+  }
+
+  .slider-publications__swiper-slide img {
+    margin-bottom: 10px;
   }
 
   .section-publications__headeng {
-    margin-bottom: 13px;
+    margin-bottom: 18px;
   }
 
   .no-webp .section-publications {
@@ -3988,19 +4054,25 @@ footer {
 
   .checkbox__list {
     flex-wrap: wrap;
-    height: 128px;
+    justify-content: flex-start;
+    height: 160px;
   }
 
   .section-publications__checkbox {
     max-width: 100%;
+    margin-bottom: -2px;
   }
 
   .checkbox__item {
-    margin-right: 7%;
+    margin-right: 1.6%;
+  }
+
+  .checkbox__text--2 {
+    width: 90%;
   }
 
   .checkbox__media-col1 {
-    margin-right: 8%;
+    margin-right: 15.5%;
   }
 
   .checkbox__media-col3 {
@@ -4061,7 +4133,7 @@ footer {
   }
 
   .section-contacts__headeng {
-    padding-left: 5.6%;
+    padding-left: 6.2%;
   }
 
   .section-contacts__form {
@@ -4288,6 +4360,10 @@ footer {
     font-size: 2.4vw;
     line-height: initial;
   }
+
+  .checkbox__text--2 {
+    width: 100%;
+  }
   /*--------------- Section-Projects ------------*/
   .section-projects__slider {
     max-width: 85%;
@@ -4345,8 +4421,9 @@ footer {
   }
 
   .header__burger {
-    width: 16px;
-    height: 15px;
+    width: 26px;
+    height: 18px;
+    margin-right: -10px;
   }
 
   .header__line, .header__line::before, .header__line::after {
@@ -4356,13 +4433,13 @@ footer {
   }
 
   .header__line::before {
-    width: 20px;
-    top: -7px;
+    width: 26px;
+    top: -9px;
   }
 
   .header__line::after {
-    width: 13.33px;
-    top: 6px;
+    width: 10.33px;
+    top: 7px;
   }
 
   .header__logo-img {
@@ -4484,6 +4561,7 @@ footer {
   }
 
   .section-hero__content {
+    padding-left: 0;
     top: 79px;
     left: 0;
     max-width: 480px;
@@ -4563,8 +4641,22 @@ footer {
   }
 
   .section-gallery__select-custom {
-    margin-bottom: 118px;
+    margin-bottom: 40px;
     width: 100%;
+  }
+
+  .choices[data-type*=select-one]:after {
+    top: 45%;
+    right: 14px;
+  }
+
+  .choices__list--dropdown.is-active  {
+    position: relative;
+  }
+
+  .choices[data-type*=select-one].is-open:after {
+    position: absolute;
+    top: 25px;
   }
 
   .choices {
@@ -4663,7 +4755,7 @@ footer {
   }
 
   .accordion__desc.ui-accordion-content.ui-corner-bottom.ui-helper-reset.ui-widget-content.ui-accordion-content-active {
-    padding-top: 19px;
+    padding-top: 20px;
     padding-bottom: 17px;
   }
 
@@ -4678,7 +4770,7 @@ footer {
   }
 
   .tabs__painter-desc img {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
   }
 
   .painter-desc__title {
@@ -4710,7 +4802,7 @@ footer {
   /*-------------- Section-Event --------------*/
   .section-event {
     padding-top: 53px;
-    margin-bottom: 50px;
+    margin-bottom: 51px;
   }
 
   .no-webp .event-card2 {
@@ -4881,6 +4973,7 @@ footer {
 
   .checkbox__title--3 {
     position: relative;
+    padding-top: 1px;
     padding-bottom: 4px;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
@@ -4889,7 +4982,7 @@ footer {
   .checkbox__title--3:after {
     content: '';
     position: absolute;
-    right: 3px;
+    right: 2px;
     top: 12px;
     width: 7px;
     height: 7px;
@@ -4904,6 +4997,10 @@ footer {
 
   .checkbox__title--3.on-click:after {
     transform: rotate(-45deg);
+  }
+
+  .checkbox__text {
+    padding-left: 22px;
   }
 
   .checkbox__list.ui-accordion-content {
@@ -4932,7 +5029,7 @@ footer {
   .checkbox__close {
     display: none;
     position: absolute;
-    right: 9px;
+    right: 7px;
     top: 12px;
     width: 12px;
     height: 12px;
@@ -5195,7 +5292,7 @@ footer {
 }
 @media (max-width: 320px) {
   .container {
-    max-width: 91vw;
+    max-width: 90vw;
   }
 
   /*------------ Header ------------*/
@@ -5204,8 +5301,9 @@ footer {
   }
 
   .header__burger {
-    width: 16px;
-    height: 15px;
+    width: 26px;
+    height: 18px;
+    margin-right: -10px;
   }
 
   .header__line, .header__line::before, .header__line::after {
@@ -5215,13 +5313,13 @@ footer {
   }
 
   .header__line::before {
-    width: 20px;
-    top: -7px;
+    width: 26px;
+    top: -9px;
   }
 
   .header__line::after {
-    width: 13.33px;
-    top: 6px;
+    width: 10.33px;
+    top: 7px;
   }
 
   .header__logo-img {
@@ -5288,8 +5386,7 @@ footer {
   }
 
   .section-hero__title {
-    margin-left: -2px;
-    margin-bottom: 11px;
+    margin-bottom: 10px;
     font-size: 32px;
     line-height: 38px;
   }
@@ -5312,7 +5409,7 @@ footer {
 
   /*---------------- Section-About ------------*/
   .section-about {
-    padding-top: 52px;
+    padding-top: 51px;
   }
 
   .section-heading {
@@ -5333,6 +5430,7 @@ footer {
   /*--------------- Section-Gallery -------------*/
   .section-gallery {
     padding-top: 50px;
+    padding-bottom: 40px;
   }
 
   .no-webp .section-gallery {
@@ -5344,8 +5442,22 @@ footer {
   }
 
   .section-gallery__select-custom {
-    margin-bottom: 118px;
+    margin-bottom: 40px;
     width: 100%;
+  }
+
+  .choices[data-type*=select-one]:after {
+    top: 45%;
+    right: 14px;
+  }
+
+  .choices__list--dropdown.is-active  {
+    position: relative;
+  }
+
+  .choices[data-type*=select-one].is-open:after {
+    position: absolute;
+    top: 25px;
   }
 
   .select-custom__heading {
@@ -5386,8 +5498,11 @@ footer {
   }
 
   .slider-gallery__navigation {
-    bottom: 0;
+    bottom: -2px;
     left: 24%;
+  }
+  .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    width: 100%;
   }
 
   .section-gallery__slider {
@@ -5395,13 +5510,13 @@ footer {
   }
   /*--------------- Section-Catalog --------------*/
   .section-catalog {
-    padding-top: 80px;
+    padding-top: 51px;
   }
 
   .tabs__list {
     position: absolute;
-    top: 42px;
-    left: -6px;
+    top: 41px;
+    left: -8px;
     width: 95vw;
     z-index: 9;
   }
@@ -5434,7 +5549,7 @@ footer {
 
   .ui-accordion .ui-accordion-header {
     padding-top: 20px;
-    padding-bottom: 21px;
+    padding-bottom: 20px;
     font-size: 18px;
   }
 
@@ -5492,7 +5607,7 @@ footer {
   }
 
   .section-event__headeng  {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 
   .section-event__wrapper.swiper-initialized {
@@ -5611,7 +5726,11 @@ footer {
   }
   /*------------ Section-Publications --------------*/
   .section-publications {
-    padding-bottom: 52px;
+    padding-bottom: 51px;
+  }
+
+  .section-publications__headeng {
+    margin-bottom: 10px;
   }
 
   .no-webp .section-publications {
@@ -5624,7 +5743,11 @@ footer {
 
   .section-publications__checkbox {
     padding-top: 2px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+  }
+
+  .checkbox__title--2 {
+    margin-bottom: 7px;
   }
 
   .checkbox__list {
@@ -5733,7 +5856,7 @@ footer {
 
   .slider-pulications__price {
     position: absolute;
-    top: calc(100% + 16px);
+    top: calc(100% + 19px);
   }
 
   .slider-pulications__btn {
@@ -5821,7 +5944,7 @@ footer {
     margin: 0;
     padding: 0;
     position: absolute;
-    bottom: calc(100% + 103%);
+    bottom: calc(100% + 104%);
     left: 4.5%;
     font-size: 18px;
     line-height: 25px;
@@ -5831,7 +5954,7 @@ footer {
     margin: 0;
     padding: 0;
     position: absolute;
-    bottom: calc(100% + 98%);
+    bottom: calc(100% + 99%);
     left: 4.5%;
     font-size: 4.4vw;
     line-height: 19px;
@@ -5854,7 +5977,7 @@ footer {
   }
 
   .form__title {
-    padding-top: 21px;
+    padding-top: 20px;
     font-size: 18px;
     font-weight: normal;
   }
@@ -5878,7 +6001,6 @@ footer {
     font-size: 12px;
     line-height: 16px;
   }
-
 
   .form__item {
     margin-right: 20px;

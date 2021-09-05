@@ -577,7 +577,7 @@ function handleTabletChange480(e) {
             behavior: 'smooth',
             block: 'start'
           });
-        }, 300)
+        }, 1000)
       });
     }
 
