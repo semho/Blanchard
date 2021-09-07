@@ -276,11 +276,17 @@ var swiper = new Swiper('.section-gallery__slider-container', {
   breakpoints: {
     280: {
       slidesPerView: 1,
-      spaceBetween: 10
+      spaceBetween: 10,
+      grid: {
+        rows: 1,
+      },
     },
     480: {
       slidesPerView: 1,
-      spaceBetween: 10
+      spaceBetween: 10,
+      grid: {
+        rows: 1,
+      },
     },
     481: {
       slidesPerView: 1,
@@ -733,18 +739,22 @@ var swiper3 = new Swiper('.slider-projects__swiper-container', {
     280: {
       slidesPerView: 1,
       spaceBetween: 0,
+      slidesPerGroup: 1
     },
     480: {
       slidesPerView: 1,
       spaceBetween: 0,
+      slidesPerGroup: 1
     },
     485: {
       slidesPerView: 2,
-      spaceBetween: 34
+      spaceBetween: 34,
+      slidesPerGroup: 2
     },
     768: {
       slidesPerView: 2,
-      spaceBetween: 34
+      spaceBetween: 34,
+      slidesPerGroup: 2
     },
     992: {
       slidesPerView: 2,
@@ -755,7 +765,7 @@ var swiper3 = new Swiper('.slider-projects__swiper-container', {
       slidesPerView: 3,
       spaceBetween: 50,
       slidesPerGroup: 3,
-      loopFillGroupWithBlank: true
+      loopFillGroupWithBlank: true,
     }
   }
 });
