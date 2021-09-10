@@ -503,6 +503,14 @@ mediaQuery.addListener(handleTabletChange);
 handleTabletChange(mediaQuery);
 
 
+const defCheck = document.querySelector('.default-checkbox');
+// defCheck.classList.add('on-click');
+if (defCheck.classList.contains('is-none')) {
+  defCheck.classList.remove('is-none')
+}
+const inputDefCheck = defCheck.querySelector('.checkbox__input');
+inputDefCheck.setAttribute('checked', true)
+
 // медиавыражение для мобильной версии
 const mediaQuery480 = window.matchMedia('(max-width: 480px)');
 function handleTabletChange480(e) {
@@ -594,6 +602,8 @@ function handleTabletChange480(e) {
     const itemCategories = document.querySelectorAll('.checkbox__item');
     const checkAll = document.querySelectorAll('.checkbox__input');
     let flag = true;
+    let firstCheck = false;
+    defCheck.classList.add('check-on');
 
     checkAll.forEach(check => { //перебираем все чекбоксы и вешаем на еих событие клик
       check.addEventListener('click', () => {
@@ -609,8 +619,10 @@ function handleTabletChange480(e) {
     });
     //cобытие на титл категорий
     categories.addEventListener('click', () => {
+
       categories.classList.toggle('on-click');
       itemCategories.forEach(item => { //перебираем каждый элемент списка категорий
+
         if ((!item.classList.contains('is-none')) && (!item.classList.contains('check-on'))) { //если нет класса с display=none и не включен чек бокс
           item.classList.add('is-none') //скрываем елементы
         } else {
@@ -618,6 +630,12 @@ function handleTabletChange480(e) {
         }
       });
       flag = !flag;
+
+
+      if (!firstCheck) {
+        defCheck.classList.remove('is-none');
+        firstCheck = true;
+      }
     })
   }
 }

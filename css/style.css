@@ -5023,12 +5023,13 @@ footer {
     border-right: 0;
     border-top: 0;
     border-color: var(--font-color-white);
-    transform: rotate(135deg);
+    transform: rotate(-45deg);
     pointer-events: none;
   }
 
   .checkbox__title--3.on-click:after {
-    transform: rotate(-45deg);
+    top: 16px;
+    transform: rotate(135deg);
   }
 
   .checkbox__text {
