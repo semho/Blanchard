@@ -24,10 +24,17 @@ const buttonDrop = document.querySelectorAll('.nav-direction__link');
   //на каждую кнопку вешаем обработчик
   buttonDrop.forEach(function (btn){
     btn.addEventListener('click', function(e){
+      let button = this;
+      console.log(this)
       if (e.target.classList.contains('activ')) { //если уже класс есть на этой кнопке
         e.currentTarget.classList.remove('activ') //то удаляем конкретно на этой кнопке
       } else {
         e.target.classList.add('activ') //иначе добавляем класс
+        buttonDrop.forEach(el => {      //удаляем активный класс на других кнопках
+          if (el != button) {
+            el.classList.remove("activ");
+          }
+        });
       }
     })
   })

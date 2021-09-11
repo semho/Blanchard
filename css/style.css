@@ -537,9 +537,9 @@ header {
 
 .nav-direction__link:focus::after{
   border-color: var(--font-color-white);
-  left: calc(100% - 10px);
-  transform: rotate(135deg);
-  top: 45%;
+  /* left: calc(100% - 10px); */
+  /* transform: rotate(135deg); */
+  /* top: 45%; */
 }
 
 .nav-direction__link.focus:hover::before {
@@ -576,6 +576,11 @@ header {
   border-color: var(--font-color-white);
   transform: rotate(-45deg);
   transition: border-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.nav-direction__link.activ::after {
+  transform: rotate(135deg);
+  top: 45%;
 }
 
 .header__form {
@@ -2468,21 +2473,31 @@ input.header__search::-ms-input-placeholder {
 .marker {
   position: relative;
   display: inline-block;
-  margin-right: 12px;
   font-weight: 600;
   /* background-image:url(../img/projects/Subtract_1.svg); */
   color: var(--color-black);
   cursor: pointer;
-  transition: background-image 0.3s ease-in-out;
-  transform: translate(6px, 0px);
+  transition: background-image 0.3s ease-in-out, fill .3 ease-in-out;
+  transform: translate(0px, 3px);
   z-index: 1;
 }
 
+.marker:hover svg, .marker:focus svg {
+  fill: var(--btn-color-btn);
+}
+
+.marker:active svg {
+  fill: var(--color-main);
+}
+
+.marker:active #i1, .marker:active #i2, .marker:active #i3 {
+  fill: white;
+}
+/*
 
 .marker::after {
   position: absolute;
   content: '';
-  /* padding: 2px; */
   width: 16px;
   height: 16px;
   left: -4px;
@@ -2509,13 +2524,15 @@ input.header__search::-ms-input-placeholder {
 
 .marker:active {
   color: var(--font-color-white);
-}
+} */
 
 
 .marker:hover,
+.marker:active,
 .marker:focus,
 .marker:hover path,
-.marker:focus path
+.marker:focus path,
+.marker:active path
 {
   outline: none;
 }
