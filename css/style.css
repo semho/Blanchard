@@ -2672,7 +2672,8 @@ input.header__search::-ms-input-placeholder {
 }
 
 .section-contacts__headeng {
-  padding-left: 8%;
+  margin: 0 auto;
+  max-width: 1600px;
 }
 
 .section-contacts__wrap {
@@ -3191,6 +3192,12 @@ footer {
     border: none;
   }
   /*--------------- Section-Contacts ---------------*/
+
+
+  .section-contacts__headeng {
+    max-width: 87vw;
+  }
+
   .section-contacts__container {
     max-width: 100vw;
   }
@@ -3711,7 +3718,7 @@ footer {
   }
 
   .section-contacts__headeng {
-    padding-left: 4.8%;
+    max-width: 925px;
   }
 
   .section-contacts__form {
@@ -4182,7 +4189,7 @@ footer {
   }
 
   .section-contacts__headeng {
-    padding-left: 6.2%;
+    max-width: 87vw;
   }
 
   .section-contacts__form {
@@ -5189,7 +5196,7 @@ footer {
   }
 
   .section-contacts__headeng {
-    padding-left: 4.5%;
+    max-width: 90vw;
     padding-bottom: 53px;
   }
 
@@ -5975,7 +5982,6 @@ footer {
   }
 
   .section-contacts__headeng {
-    padding-left: 4.5%;
     padding-bottom: 58px;
   }
 
