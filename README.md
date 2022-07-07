@@ -1,2 +1,2 @@
-# course_project
-Курсовая работа Skillbox по макету Blanchard
+# project
+Верстка по макету Blanchard
